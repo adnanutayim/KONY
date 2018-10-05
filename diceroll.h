@@ -5,6 +5,8 @@
 class diceRoll
 {
 public:
+    void rollDice(bool [], int []);
+    int roll();
     diceRoll();
 
     int* dummyRoll(bool* diceToRoll, int num) {
