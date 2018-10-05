@@ -1,24 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>799</width>
+    <height>629</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>350</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Log</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>291</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Dice Roll</string>
+    </property>
+    <widget class="QCheckBox" name="diceCheckBox_1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>240</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Roll!</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>40</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 2</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 3</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_4">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>80</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 4</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 5</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_6">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>120</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 6</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_7">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>160</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 7</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_8">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>160</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice 8</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>370</y>
+      <width>321</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>799</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>
