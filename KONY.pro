@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    diceroll.cpp
+    diceroll.cpp \
+    dice.cpp
 
 HEADERS += \
         mainwindow.h \
-    diceroll.h
+    diceroll.h \
+    dice.h
 
 FORMS += \
         mainwindow.ui
