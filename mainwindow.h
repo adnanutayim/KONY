@@ -21,6 +21,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    diceRoll dr;
+    int rolls [8];
 };
 
 #endif // MAINWINDOW_H

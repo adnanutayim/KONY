@@ -32,8 +32,8 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>291</width>
-      <height>301</height>
+      <width>211</width>
+      <height>311</height>
      </rect>
     </property>
     <property name="title">
@@ -51,13 +51,16 @@
      <property name="text">
       <string>Dice 1</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>240</y>
-       <width>271</width>
+       <width>171</width>
        <height>51</height>
       </rect>
      </property>
@@ -77,6 +80,9 @@
      <property name="text">
       <string>Dice 2</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QCheckBox" name="diceCheckBox_3">
      <property name="geometry">
@@ -89,6 +95,9 @@
      </property>
      <property name="text">
       <string>Dice 3</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QCheckBox" name="diceCheckBox_4">
@@ -103,6 +112,9 @@
      <property name="text">
       <string>Dice 4</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QCheckBox" name="diceCheckBox_5">
      <property name="geometry">
@@ -116,6 +128,9 @@
      <property name="text">
       <string>Dice 5</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QCheckBox" name="diceCheckBox_6">
      <property name="geometry">
@@ -128,6 +143,9 @@
      </property>
      <property name="text">
       <string>Dice 6</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QCheckBox" name="diceCheckBox_7">
@@ -168,8 +186,8 @@
      <rect>
       <x>30</x>
       <y>370</y>
-      <width>321</width>
-      <height>211</height>
+      <width>221</width>
+      <height>181</height>
      </rect>
     </property>
    </widget>
