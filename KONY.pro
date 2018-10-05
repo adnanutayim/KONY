@@ -28,12 +28,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     diceroll.cpp \
-    dice.cpp
+    dice.cpp \
+    deck.cpp \
+    card.cpp
 
 HEADERS += \
         mainwindow.h \
     diceroll.h \
-    dice.h
+    dice.h \
+    deck.h \
+    card.h
 
 FORMS += \
         mainwindow.ui

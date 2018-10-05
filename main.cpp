@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <iostream>
 #include <diceroll.h>
+#include <deck.h>
 
 using namespace std;
 
@@ -16,7 +17,10 @@ int main(int argc, char *argv[])
 
 //    for (int i = 0; i<8; i++){
 //        cout << values[i] << endl;
-//    }
+//    };
+
+    deck dck;
+    dck.createDeck();
 
     QApplication a(argc, argv);
     MainWindow w;
