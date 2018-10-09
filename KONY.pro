@@ -29,15 +29,15 @@ SOURCES += \
         mainwindow.cpp \
     diceroll.cpp \
     dice.cpp \
-    deck.cpp \
-    card.cpp
+    card.cpp \
+    deckOfCards.cpp
 
 HEADERS += \
         mainwindow.h \
     diceroll.h \
     dice.h \
-    deck.h \
-    card.h
+    card.h \
+    deckOfCards.h
 
 FORMS += \
         mainwindow.ui

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>629</height>
+    <width>1033</width>
+    <height>677</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,7 +32,7 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>211</width>
+      <width>331</width>
       <height>311</height>
      </rect>
     </property>
@@ -42,11 +42,23 @@
     <widget class="QCheckBox" name="diceCheckBox_1">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>70</width>
-       <height>17</height>
+       <x>10</x>
+       <y>20</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Dice 1</string>
@@ -60,7 +72,7 @@
       <rect>
        <x>10</x>
        <y>240</y>
-       <width>171</width>
+       <width>311</width>
        <height>51</height>
       </rect>
      </property>
@@ -68,29 +80,13 @@
       <string>Roll!</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="diceCheckBox_2">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>40</y>
-       <width>70</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Dice 2</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QCheckBox" name="diceCheckBox_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>80</y>
-       <width>70</width>
-       <height>17</height>
+       <x>10</x>
+       <y>70</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -103,10 +99,10 @@
     <widget class="QCheckBox" name="diceCheckBox_4">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>80</y>
-       <width>70</width>
-       <height>17</height>
+       <x>160</x>
+       <y>70</y>
+       <width>171</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -119,10 +115,10 @@
     <widget class="QCheckBox" name="diceCheckBox_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>120</y>
-       <width>70</width>
-       <height>17</height>
+       <width>131</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
@@ -135,10 +131,10 @@
     <widget class="QCheckBox" name="diceCheckBox_6">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>120</y>
-       <width>70</width>
-       <height>17</height>
+       <x>160</x>
+       <y>110</y>
+       <width>171</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="text">
@@ -154,10 +150,10 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>160</y>
-       <width>70</width>
-       <height>17</height>
+       <width>131</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
@@ -170,10 +166,10 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>160</x>
        <y>160</y>
-       <width>70</width>
-       <height>17</height>
+       <width>171</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
@@ -191,13 +187,29 @@
      </rect>
     </property>
    </widget>
+   <widget class="QCheckBox" name="diceCheckBox_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>50</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dice 2</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>1033</width>
      <height>19</height>
     </rect>
    </property>
