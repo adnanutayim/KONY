@@ -29,5 +29,5 @@ void DeckOfTiles::destroyTile(Tile* t){
 }
 
 bool DeckOfTiles::isOutOfTiles(){
-
+    return true;
 }

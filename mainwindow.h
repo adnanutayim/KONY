@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    diceRoll dr;
+    DiceRoll dr;
     int rolls [8];
 };
 

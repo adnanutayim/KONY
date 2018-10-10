@@ -5,7 +5,7 @@
 class DiceRoll
 {
 public:
-    void RollDice(bool [], int []);
+    void rollDice(bool [], int []);
     int roll();
     DiceRoll();
 

@@ -33,7 +33,7 @@ void MainWindow::on_pushButton_clicked()
     diceToRoll[7] = ui->diceCheckBox_8->isChecked();
 
 
-    diceRoll dr;
+    DiceRoll dr;
     dr.rollDice(diceToRoll, rolls);
 
 

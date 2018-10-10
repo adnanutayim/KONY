@@ -8,7 +8,7 @@
 class Player
 {
 private:
-    static int numberOfPlayers;
+    int numberOfPlayers;
     int playerNumber;
     std::string playerName;
     enum Monsters character;
