@@ -65,7 +65,7 @@ void Player::setEnergy(int e){
 //enum Monsters getMonster();
 //void setMonster(enum Monsters);
 
-//RollDice()
-//ResolveDice()
-//Move()
-//BuyCards()
+void Player::RollDice(){};
+void Player::ResolveDice(){};
+void Player::Move(){};
+void Player::BuyCards(){};

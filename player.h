@@ -42,6 +42,11 @@ public:
 
     enum Monsters getMonster();
     void setMonster(enum Monsters);
+
+    void RollDice();
+    void ResolveDice();
+    void Move();
+    void BuyCards();
 };
 
 #endif // PLAYER_H
