@@ -1,0 +1,20 @@
+# This is a comment
+# Regions: Name, id, {0/1} whether it includes a subgraph, loc_x, loc_y, {connectivity: 1, 2, ...}
+# Sub-regions: Name, id, loc_x, loc_y, Parent Region id, rank within parent region, {connectivity: 1, 2, ...}
+
+[Regions 6]
+Manhattan 		0 1 0 0 1 2 3 4
+Bronx 			1 0 0 0 2 3 4 0
+Queens 			2 0 0 0 3 4 0 1
+Brooklyn 		3 0 0 0 4 0 1 2
+StatenIsland 	4 0 0 0 0 1 2 3
+Isolated		5 0 0 0
+
+[Sub-regions 4]
+Lower	 		0 0 0 0 0 1
+Mid	 			1 0 0 0 1 2
+Upper	 		2 0 0 0 2 0
+Isolated		3 0 0 0
+
+[Image 1]
+kony.png

@@ -33,7 +33,10 @@ SOURCES += \
     deckOfCards.cpp \
     player.cpp \
     tile.cpp \
-    deckOfTiles.cpp
+    deckOfTiles.cpp \
+    map.cpp \
+    graph.cpp \
+    node.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,7 +47,10 @@ HEADERS += \
     player.h \
     monsters.h \
     tile.h \
-    deckOfTiles.h
+    deckOfTiles.h \
+    map.h \
+    graph.h \
+    node.h
 
 FORMS += \
         mainwindow.ui
@@ -53,3 +59,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
