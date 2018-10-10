@@ -42,7 +42,7 @@ void MainWindow::on_pushButton_clicked()
     log("Rolls:");
     string rollsString = "";
     for (int i = 0; i < 8; i++) {
-        rollsString += to_string(rolls[i]) + " ";
+        rollsString += dr.transform(rolls[i]) + " ";
     }
     log(rollsString);
 }
