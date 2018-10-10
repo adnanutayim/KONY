@@ -2,12 +2,12 @@
 #define DICEROLL_H
 
 
-class diceRoll
+class DiceRoll
 {
 public:
-    void rollDice(bool [], int []);
+    void RollDice(bool [], int []);
     int roll();
-    diceRoll();
+    DiceRoll();
 
 };
 

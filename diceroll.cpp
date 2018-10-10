@@ -3,10 +3,10 @@
 #include <time.h>
 #include <iostream>
 
-diceRoll::diceRoll(){
+DiceRoll::DiceRoll(){
     srand(time(0));
 }
-void diceRoll::rollDice(bool states[], int values[]){
+void DiceRoll::rollDice(bool states[], int values[]){
     int size = sizeof(states)/sizeof(states[0]);
     for(int i = 0; i<size; i++){
         if(states[i] == true){
@@ -16,7 +16,7 @@ void diceRoll::rollDice(bool states[], int values[]){
     }
 }
 
-int diceRoll::roll(){
+int DiceRoll::roll(){
     int x;
     x = (rand() % 6 +1);
     return x;

@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-class card
+class Card
 {
 private:
     std::string cost;
@@ -11,8 +11,9 @@ private:
     std::string effect;
 
 public:
-    card();
-    card(std::string, std::string, std::string);
+    Card();
+    Card(std::string, std::string, std::string);
+    ~Card();
     std::string printCard() const;
 };
 

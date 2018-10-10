@@ -2,10 +2,10 @@
 #define DICE_H
 
 
-class dice
+class Dice
 {
 public:
-    dice();
+    Dice();
 };
 
 #endif // DICE_H

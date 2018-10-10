@@ -19,15 +19,15 @@ int main(int argc, char *argv[])
 //        cout << values[i] << endl;
 //    };
 
-    deckOfCards deck;
-    card currentCard;
-    deck.printDeck();
-    deck.shuffleDeck();
-    cout << "shuffle" << endl;
-    deck.printDeck();
-    cout << "deal top card to player" << endl;
-    currentCard = deck.dealCard();
-    cout << currentCard.printCard() << endl;
+//    deckOfCards deck;
+//    card currentCard;
+//    deck.printDeck();
+//    deck.shuffleDeck();
+//    cout << "shuffle" << endl;
+//    deck.printDeck();
+//    cout << "deal top card to player" << endl;
+//    currentCard = deck.dealCard();
+//    cout << currentCard.printCard() << endl;
 
     QApplication a(argc, argv);
     MainWindow w;

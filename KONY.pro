@@ -30,14 +30,21 @@ SOURCES += \
     diceroll.cpp \
     dice.cpp \
     card.cpp \
-    deckOfCards.cpp
+    deckOfCards.cpp \
+    player.cpp \
+    tile.cpp \
+    deckOfTiles.cpp
 
 HEADERS += \
         mainwindow.h \
     diceroll.h \
     dice.h \
     card.h \
-    deckOfCards.h
+    deckOfCards.h \
+    player.h \
+    monsters.h \
+    tile.h \
+    deckOfTiles.h
 
 FORMS += \
         mainwindow.ui

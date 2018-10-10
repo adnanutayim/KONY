@@ -1,20 +1,21 @@
-#ifndef DECK_H
-#define DECK_H
+#ifndef DECKOFCARDS_H
+#define DECKOFCARDS_H
 
 #include "card.h"
 #include <string>
 
-class deckOfCards
+class DeckOfCards
 {
 
 private:
-    card *deck;
+    Card *deck;
     int currentCard;
 public:
-    deckOfCards();
+    DeckOfCards();
+    ~DeckOfCards();
     void shuffleDeck();
     void printDeck() const;
-    card dealCard();
+    Card dealCard();
 };
 
-#endif // DECK_H
+#endif // DECKOFCARDS_H

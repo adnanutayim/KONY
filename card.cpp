@@ -1,14 +1,22 @@
 #include "card.h"
 
-card::card(){
+Card::Card(){
 }
 
-card::card(std::string c, std::string e, std::string h){
+Card::Card(std::string c, std::string h, std::string e){
     cost = c;
-    effect = e;
     howToPlay = h;
+    effect = e;
 }
 
-std::string card::printCard() const {
-    return (cost + ", " + effect + ", " + howToPlay);
+Card::~Card(){
+
 }
+
+//maybe use getters and setters??
+
+std::string Card::printCard() const {
+    return (cost + ", " + howToPlay + ", " + effect);
+}
+
+

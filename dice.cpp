@@ -1,6 +1,6 @@
 #include "dice.h"
 
-dice::dice()
+Dice::Dice()
 {
 
 }
