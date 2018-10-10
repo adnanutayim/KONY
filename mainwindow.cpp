@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <string>
+#include <iostream>
 
 
 
@@ -35,16 +37,57 @@ void MainWindow::on_pushButton_clicked()
     diceRoll dr;
     dr.rollDice(diceToRoll, rolls);
 
-
-    QString qs;
-    qs.append("Rolls: ");
-
+    log("-");
+    log("Rolls:");
+    string rollsString = "";
     for (int i = 0; i < 8; i++) {
-        qs.append(QString::number(rolls[i]));
-        qs.append(" ");
+        rollsString += to_string(rolls[i]) + " ";
+    }
+    log(rollsString);
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+
+    string map_file = ui->lineEdit->text().toStdString();
+    log("-");
+    log("Loading Map " + map_file);
+
+    bool sucess = map.load("../KONY/res/" + map_file);
+
+    if (!sucess) {
+        log("File does not exist!");
+        return;
     }
 
-    ui->plainTextEdit->appendPlainText(qs);
+    // Verification
+    log("Map Verification");
+    string test;
 
+    // 1
+    test = map.verifyConnectedGraph() ? "Passed" : "Failed";
+    log("Connected Graph: " + test);
+
+    // 2
+    test = map.verifyConnectedSubgraph() ? "Passed" : "Failed";
+    log("Connected Subgraph: " + test);
+
+    // 3
+    test = map.verifyEachRegionIsNode() ? "Passed" : "Failed";
+    log("Each Region is a Node: " + test);
 
 }
+
+void MainWindow::log(string str) {
+    QString qs;
+    string line = "----------------------------------------";
+
+    if (str == "-") {
+        qs.append(line.c_str());
+    } else {
+        qs.append(str.c_str());
+    }
+    ui->plainTextEdit->appendPlainText(qs);
+}
+
+

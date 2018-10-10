@@ -28,12 +28,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     diceroll.cpp \
-    dice.cpp
+    dice.cpp \
+    map.cpp \
+    graph.cpp \
+    node.cpp
 
 HEADERS += \
         mainwindow.h \
     diceroll.h \
-    dice.h
+    dice.h \
+    map.h \
+    graph.h \
+    node.h
 
 FORMS += \
         mainwindow.ui
@@ -42,3 +48,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc

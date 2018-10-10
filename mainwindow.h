@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "diceroll.h"
+#include "map.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,14 +15,17 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    void log(string s);
     ~MainWindow();
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
     diceRoll dr;
+    Map map;
     int rolls [8];
 };
 

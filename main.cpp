@@ -2,8 +2,9 @@
 #include <QApplication>
 #include <iostream>
 #include <diceroll.h>
+#include "string.h"
 
-using namespace std;
+//using namespace std;
 
 int main(int argc, char *argv[])
 {

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>629</height>
+    <width>698</width>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>350</y>
+      <y>320</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -32,8 +32,8 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>211</width>
-      <height>311</height>
+      <width>191</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="title">
@@ -59,7 +59,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>240</y>
+       <y>200</y>
        <width>171</width>
        <height>51</height>
       </rect>
@@ -185,10 +185,49 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>370</y>
-      <width>221</width>
+      <y>340</y>
+      <width>191</width>
       <height>181</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>20</y>
+      <width>411</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/Images/board.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>30</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load Map</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>30</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>kony.map</string>
     </property>
    </widget>
   </widget>
@@ -197,7 +236,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>698</width>
      <height>21</height>
     </rect>
    </property>
