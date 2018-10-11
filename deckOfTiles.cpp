@@ -52,6 +52,7 @@ Tile DeckOfTiles::dealTile(){
     return (tileDeck[0]);
 }
 
+//Maybe use pointers?
 Tile DeckOfTiles::flipTile(int tileNum){
     Tile t = tileDeck[tileNum];
     switch (t.getDurability()) {
@@ -71,8 +72,11 @@ Tile DeckOfTiles::flipTile(int tileNum){
     return(t);
 }
 
-void DeckOfTiles::destroyTile(Tile* t){
-
+//Maybe use pointers?
+Tile DeckOfTiles::destroyTile(int tileNum){
+    Tile t = tileDeck[tileNum];
+    t.setIsDestroyed(true);
+    return (t);
 }
 
 bool DeckOfTiles::isOutOfTiles(){

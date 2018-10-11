@@ -36,15 +36,19 @@ int main(int argc, char *argv[])
 //    Tile currentTile;
 //    tileDeck.printDeckTiles();
 //    tileDeck.shuffleTiles();
-//    cout << "shuffle" << endl;
+//    cout << "\nSHUFFLE\n" << endl;
 //    tileDeck.printDeckTiles();
-//    cout << "deal" << endl;
+//    cout << "\nDEAL\n" << endl;
 //    currentTile = tileDeck.dealTile();
 //    cout << currentTile.printTile() << endl;
 //    //when flipping tile specify which tile is being flipped
 //    currentTile = tileDeck.flipTile(6);
-//    cout << "flip" << endl;
+//    cout << "\nFLIP\n" << endl;
 //    cout << currentTile.printTile() << endl;
+//    cout << "\nDESTROY\n" << endl;
+//    currentTile = tileDeck.destroyTile(6);
+//    cout << currentTile.printTile() << endl;
+
 
     QApplication a(argc, argv);
     MainWindow w;

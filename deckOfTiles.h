@@ -14,7 +14,7 @@ public:
     void printDeckTiles();
     Tile dealTile();
     Tile flipTile(int);
-    void destroyTile(Tile*);
+    Tile destroyTile(int);
     bool isOutOfTiles();
 };
 

@@ -76,10 +76,17 @@ void Tile::setIsUnit(bool iu){
     isUnit = iu;
 }
 
+bool Tile::getIsDestroyed(){
+    return isDestroyed;
+}
+void Tile::setIsDestroyed(bool isdes){
+    isDestroyed = isdes;
+}
+
 std::string Tile::printTile(){
     if(isUnit){
         //Show the unit side of the tile
-        return(Unit[unit] + "; Durability: " + std::to_string(durability) + "\n" + std::to_string(numOfReward) + " " + Reward[rewardType]);
+        return(Unit[unit] + "; Durability: " + std::to_string(durability) + "\n" + std::to_string(numOfReward) + " " + Reward[rewardType]+ "\nDestroyed?" + std::to_string(isDestroyed));
 
     }
     else{

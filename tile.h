@@ -17,7 +17,9 @@ private:
     Rewards rewardType;
     int durability;
     int numOfReward;
-    bool isUnit; //so we know that once dead it is removed from board
+    bool isUnit;
+    bool isDestroyed;
+
 
 public:
     Tile();
@@ -44,6 +46,9 @@ public:
 
     bool getIsUnit();
     void setIsUnit(bool);
+
+    bool getIsDestroyed();
+    void setIsDestroyed(bool);
 
     std::string printTile();
 };
