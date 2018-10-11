@@ -22,13 +22,13 @@ int main(int argc, char *argv[])
 //        cout << values[i] << endl;
 //    };
 
-//    deckOfCards deck;
-//    card currentCard;
+//    DeckOfCards deck;
+//    Card currentCard;
 //    deck.printDeck();
 //    deck.shuffleDeck();
-//    cout << "shuffle" << endl;
+//    cout << "\nSHUFFLE\n" << endl;
 //    deck.printDeck();
-//    cout << "deal top card to player" << endl;
+//    cout << "\nDEAL\n" << endl;
 //    currentCard = deck.dealCard();
 //    cout << currentCard.printCard() << endl;
 

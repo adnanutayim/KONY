@@ -11,11 +11,11 @@ DeckOfCards::DeckOfCards(){
     deck = new Card[SIZE_OF_DECK];
     currentCard = 0;
     //Have a file with all the cards and read it
-    deck[0] = Card("1", "keep", "freeze");
-    deck[1] = Card("2", "discard", "burn");
-    deck[2] = Card("3", "discard", "heal");
-    deck[3] = Card("4", "keep", "skip");
-    deck[4] = Card("5", "discard", "fly");
+    deck[0] = Card("Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
+    deck[1] = Card("Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
+    deck[2] = Card("Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts");
+    deck[3] = Card("Extra Head", 7, "Keep", "You get 1 extra die");
+    deck[4] = Card("Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
 }
 
 DeckOfCards::~DeckOfCards(){

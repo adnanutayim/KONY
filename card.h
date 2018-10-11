@@ -6,13 +6,15 @@
 class Card
 {
 private:
-    std::string cost;
+    std::string name;
+    int cost;
     std::string howToPlay;
     std::string effect;
 
+
 public:
     Card();
-    Card(std::string, std::string, std::string);
+    Card(std::string, int, std::string, std::string);
     ~Card();
     std::string printCard() const;
 };
