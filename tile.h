@@ -13,7 +13,7 @@ class Tile{
 private:
     Buildings building;
     Units unit;
-    Neighborhood hood;
+    int zone;
     Rewards rewardType;
     int durability;
     int numOfReward;
@@ -21,7 +21,7 @@ private:
 
 public:
     Tile();
-    Tile(Buildings, int, Units, Rewards, int, Neighborhood, bool);
+    Tile(Buildings, int, Rewards, int, int, bool);
     ~Tile();
 
     Buildings getBuilding();
@@ -30,8 +30,8 @@ public:
     Units getUnit();
     void setUnit(Units);
 
-    Neighborhood getNeighborhood();
-    void setNeighborhood(Neighborhood);
+    int getZone();
+    void setZone(int);
 
     Rewards getRewardType();
     void setRewardType(Rewards);

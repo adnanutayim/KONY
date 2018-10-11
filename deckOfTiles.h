@@ -5,15 +5,15 @@
 
 class DeckOfTiles{
 private:
-    Tile deckOfTiles[45];
+    Tile *tileDeck;
     int currentTile;
 public:
     DeckOfTiles();
     ~DeckOfTiles();
     void shuffleTiles();
     void printDeckTiles();
-    void dealTile();
-    void flipTile(Tile*);
+    Tile dealTile();
+    Tile flipTile(int);
     void destroyTile(Tile*);
     bool isOutOfTiles();
 };

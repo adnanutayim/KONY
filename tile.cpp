@@ -5,7 +5,7 @@
 //enum Rewards {Heart, Energy, Star};
 std::string Building[3] = {"Hospital", "Power Plant", "High Rise"};
 std::string Unit[3] = {"Infantry", "Jet", "Tank"};
-//std::string Hood[];
+int zone[5] = {1, 2, 3, 4, 5};
 std::string Reward[3] = {"Heart", "Energy", "Star"};
 
 
@@ -13,13 +13,13 @@ Tile::Tile(){
 //Create a default constructor
 }
 
-Tile::Tile(Buildings b, int d, Units u, Rewards rt, int nor, Neighborhood n, bool iu){
+Tile::Tile(Buildings b, int d, Rewards rt, int nor, int z, bool iu){
     building = b;
     durability = d;
-    unit = u;
+//   unit = u;
     rewardType = rt;
     numOfReward = nor;
-    hood = n;
+    zone = z;
     isUnit = iu;
 }
 
@@ -41,11 +41,11 @@ void Tile::setUnit(Units u){
     unit = u;
 }
 
-Neighborhood Tile::getNeighborhood(){
-    return hood;
+int Tile::getZone(){
+    return zone;
 }
-void Tile::setNeighborhood(Neighborhood n){
-    hood = n;
+void Tile::setZone(int z){
+    zone = z;
 }
 
 Rewards Tile::getRewardType(){
@@ -77,13 +77,13 @@ void Tile::setIsUnit(bool iu){
 }
 
 std::string Tile::printTile(){
-    if(!isUnit){
-        //Show the building side of the tile
-        //return(Building[building] + ", " + durability + ", " + numOfReward + ", " + Reward[rewardType]);
+    if(isUnit){
+        //Show the unit side of the tile
+        return(Unit[unit] + "; Durability: " + std::to_string(durability) + "\n" + std::to_string(numOfReward) + " " + Reward[rewardType]);
+
     }
     else{
-        //Show the unit side of the tile
-        //return(Unit[unit] + ", ");
+        //Show the building side of the tile
+        return(Building[building] + "; Durability: " + std::to_string(durability) + "\n" + std::to_string(numOfReward) + " " + Reward[rewardType]);
     }
-    return "666";
 }
