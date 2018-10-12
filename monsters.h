@@ -2,6 +2,7 @@
 #define MONSTERS_H
 
 #include <string>
+using namespace std;
 
 enum Monsters {
     CaptainFish,
@@ -11,5 +12,7 @@ enum Monsters {
     Rob,
     Sheriff
 };
+
+Monsters getMonsterFromString(string name);
 
 #endif // MONSTERS_H

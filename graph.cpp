@@ -110,3 +110,18 @@ void Graph::printGraph() {
     }
 }
 
+int Graph::getNumOfNodes() {
+    return numOfNodes;
+}
+
+int Graph::getNodeNumberByName(string s) {
+    for (int i = 0; i < numOfNodes; i++) {
+        if (s == nodes[i]->getName()) {
+            return i;
+        }
+    }
+    // If not found
+    return -1;
+}
+
+

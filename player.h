@@ -15,8 +15,9 @@ private:
     int victoryPoints;
     int health;
     int energy;
-    //zone
+    int zone;
     //Vector for buying and holding cards
+
 public:
     Player();
     Player(std::string);
@@ -47,6 +48,8 @@ public:
     void ResolveDice();
     void Move();
     void BuyCards();
+    int getZone();
+    void setZone(int);
 };
 
 #endif // PLAYER_H

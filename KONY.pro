@@ -36,7 +36,10 @@ SOURCES += \
     deckOfTiles.cpp \
     map.cpp \
     graph.cpp \
-    node.cpp
+    node.cpp \
+    welcomescreen.cpp \
+    game.cpp \
+    monsters.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,10 +53,13 @@ HEADERS += \
     deckOfTiles.h \
     map.h \
     graph.h \
-    node.h
+    node.h \
+    welcomescreen.h \
+    game.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    welcomescreen.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
