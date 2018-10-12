@@ -61,3 +61,18 @@ void MainWindow::log(string str) {
 }
 
 
+//    deck.printDeck();
+//    deck.shuffleDeck();
+//    cout << "\nSHUFFLE\n" << endl;
+//    deck.printDeck();
+//    cout << "\nDEAL\n" << endl;
+//    currentCard = deck.dealCard();
+//    cout << currentCard.printCard() << endl;
+void MainWindow::on_pushButton_2_clicked()
+{
+        DeckOfCards deck;
+        Card currentCard;
+
+        log("Shuffling...\n\n");
+        log(deck.printDeck());
+}

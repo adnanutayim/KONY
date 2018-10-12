@@ -14,7 +14,7 @@ public:
     DeckOfCards();
     ~DeckOfCards();
     void shuffleDeck();
-    void printDeck() const;
+    std::string printDeck() const;
     Card dealCard();
 };
 

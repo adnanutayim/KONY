@@ -31,10 +31,13 @@ void DeckOfCards::shuffleDeck(){
     }
 }
 
-void DeckOfCards::printDeck() const {
+std::string DeckOfCards::printDeck() const {
+    std::string output = "";
     for(int i = 0; i < SIZE_OF_DECK; i++){
-        cout << deck[i].printCard() << endl;
+        output += deck[i].printCard() + "\n--------------------\n";
     }
+
+    return output;
 }
 
 Card DeckOfCards::dealCard(){
