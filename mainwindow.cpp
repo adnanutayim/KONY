@@ -47,37 +47,6 @@ void MainWindow::on_pushButton_clicked()
     log(rollsString);
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
-
-    string map_file = ui->lineEdit->text().toStdString();
-    log("-");
-    log("Loading Map " + map_file);
-
-    bool sucess = map.load("../KONY/res/" + map_file);
-
-    if (!sucess) {
-        log("File does not exist!");
-        return;
-    }
-
-    // Verification
-    log("Map Verification");
-    string test;
-
-    // 1
-    test = map.verifyConnectedGraph() ? "Passed" : "Failed";
-    log("Connected Graph: " + test);
-
-    // 2
-    test = map.verifyConnectedSubgraph() ? "Passed" : "Failed";
-    log("Connected Subgraph: " + test);
-
-    // 3
-    test = map.verifyEachRegionIsNode() ? "Passed" : "Failed";
-    log("Each Region is a Node: " + test);
-
-}
 
 void MainWindow::log(string str) {
     QString qs;

@@ -5,6 +5,7 @@
 #include "deckOfCards.h"
 #include <diceroll.h>
 #include "string.h"
+#include "welcomescreen.h"
 
 //using namespace std;
 
@@ -32,8 +33,8 @@ int main(int argc, char *argv[])
 //    cout << currentCard.printCard() << endl;
 
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    welcomeScreen ws;
+    ws.show();
 
     return a.exec();
 }

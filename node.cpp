@@ -15,3 +15,7 @@ Node::Node(int id, string name, bool subregions, int rank, int loc_x, int loc_y)
 bool Node::hasSubRegions() {
     return subregions;
 }
+
+string Node::getName() {
+    return name;
+}

@@ -11,6 +11,7 @@ public:
     Node();
     Node(int, string, bool, int, int, int);
     bool hasSubRegions();
+    string getName();
 
 private:
     int id;

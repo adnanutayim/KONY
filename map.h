@@ -18,6 +18,7 @@ public:
     bool verifyConnectedGraph();
     bool verifyConnectedSubgraph();
     bool verifyEachRegionIsNode();
+    Graph *getGraph();
 
 private:
     Graph *graph;

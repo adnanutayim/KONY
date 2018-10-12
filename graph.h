@@ -17,6 +17,8 @@ public:
     bool isConnected();             // To verify the graph is connected
     void printGraph();
     Node **nodes;
+    int getNumOfNodes();
+    int getNodeNumberByName(string s);
 
 private:
     int numOfNodes;

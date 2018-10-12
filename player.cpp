@@ -10,6 +10,10 @@ Player::Player(){
     playerNumber = numberOfPlayers;
 }
 
+Player::~Player() {
+
+}
+
 Player::Player(std::string name){
     playerName = name;
     victoryPoints = 0;
@@ -62,8 +66,21 @@ void Player::setEnergy(int e){
     energy = e;
 }
 
-//enum Monsters getMonster();
-//void setMonster(enum Monsters);
+Monsters Player::getMonster() {
+    return character;
+}
+
+void Player::setMonster(Monsters m) {
+    character = m;
+}
+
+int Player::getZone() {
+    return zone;
+}
+
+void Player::setZone(int z) {
+    zone = z;
+}
 
 //RollDice()
 //ResolveDice()

@@ -15,7 +15,7 @@ private:
     int victoryPoints;
     int health;
     int energy;
-    //zone
+    int zone;
 public:
     Player();
     Player(std::string);
@@ -41,6 +41,9 @@ public:
 
     enum Monsters getMonster();
     void setMonster(enum Monsters);
+
+    int getZone();
+    void setZone(int);
 };
 
 #endif // PLAYER_H
