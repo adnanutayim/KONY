@@ -22,3 +22,15 @@ int DiceRoll::roll(){
     return x;
 }
 
+std::string DiceRoll::transform(int r){
+    switch (r) {
+        case 1 : return "Energy";
+        case 2 : return "Attack";
+        case 3 : return "Destruction";
+        case 4 : return "Heal";
+        case 5 : return "Celebrity";
+        case 6 : return "Ouch!";
+    default: return "";
+    }
+}
+

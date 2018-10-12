@@ -16,6 +16,8 @@ private:
     int health;
     int energy;
     int zone;
+    //Vector for buying and holding cards
+
 public:
     Player();
     Player(std::string);
