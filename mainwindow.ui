@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1013</width>
-    <height>603</height>
+    <width>919</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>320</y>
+      <x>20</x>
+      <y>410</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -30,10 +30,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>30</y>
-      <width>191</width>
-      <height>271</height>
+      <width>271</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="title">
@@ -42,43 +42,30 @@
     <widget class="QCheckBox" name="diceCheckBox_1">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>70</width>
-       <height>17</height>
+       <x>10</x>
+       <y>60</y>
+       <width>16</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Dice 1</string>
+      <string/>
      </property>
      <property name="checked">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>200</y>
-       <width>171</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Roll!</string>
-     </property>
-    </widget>
     <widget class="QCheckBox" name="diceCheckBox_2">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>40</y>
-       <width>70</width>
+       <x>130</x>
+       <y>60</y>
+       <width>16</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Dice 2</string>
+      <string/>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -87,30 +74,14 @@
     <widget class="QCheckBox" name="diceCheckBox_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>80</y>
-       <width>70</width>
+       <x>10</x>
+       <y>130</y>
+       <width>16</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Dice 3</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="diceCheckBox_4">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>80</y>
-       <width>70</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Dice 4</string>
+      <string/>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -119,30 +90,14 @@
     <widget class="QCheckBox" name="diceCheckBox_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>120</y>
-       <width>70</width>
+       <x>10</x>
+       <y>200</y>
+       <width>16</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Dice 5</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="diceCheckBox_6">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>120</y>
-       <width>70</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Dice 6</string>
+      <string/>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -154,14 +109,46 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>160</y>
-       <width>70</width>
+       <x>10</x>
+       <y>270</y>
+       <width>16</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Dice 7</string>
+      <string/>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_4">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>130</y>
+       <width>16</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="diceCheckBox_6">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>200</y>
+       <width>16</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QCheckBox" name="diceCheckBox_8">
@@ -170,45 +157,149 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>160</y>
-       <width>70</width>
+       <x>130</x>
+       <y>270</y>
+       <width>16</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Dice 8</string>
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel1">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel2">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>2</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel4">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>100</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>170</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>5</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel6">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>170</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>6</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel7">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>240</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>7</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="diceLabel8">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>240</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>8</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>310</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Roll!</string>
      </property>
     </widget>
    </widget>
    <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>340</y>
-      <width>191</width>
+      <x>20</x>
+      <y>430</y>
+      <width>271</width>
       <height>181</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>20</y>
-      <width>411</width>
-      <height>521</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/Images/board.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>690</x>
-      <y>30</y>
+      <y>40</y>
       <width>191</width>
       <height>121</height>
      </rect>
@@ -308,13 +399,26 @@
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="backgroundLabel">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>30</y>
+      <width>361</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Background Label</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1013</width>
+     <width>919</width>
      <height>21</height>
     </rect>
    </property>

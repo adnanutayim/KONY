@@ -15,7 +15,35 @@ MainWindow::MainWindow(QWidget *parent) :
     for (int i = 0; i < 8; i++) {
         rolls[i] = 0;
     }
+
+    // Background Board
+    ui->backgroundLabel->setScaledContents(true);
+    string path = "../KONY/res/Images/Board.png";
+    QPixmap pixmap = QPixmap (path.c_str());
+    ui->backgroundLabel->setPixmap(pixmap);
+
+    // Dice Labels
+    setDiceImage(ui->diceLabel1, 1);
+    setDiceImage(ui->diceLabel2, 2);
+    setDiceImage(ui->diceLabel3, 3);
+    setDiceImage(ui->diceLabel4, 4);
+    setDiceImage(ui->diceLabel5, 5);
+    setDiceImage(ui->diceLabel6, 6);
+
+
 }
+
+void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
+
+    label->setScaledContents(true);
+    DiceRoll dr;
+    string diceName = dr.transform(dice_roll);
+    string path = "../KONY/res/Images/" + diceName + ".PNG";
+    QPixmap pixmap = QPixmap (path.c_str());
+    label->setPixmap(pixmap);
+
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -46,6 +74,14 @@ void MainWindow::on_pushButton_clicked()
         rollsString += dr.transform(rolls[i]) + " ";
     }
     log(rollsString);
+
+    // Dice Labels
+    setDiceImage(ui->diceLabel1, rolls[0]);
+    setDiceImage(ui->diceLabel2, rolls[1]);
+    setDiceImage(ui->diceLabel3, rolls[2]);
+    setDiceImage(ui->diceLabel4, rolls[3]);
+    setDiceImage(ui->diceLabel5, rolls[4]);
+    setDiceImage(ui->diceLabel6, rolls[5]);
 }
 
 

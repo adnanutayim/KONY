@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "diceroll.h"
 #include "map.h"
+#include "qlabel.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,6 +39,7 @@ private:
     DiceRoll dr;
     Map map;
     int rolls [8];
+    void setDiceImage(QLabel *, int);
 };
 
 #endif // MAINWINDOW_H
