@@ -11,7 +11,7 @@ public:
     DeckOfTiles();
     ~DeckOfTiles();
     void shuffleTiles();
-    void printDeckTiles();
+    std::string printDeckTiles();
     Tile dealTile();
     Tile flipTile(int);
     Tile destroyTile(int);

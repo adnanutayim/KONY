@@ -34,10 +34,14 @@ void DeckOfTiles::shuffleTiles(){
     }
 }
 
-void DeckOfTiles::printDeckTiles(){
+std::string DeckOfTiles::printDeckTiles(){
+    std::string out = "";
     for(int i = 0; i < NUM_OF_TILES; i++){
-        cout << tileDeck[i].printTile() << endl;
+        out += tileDeck[i].printTile() + "\n--------------------\n";
+//        cout << tileDeck[i].printTile() << endl;
     }
+
+    return out;
 }
 
 Tile DeckOfTiles::dealTile(){

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "deckOfCards.h"
+#include "deckOfTiles.h"
 #include <string>
 #include <iostream>
 
@@ -60,18 +61,11 @@ void MainWindow::log(string str) {
     ui->plainTextEdit->appendPlainText(qs);
 }
 
-
-//    deck.printDeck();
-//    deck.shuffleDeck();
-//    cout << "\nSHUFFLE\n" << endl;
-//    deck.printDeck();
-//    cout << "\nDEAL\n" << endl;
-//    currentCard = deck.dealCard();
-//    cout << currentCard.printCard() << endl;
 DeckOfCards deck;
 Card currentCard;
 void MainWindow::on_pushButton_2_clicked()
 {
+    deck.shuffleDeck();
     log("Shuffling...\n");
     log(deck.printDeck());
 }
@@ -81,5 +75,33 @@ void MainWindow::on_pushButton_3_clicked()
     log("Dealing...\n--------------------\n");
     currentCard = deck.dealCard();
     log(currentCard.printCard());
+    log("\n--------------------\n");
+}
+DeckOfTiles tileDeck;
+Tile currentTile;
+
+//    cout << "\nDEAL\n" << endl;
+//    currentTile = tileDeck.dealTile();
+//    cout << currentTile.printTile() << endl;
+//    //when flipping tile specify which tile is being flipped
+//    currentTile = tileDeck.flipTile(6);
+//    cout << "\nFLIP\n" << endl;
+//    cout << currentTile.printTile() << endl;
+//    cout << "\nDESTROY\n" << endl;
+//    currentTile = tileDeck.destroyTile(6);
+//    cout << currentTile.printTile() << endl;
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    tileDeck.shuffleTiles();
+    log("Shuffling Tiles...\n");
+    log(tileDeck.printDeckTiles());
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    log("Dealing Tile...\n--------------------\n");
+    currentTile = tileDeck.dealTile();
+    log(currentTile.printTile());
     log("\n--------------------\n");
 }
