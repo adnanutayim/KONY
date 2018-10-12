@@ -36,7 +36,6 @@ std::string DeckOfCards::printDeck() const {
     for(int i = 0; i < SIZE_OF_DECK; i++){
         output += deck[i].printCard() + "\n--------------------\n";
     }
-
     return output;
 }
 

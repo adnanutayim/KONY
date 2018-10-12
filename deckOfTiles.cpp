@@ -38,9 +38,7 @@ std::string DeckOfTiles::printDeckTiles(){
     std::string out = "";
     for(int i = 0; i < NUM_OF_TILES; i++){
         out += tileDeck[i].printTile() + "\n--------------------\n";
-//        cout << tileDeck[i].printTile() << endl;
     }
-
     return out;
 }
 

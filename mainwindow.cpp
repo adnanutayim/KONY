@@ -72,19 +72,13 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    log("Dealing...\n--------------------\n");
+    log("Dealing...\n--------------------");
     currentCard = deck.dealCard();
     log(currentCard.printCard());
-    log("\n--------------------\n");
+    log("--------------------\n");
 }
 DeckOfTiles tileDeck;
 Tile currentTile;
-
-
-//    cout << "\nDESTROY\n" << endl;
-//    currentTile = tileDeck.destroyTile(6);
-//    cout << currentTile.printTile() << endl;
-
 void MainWindow::on_pushButton_4_clicked()
 {
     tileDeck.shuffleTiles();
@@ -94,24 +88,24 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    log("Dealing Tile...\n--------------------\n");
+    log("Dealing Tile...\n--------------------");
     currentTile = tileDeck.dealTile();
     log(currentTile.printTile());
-    log("\n--------------------\n");
+    log("--------------------\n");
 }
 
 void MainWindow::on_pushButton_6_clicked()
 {
-    log("Flipping Tile...\n--------------------\n");
+    log("Flipping Tile...\n--------------------");
     currentTile = tileDeck.flipTile(1);
     log(currentTile.printTile());
-    log("\n--------------------\n");
+    log("--------------------\n");
 }
 
 void MainWindow::on_pushButton_7_clicked()
 {
-    log("Destroying Tile...\n--------------------\n");
+    log("Destroying Tile...\n--------------------");
     currentTile = tileDeck.destroyTile(1);
     log(currentTile.printTile());
-    log("\n--------------------\n");
+    log("--------------------\n");
 }
