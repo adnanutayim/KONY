@@ -44,7 +44,7 @@ std::string DeckOfTiles::printDeckTiles(){
 
 Tile DeckOfTiles::dealTile(){
     //no more cards, deck needs to be reshuffled
-    if(currentTile > NUM_OF_TILES)
+    if(currentTile >= NUM_OF_TILES)
      shuffleTiles();
 
     if(currentTile < NUM_OF_TILES)

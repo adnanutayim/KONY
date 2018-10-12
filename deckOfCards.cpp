@@ -23,6 +23,7 @@ DeckOfCards::~DeckOfCards(){
 }
 
 void DeckOfCards::shuffleDeck(){
+    currentCard = 0;
     for(int i = 0; i < SIZE_OF_DECK; i++){
         int random = (rand() + time(0)) % SIZE_OF_DECK;
         Card temp = deck[i];
@@ -41,8 +42,8 @@ std::string DeckOfCards::printDeck() const {
 
 Card DeckOfCards::dealCard(){
     //no more cards, deck needs to be reshuffled
-    if(currentCard > SIZE_OF_DECK)
-     shuffleDeck();
+    if(currentCard >= SIZE_OF_DECK)
+        shuffleDeck();
 
     if(currentCard < SIZE_OF_DECK)
         return(deck[currentCard++]);
