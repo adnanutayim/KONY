@@ -80,13 +80,7 @@ void MainWindow::on_pushButton_3_clicked()
 DeckOfTiles tileDeck;
 Tile currentTile;
 
-//    cout << "\nDEAL\n" << endl;
-//    currentTile = tileDeck.dealTile();
-//    cout << currentTile.printTile() << endl;
-//    //when flipping tile specify which tile is being flipped
-//    currentTile = tileDeck.flipTile(6);
-//    cout << "\nFLIP\n" << endl;
-//    cout << currentTile.printTile() << endl;
+
 //    cout << "\nDESTROY\n" << endl;
 //    currentTile = tileDeck.destroyTile(6);
 //    cout << currentTile.printTile() << endl;
@@ -102,6 +96,22 @@ void MainWindow::on_pushButton_5_clicked()
 {
     log("Dealing Tile...\n--------------------\n");
     currentTile = tileDeck.dealTile();
+    log(currentTile.printTile());
+    log("\n--------------------\n");
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    log("Flipping Tile...\n--------------------\n");
+    currentTile = tileDeck.flipTile(1);
+    log(currentTile.printTile());
+    log("\n--------------------\n");
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    log("Destroying Tile...\n--------------------\n");
+    currentTile = tileDeck.destroyTile(1);
     log(currentTile.printTile());
     log("\n--------------------\n");
 }
