@@ -97,7 +97,7 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
     log("Flipping Tile...\n--------------------");
-    currentTile = tileDeck.flipTile(1);
+    currentTile = tileDeck.flipTile(0);
     log(currentTile.printTile());
     log("--------------------\n");
 }
@@ -105,7 +105,7 @@ void MainWindow::on_pushButton_6_clicked()
 void MainWindow::on_pushButton_7_clicked()
 {
     log("Destroying Tile...\n--------------------");
-    currentTile = tileDeck.destroyTile(1);
+    currentTile = tileDeck.destroyTile(0);
     log(currentTile.printTile());
     log("--------------------\n");
 }
