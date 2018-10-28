@@ -21,4 +21,8 @@ std::string Card::printCard() const {
     return (name + "; Cost:" + std::to_string(cost) + "\n" + howToPlay + "\n" + effect);
 }
 
+int Card::displayId(){
+    return id;
+}
+
 

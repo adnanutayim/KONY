@@ -3,6 +3,12 @@
 #include <string>
 #include <iostream>
 
+const int SIZE_OF_DECK = 5;
+const int SIZE_OF_BOARD = 3;
+Card deck[SIZE_OF_DECK];
+Card board[SIZE_OF_BOARD];
+Card *nextCard = &deck[0];
+DeckOfCards doc;
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -28,6 +34,18 @@ MainWindow::MainWindow(QWidget *parent) :
     setDiceImage(ui->diceLabel5, 5);
     setDiceImage(ui->diceLabel6, 6);
 
+    deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
+    deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
+    deck[2] = Card(3, "Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts");
+    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die");
+    deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
+
+    doc.shuffleDeck(deck, SIZE_OF_DECK);
+    doc.initializeBoard(deck, board, nextCard);
+
+    setCardImage(ui->cardLabel_1, board[0].displayId());
+    setCardImage(ui->cardLabel_2, board[1].displayId());
+    setCardImage(ui->cardLabel_3, board[2].displayId());
 }
 
 void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
@@ -39,6 +57,15 @@ void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
     QPixmap pixmap = QPixmap (path.c_str());
     label->setPixmap(pixmap);
 
+}
+
+void MainWindow::setCardImage(QLabel *label, int id){
+
+    label->setScaledContents(true);
+    string cardName = std::to_string(id);
+    string cardPath = "../KONY/res/Images/cards/" + cardName + ".jpg";
+    QPixmap pixmap = QPixmap (cardPath.c_str());
+    label->setPixmap(pixmap);
 }
 
 MainWindow::~MainWindow()
@@ -93,22 +120,9 @@ void MainWindow::log(string str) {
     ui->plainTextEdit->appendPlainText(qs);
 }
 
-const int SIZE_OF_DECK = 5;
-const int SIZE_OF_BOARD = 3;
-Card deck[SIZE_OF_DECK];
-Card board[SIZE_OF_BOARD];
-Card *nextCard = &deck[0];
-DeckOfCards doc;
 void MainWindow::on_buyCards_clicked()
 {
-    deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
-    deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
-    deck[2] = Card(3, "Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts");
-    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die");
-    deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
 
-    doc.shuffleDeck(deck, SIZE_OF_DECK);
-    doc.initializeBoard(deck, board, nextCard);
 
     log(doc.printBoard(board, SIZE_OF_BOARD));
 }

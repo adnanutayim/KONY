@@ -34,7 +34,7 @@ private:
     Map map;
     int rolls [8];
     void setDiceImage(QLabel *, int);
-    void setCardImage(QLabel *);
+    void setCardImage(QLabel *, int);
 
 };
 

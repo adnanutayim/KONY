@@ -18,6 +18,7 @@ public:
     Card(int id, std::string, int, std::string, std::string);
     ~Card();
     std::string printCard() const;
+    int displayId();
 };
 
 #endif // CARD_H
