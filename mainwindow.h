@@ -5,6 +5,9 @@
 #include "diceroll.h"
 #include "map.h"
 #include "qlabel.h"
+#include "deckOfCards.h"
+#include "deckOfTiles.h"
+#include "card.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,17 +25,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_buyCards_clicked();
 
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_6_clicked();
-
-    void on_pushButton_7_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -40,6 +34,8 @@ private:
     Map map;
     int rolls [8];
     void setDiceImage(QLabel *, int);
+    void setCardImage(QLabel *);
+
 };
 
 #endif // MAINWINDOW_H

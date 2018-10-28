@@ -3,7 +3,8 @@
 Card::Card(){
 }
 
-Card::Card(std::string n, int c, std::string h, std::string e){
+Card::Card(int i, std::string n, int c, std::string h, std::string e){
+    id = i;
     name = n;
     cost = c;
     howToPlay = h;

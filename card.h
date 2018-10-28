@@ -6,6 +6,7 @@
 class Card
 {
 private:
+    int id;
     std::string name;
     int cost;
     std::string howToPlay;
@@ -14,7 +15,7 @@ private:
 
 public:
     Card();
-    Card(std::string, int, std::string, std::string);
+    Card(int id, std::string, int, std::string, std::string);
     ~Card();
     std::string printCard() const;
 };

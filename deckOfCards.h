@@ -6,16 +6,30 @@
 
 class DeckOfCards
 {
-
-private:
-    Card *deck;
-    int currentCard;
 public:
     DeckOfCards();
-    ~DeckOfCards();
-    void shuffleDeck();
-    std::string printDeck() const;
-    Card dealCard();
+    void shuffleDeck(Card*, const int);
+    void initializeBoard(Card*, Card*, Card*&);
+    void fillCard(Card*, Card*, int, Card*&);
+    std::string printDeck(Card*, const int);
+    std::string printBoard(Card*, const int);
+private:
+    Card *nextCard;
+
 };
+
+//class DeckOfCards
+//{
+
+//private:
+//    Card *deck;
+//    int currentCard;
+//public:
+//    DeckOfCards();
+//    ~DeckOfCards();
+//    void shuffleDeck();
+//    std::string printDeck() const;
+//    Card dealCard();
+//};
 
 #endif // DECKOFCARDS_H
