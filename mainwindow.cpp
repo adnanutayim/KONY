@@ -122,8 +122,19 @@ void MainWindow::log(string str) {
 
 void MainWindow::on_buyCards_clicked()
 {
+    bool cardsToBuy[3];
+    cardsToBuy[0] = ui->cardCheckBox_1->isChecked();
+    cardsToBuy[1] = ui->cardCheckBox_2->isChecked();
+    cardsToBuy[2] = ui->cardCheckBox_3->isChecked();
 
+    for(int i = 0; i < SIZE_OF_BOARD; i++){
+        if(cardsToBuy[i] == 1){
+            doc.fillCard(deck, board, i, nextCard);
+        }
+    }
 
-    log(doc.printBoard(board, SIZE_OF_BOARD));
+    setCardImage(ui->cardLabel_1, board[0].displayId());
+    setCardImage(ui->cardLabel_2, board[1].displayId());
+    setCardImage(ui->cardLabel_3, board[2].displayId());
 }
 
