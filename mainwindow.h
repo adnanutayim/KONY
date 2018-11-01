@@ -28,6 +28,8 @@ private slots:
     void on_buyCards_clicked();
 
 
+    void on_wipeBoard_clicked();
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;

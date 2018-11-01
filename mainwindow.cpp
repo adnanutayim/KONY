@@ -141,3 +141,14 @@ void MainWindow::on_buyCards_clicked()
     setCardImage(ui->cardLabel_3, board[2].displayId());
 }
 
+
+void MainWindow::on_wipeBoard_clicked()
+{
+    for(int i = 0; i < SIZE_OF_BOARD; i++){
+        doc.fillCard(deck, board, i, nextCard);
+    }
+
+    setCardImage(ui->cardLabel_1, board[0].displayId());
+    setCardImage(ui->cardLabel_2, board[1].displayId());
+    setCardImage(ui->cardLabel_3, board[2].displayId());
+}
