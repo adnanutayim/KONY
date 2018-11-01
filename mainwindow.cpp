@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-const int SIZE_OF_DECK = 5;
+const int SIZE_OF_DECK = 8;
 const int SIZE_OF_BOARD = 3;
 Card deck[SIZE_OF_DECK];
 Card board[SIZE_OF_BOARD];
@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent) :
     deck[2] = Card(3, "Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts");
     deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die");
     deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
+    deck[5] = Card(6, "Hailing Cabs", 5, "Keep", "You may add 2 destructions to your result");
+    deck[6] = Card(7, "Next Stage", 4, "Discard", "Loose all your stars...");
+    deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 star and +8 energies and take 3 dammage");
 
     doc.shuffleDeck(deck, SIZE_OF_DECK);
     doc.initializeBoard(deck, board, nextCard);
@@ -122,8 +125,19 @@ void MainWindow::log(string str) {
 
 void MainWindow::on_buyCards_clicked()
 {
+    bool cardToBuy[3];
+    cardToBuy[0] = ui->cardCheckBox_1->isChecked();
+    cardToBuy[1] = ui->cardCheckBox_2->isChecked();
+    cardToBuy[2] = ui->cardCheckBox_3->isChecked();
 
+    for(int i = 0; i < SIZE_OF_BOARD; i++){
+        if(cardToBuy[i] == 1){
+            doc.fillCard(deck, board, i, nextCard);
+        }
+    }
 
-    log(doc.printBoard(board, SIZE_OF_BOARD));
+    setCardImage(ui->cardLabel_1, board[0].displayId());
+    setCardImage(ui->cardLabel_2, board[1].displayId());
+    setCardImage(ui->cardLabel_3, board[2].displayId());
 }
 
