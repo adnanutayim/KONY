@@ -26,6 +26,23 @@ MainWindow::MainWindow(QWidget *parent) :
     QPixmap pixmap = QPixmap (path.c_str());
     ui->backgroundLabel->setPixmap(pixmap);
 
+    // Player Card
+    ui->victoryPointsLabel->setScaledContents(true);
+    string vplPath = "../KONY/res/Images/victoryPoints.png";
+    QPixmap vplPixmap = QPixmap (vplPath.c_str());
+    ui->victoryPointsLabel->setPixmap(vplPixmap);
+
+    ui->healthPointsLabel->setScaledContents(true);
+    string hplPath = "../KONY/res/Images/healthPoints.png";
+    QPixmap hplPixmap = QPixmap (hplPath.c_str());
+    ui->healthPointsLabel->setPixmap(hplPixmap);
+
+    ui->energyPointsLabel->setScaledContents(true);
+    string eplPath = "../KONY/res/Images/energyPoints.png";
+    QPixmap eplPixmap = QPixmap (eplPath.c_str());
+    ui->energyPointsLabel->setPixmap(eplPixmap);
+
+
     // Dice Labels
     setDiceImage(ui->diceLabel1, 1);
     setDiceImage(ui->diceLabel2, 2);
