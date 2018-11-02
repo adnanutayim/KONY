@@ -15,6 +15,9 @@ Card::~Card(){
 
 }
 
+void Card::setId(int i){
+    id = i;
+}
 //maybe use getters and setters??
 
 std::string Card::printCard() const {
@@ -24,5 +27,7 @@ std::string Card::printCard() const {
 int Card::displayId(){
     return id;
 }
+
+
 
 

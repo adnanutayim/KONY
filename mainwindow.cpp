@@ -5,6 +5,7 @@
 
 const int SIZE_OF_DECK = 8;
 const int SIZE_OF_BOARD = 3;
+int currentCard = 0;
 Card deck[SIZE_OF_DECK];
 Card board[SIZE_OF_BOARD];
 Card *nextCard = &deck[0];
@@ -149,7 +150,13 @@ void MainWindow::on_buyCards_clicked()
 
     for(int i = 0; i < SIZE_OF_BOARD; i++){
         if(cardToBuy[i] == 1){
-            doc.fillCard(deck, board, i, nextCard);
+            if(currentCard >= (SIZE_OF_DECK - SIZE_OF_BOARD)){
+                board[i].setId(0);
+            }
+            else{
+                doc.fillCard(deck, board, i, nextCard);
+                currentCard++;
+            }
         }
     }
 
@@ -162,7 +169,13 @@ void MainWindow::on_buyCards_clicked()
 void MainWindow::on_wipeBoard_clicked()
 {
     for(int i = 0; i < SIZE_OF_BOARD; i++){
-        doc.fillCard(deck, board, i, nextCard);
+        if(currentCard >= (SIZE_OF_DECK - SIZE_OF_BOARD)){
+            board[i].setId(0);
+        }
+        else {
+            doc.fillCard(deck, board, i, nextCard);
+            currentCard++;
+        }
     }
 
     setCardImage(ui->cardLabel_1, board[0].displayId());
