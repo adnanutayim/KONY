@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <string>
 #include <iostream>
+#include "game.h"
+#include "state.h"
+
 
 const int SIZE_OF_DECK = 8;
 const int SIZE_OF_BOARD = 3;
@@ -10,6 +13,9 @@ Card deck[SIZE_OF_DECK];
 Card board[SIZE_OF_BOARD];
 Card *nextCard = &deck[0];
 DeckOfCards doc;
+
+
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -51,6 +57,17 @@ MainWindow::MainWindow(QWidget *parent) :
     setDiceImage(ui->diceLabel4, 4);
     setDiceImage(ui->diceLabel5, 5);
     setDiceImage(ui->diceLabel6, 6);
+    setDiceImage(ui->diceLabel7, 1);
+    setDiceImage(ui->diceLabel8, 2);
+
+
+
+    // Prepare StartupPhase
+    Game::getInstance()->Startup();
+    set8DiceEnabled(false);
+    updateHeader();
+
+
 
     deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
     deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
@@ -94,7 +111,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_rollButton_clicked()
 {
 
     bool diceToRoll [8];
@@ -126,6 +143,36 @@ void MainWindow::on_pushButton_clicked()
     setDiceImage(ui->diceLabel4, rolls[3]);
     setDiceImage(ui->diceLabel5, rolls[4]);
     setDiceImage(ui->diceLabel6, rolls[5]);
+    setDiceImage(ui->diceLabel7, rolls[6]);
+    setDiceImage(ui->diceLabel8, rolls[7]);
+
+
+    int size = 8;
+    Game *game = Game::getInstance();
+
+    if (game->getState() == STARTUP_ROLL) {         // Startup roll
+        // Count Attacks
+        // Save rolls in array
+        int attacks = 0;
+        for (int i = 0; i < size; i++) {
+            if (dr.transform(rolls[i]) == "Attack") {
+                attacks++;
+            }
+        }
+        log("Player " + to_string(game->getTurn()+1) + " rolled " + to_string(attacks) + " Attacks.");
+        game->registerStartupRoll(game->getTurn(), attacks);
+        game->advanceGame();
+        updateHeader();
+
+        // Check if finished startup roll
+        if (game->getState()== STARTUP_LOCATION) {
+            log("-");
+            log("Player " + to_string(game->getTurn()+1) + " Has the most Attacks. They play First.");
+            lockUnlockUI();
+            fillMoveLocations();
+        }
+
+    }
 }
 
 
@@ -181,4 +228,112 @@ void MainWindow::on_wipeBoard_clicked()
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
+}
+
+void MainWindow::set6DiceEnabled(bool flag) {
+    ui->diceCheckBox_1->setEnabled(flag);
+    ui->diceCheckBox_2->setEnabled(flag);
+    ui->diceCheckBox_3->setEnabled(flag);
+    ui->diceCheckBox_4->setEnabled(flag);
+    ui->diceCheckBox_5->setEnabled(flag);
+    ui->diceCheckBox_6->setEnabled(flag);
+}
+
+void MainWindow::set8DiceEnabled(bool flag) {
+    set6DiceEnabled(flag);
+    ui->diceCheckBox_7->setEnabled(flag);
+    ui->diceCheckBox_8->setEnabled(flag);
+}
+
+void MainWindow::updateHeader() {
+
+    // Update Player Turn UI
+    int playerNumber = Game::getInstance()->getTurn();
+    string playerName = Game::getInstance()->getPlayerName(playerNumber);
+    string message = "Player " + to_string(playerNumber+1) + ": " + playerName;
+    ui->playerTurnLabel->setText(QString(message.c_str()));
+
+    // Update Game Phase Message UI
+    State state = Game::getInstance()->getState();
+    string msg = "";
+    switch (state) {
+
+    case STARTUP_ROLL:
+        msg = "Startup ROll";
+    break;
+
+    case STARTUP_LOCATION:
+        msg = "Pick Startup Location";
+    break;
+
+    }
+    ui->messageLabel->setText(QString(msg.c_str()));
+
+}
+
+void MainWindow::lockUnlockUI() {
+
+    State state = Game::getInstance()->getState();
+    switch (state) {
+
+    case STARTUP_LOCATION:
+        ui->rollButton->setEnabled(false);
+        ui->moveGroup->setEnabled(true);
+    break;
+
+
+    case ROLLING_DICE:
+        ui->moveGroup->setEnabled(false);
+        ui->rollButton->setEnabled(true);
+    }
+}
+
+void MainWindow::fillMoveLocations() {
+
+    State state = Game::getInstance()->getState();
+    switch (state) {
+        case STARTUP_LOCATION:
+            // Fill locations with less that two players
+            // Count players in each location
+            ui->locationCombo->clear();
+            int numOfRegions = Game::getInstance()->getMap()->getGraph()->getNumOfNodes();
+            for (int i = 0; i < numOfRegions; i++) {
+
+                if (Game::getInstance()->getMap()->getGraph()->nodes[i]->hasSubRegions()) {
+                    continue;
+                }
+
+
+                if (Game::getInstance()->playersInRegion(i) == 2) {
+                    continue;
+                }
+
+                string regionName = Game::getInstance()->getMap()->getGraph()->nodes[i]->getName();
+                ui->locationCombo->addItem(regionName.c_str());
+
+            }
+
+
+        break;
+    }
+
+}
+
+
+
+
+
+void MainWindow::on_moveButton_clicked()
+{
+    Game* game = Game::getInstance();
+    int turn = game->getTurn();
+    string regionString = ui->locationCombo->currentText().toStdString();
+    int regionInt = game->getRegionNumberFromStr(regionString);
+    game->movePlayer(turn, regionInt);
+    log("-");
+    log("Player " + to_string(turn+1) + " Has moved to " + regionString);
+    game->advanceGame();
+    updateHeader();
+    fillMoveLocations();
+    lockUnlockUI();
 }

@@ -50,6 +50,7 @@ public:
     void BuyCards();
     int getZone();
     void setZone(int);
+    string getName();
 };
 
 #endif // PLAYER_H

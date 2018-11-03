@@ -62,18 +62,6 @@ void welcomeScreen::on_loadButton_clicked()
     log("Each Region is a Node: " + verificationText);
 
 
-    // Load regions names
-    // Initialize Regions
-    int numOfRegions = Game::getInstance()->getMap()->getGraph()->getNumOfNodes();
-    for (int i = 0; i < numOfRegions; i++) {
-
-        if (Game::getInstance()->getMap()->getGraph()->nodes[i]->hasSubRegions()) {
-            continue;
-        }
-        string regionName =Game::getInstance()->getMap()->getGraph()->nodes[i]->getName();
-        ui->playerRegionEdit->addItem(regionName.c_str());
-
-    }
 
     // Update Image
     updateImage(ui->playerCharacterEdit->currentText().toStdString());
@@ -110,7 +98,7 @@ void welcomeScreen::on_createButton_clicked()
     ui->playerSelection->setEnabled(true);
     ui->playerNameEdit->setEnabled(true);
     ui->playerCharacterEdit->setEnabled(true);
-    ui->playerRegionEdit->setEnabled(true);
+    //ui->playerRegionEdit->setEnabled(true);
     ui->gameSettings->setEnabled(false);
 
 }
@@ -123,17 +111,17 @@ void welcomeScreen::on_pushButton_clicked()
 
     string playerName = ui->playerNameEdit->text().toStdString();
     string playerCharacter = ui->playerCharacterEdit->currentText().toStdString();
-    string playerRegion = ui->playerRegionEdit->currentText().toStdString();
+    //string playerRegion = ui->playerRegionEdit->currentText().toStdString();
 
     // Set the player object
-    Game::getInstance()->setPlayer(playerCounter, playerName, playerCharacter, playerRegion);
+    Game::getInstance()->setPlayer(playerCounter, playerName, playerCharacter, "");
 
     // Log to screen
     log("-");
     log("Player Number " + to_string(playerCounter + 1));
     log("Name: " + playerName);
     log("Monster: " + playerCharacter);
-    log("Region: " + playerRegion);
+    //log("Region: " + playerRegion);
 
 
     // clean input for next player + remove monster chosen

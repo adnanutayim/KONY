@@ -1,0 +1,17 @@
+#ifndef STATE_H
+#define STATE_H
+
+enum State {
+
+    STARTUP_ROLL,
+    STARTUP_LOCATION,
+    STARTING_TURN,
+    ROLLING_DICE,
+    RESOLVING_DICE,
+    FINISHED_MOVING,
+    FINISHED_BUYING_CARDS,
+    FINISHED_TURN
+
+};
+
+#endif // STATE_H

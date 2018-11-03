@@ -1,0 +1,18 @@
+# This is a comment
+# Regions: Name, id, {0/1} whether it includes a subgraph, loc_x, loc_y, {connectivity: 1, 2, ...}
+# Sub-regions: Name, id, loc_x, loc_y, Parent Region id, rank within parent region, {connectivity: 1, 2, ...}
+
+[Regions 5]
+Tokyo1 		0 1 0 0 1 2 3 4
+Tokyo2 		1 0 0 0 2 3 4 0
+Tokyo3 		2 0 0 0 3 4 0 1
+Tokyo4 		3 0 0 0 4 0 1 2
+Tokyo5	 	4 0 0 0 0 1 2 3
+
+[Sub-regions 3]
+Lower	 		0 0 0 0 0 1
+Mid	 			1 0 0 0 1 2
+Upper	 		2 0 0 0 2 3
+
+[Image 1]
+kony.png

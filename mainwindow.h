@@ -23,12 +23,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
 
     void on_buyCards_clicked();
 
 
     void on_wipeBoard_clicked();
+
+    void on_rollButton_clicked();
+
+    void on_moveButton_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -36,7 +39,15 @@ private:
     Map map;
     int rolls [8];
     void setDiceImage(QLabel *, int);
+
     void setCardImage(QLabel *, int);
+
+    void set8DiceEnabled(bool flag);
+    void set6DiceEnabled(bool flag);
+    void updateHeader();
+    void lockUnlockUI();
+    void fillMoveLocations();
+
 
 };
 

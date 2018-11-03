@@ -82,6 +82,10 @@ void Player::setZone(int z) {
     zone = z;
 }
 
+string Player::getName() {
+    return playerName;
+}
+
 void Player::RollDice(){};
 void Player::ResolveDice(){};
 void Player::Move(){};
