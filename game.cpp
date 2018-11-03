@@ -129,6 +129,14 @@ void Game::advanceGame() {
     break;
 
 
+    case ROLLING_DICE:
+        state = RESOLVING_DICE;
+        break;
+
+    case RESOLVING_DICE:
+        state = MOVING;
+        break;
+
     }
 }
 

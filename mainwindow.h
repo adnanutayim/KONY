@@ -8,6 +8,7 @@
 #include "deckOfCards.h"
 #include "deckOfTiles.h"
 #include "card.h"
+#include "clickablelabel.h"
 
 namespace Ui {
 class MainWindow;
@@ -33,6 +34,8 @@ private slots:
 
     void on_moveButton_clicked();
 
+    void on_resolveButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;
@@ -44,9 +47,12 @@ private:
 
     void set8DiceEnabled(bool flag);
     void set6DiceEnabled(bool flag);
+    void check6Dice(bool flag);
     void updateHeader();
     void lockUnlockUI();
     void fillMoveLocations();
+    void fillResolveDice();
+    int numberOfRolls;
 
 
 };

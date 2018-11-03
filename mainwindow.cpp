@@ -6,6 +6,7 @@
 #include "state.h"
 
 
+
 const int SIZE_OF_DECK = 8;
 const int SIZE_OF_BOARD = 3;
 int currentCard = 0;
@@ -60,8 +61,6 @@ MainWindow::MainWindow(QWidget *parent) :
     setDiceImage(ui->diceLabel7, 1);
     setDiceImage(ui->diceLabel8, 2);
 
-
-
     // Prepare StartupPhase
     Game::getInstance()->Startup();
     set8DiceEnabled(false);
@@ -94,6 +93,7 @@ void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
     string path = "../KONY/res/Images/" + diceName + ".PNG";
     QPixmap pixmap = QPixmap (path.c_str());
     label->setPixmap(pixmap);
+
 
 }
 
@@ -172,6 +172,16 @@ void MainWindow::on_rollButton_clicked()
             fillMoveLocations();
         }
 
+    } else if (game->getState() == ROLLING_DICE) {    // Roll Dice
+        set6DiceEnabled(true);
+        numberOfRolls++;
+        if (numberOfRolls == 3) {
+            // finish phase
+            game->advanceGame();
+            updateHeader();
+            lockUnlockUI();
+            fillResolveDice();
+        }
     }
 }
 
@@ -259,11 +269,23 @@ void MainWindow::updateHeader() {
     switch (state) {
 
     case STARTUP_ROLL:
-        msg = "Startup ROll";
+        msg = "Startup Roll";
     break;
 
     case STARTUP_LOCATION:
         msg = "Pick Startup Location";
+    break;
+
+    case ROLLING_DICE:
+        msg = "Roll Dice";
+    break;
+
+    case RESOLVING_DICE:
+        msg = "Resolving Dice";
+    break;
+
+    case MOVING:
+        msg = "Pick a moving location";
     break;
 
     }
@@ -279,12 +301,32 @@ void MainWindow::lockUnlockUI() {
     case STARTUP_LOCATION:
         ui->rollButton->setEnabled(false);
         ui->moveGroup->setEnabled(true);
-    break;
+        break;
 
 
     case ROLLING_DICE:
         ui->moveGroup->setEnabled(false);
         ui->rollButton->setEnabled(true);
+        set8DiceEnabled(false);
+        ui->diceCheckBox_7->setChecked(false);
+        ui->diceCheckBox_8->setChecked(false);
+        ui->diceLabel7->setEnabled(false);
+        ui->diceLabel8->setEnabled(false);
+        numberOfRolls = 0;
+        break;
+
+
+    case RESOLVING_DICE:
+        set6DiceEnabled(false);
+        check6Dice(true);
+        ui->rollButton->setEnabled(false);
+        ui->resolveGroup->setEnabled(true);
+        break;
+
+     case MOVING:
+        ui->resolveGroup->setEnabled(false);
+        //ui->moveGroup->setEnabled(true);
+
     }
 }
 
@@ -336,4 +378,76 @@ void MainWindow::on_moveButton_clicked()
     updateHeader();
     fillMoveLocations();
     lockUnlockUI();
+}
+
+void MainWindow::check6Dice(bool flag) {
+    ui->diceCheckBox_1->setChecked(flag);
+    ui->diceCheckBox_2->setChecked(flag);
+    ui->diceCheckBox_3->setChecked(flag);
+    ui->diceCheckBox_4->setChecked(flag);
+    ui->diceCheckBox_5->setChecked(flag);
+    ui->diceCheckBox_6->setChecked(flag);
+
+}
+
+void MainWindow::fillResolveDice() {
+
+
+    ui->resolveCombo->clear();
+
+    // Get dice type in a boolean
+    bool diceTally [6];
+    for (int i = 0; i < 6; i++) {
+        diceTally[i] = false;
+    }
+
+    for (int i = 0; i < 6; i++) {
+        if (rolls[i] == -1) continue;
+        int tallyIndex = rolls[i] - 1;
+        diceTally[tallyIndex] = true;
+
+    }
+
+
+    for (int i = 0; i < 6; i++) {
+        if (diceTally[i] == true) {
+            ui->resolveCombo->addItem(dr.transform(i+1).c_str());
+        }
+    }
+}
+
+
+void MainWindow::on_resolveButton_clicked()
+{
+    string diceToResolve = ui->resolveCombo->currentText().toStdString();
+    int diceId = 0;
+    for (int i = 1; i < 7; i++) {
+        if (dr.transform(i) == diceToResolve) {
+            diceId = i;
+            break;
+        }
+    }
+    int numOfDice = 0;
+    for (int i = 0; i < 6; i++) {
+        if (rolls[i] == diceId) {
+            numOfDice++;
+            rolls[i] = -1;
+        }
+    }
+    fillResolveDice();
+    log("-");
+    log("Resolving " + to_string(numOfDice) + " " + diceToResolve);
+
+    // TODO:
+    // Resolve dice
+
+
+    // Check if finished resolving
+    if (ui->resolveCombo->count() == 0) {       // Finished resolving
+        Game::getInstance()->advanceGame();
+        updateHeader();
+        lockUnlockUI();
+    }
+
+
 }
