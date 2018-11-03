@@ -20,7 +20,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
@@ -34,12 +33,22 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_rollButton_clicked();
+
+    void on_moveButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;
     Map map;
     int rolls [8];
     void setDiceImage(QLabel *, int);
+    void set8DiceEnabled(bool flag);
+    void set6DiceEnabled(bool flag);
+    void setHeader();
+    void lockUnlockUI();
+    void fillMoveLocations();
+
 };
 
 #endif // MAINWINDOW_H

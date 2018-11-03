@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>712</width>
-    <height>584</height>
+    <height>591</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -154,19 +154,6 @@
      <string>Name</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>190</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Starting Region</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
@@ -248,16 +235,6 @@
       <string>Sheriff</string>
      </property>
     </item>
-   </widget>
-   <widget class="QComboBox" name="playerRegionEdit">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>190</y>
-      <width>111</width>
-      <height>22</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">

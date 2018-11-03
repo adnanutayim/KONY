@@ -55,7 +55,8 @@ HEADERS += \
     graph.h \
     node.h \
     welcomescreen.h \
-    game.h
+    game.h \
+    state.h
 
 FORMS += \
         mainwindow.ui \
