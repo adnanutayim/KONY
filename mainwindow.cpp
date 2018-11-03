@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Prepare StartupPhase
     Game::getInstance()->Startup();
     set8DiceEnabled(false);
-    setHeader();
+    updateHeader();
 
 
 
@@ -113,7 +113,7 @@ void MainWindow::on_rollButton_clicked()
         log("Player " + to_string(game->getTurn()+1) + " rolled " + to_string(attacks) + " Attacks.");
         game->registerStartupRoll(game->getTurn(), attacks);
         game->advanceGame();
-        setHeader();
+        updateHeader();
 
         // Check if finished startup roll
         if (game->getState()== STARTUP_LOCATION) {
@@ -203,7 +203,7 @@ void MainWindow::set8DiceEnabled(bool flag) {
     ui->diceCheckBox_8->setEnabled(flag);
 }
 
-void MainWindow::setHeader() {
+void MainWindow::updateHeader() {
 
     // Update Player Turn UI
     int playerNumber = Game::getInstance()->getTurn();
@@ -291,7 +291,7 @@ void MainWindow::on_moveButton_clicked()
     log("-");
     log("Player " + to_string(turn+1) + " Has moved to " + regionString);
     game->advanceGame();
-    setHeader();
+    updateHeader();
     fillMoveLocations();
     lockUnlockUI();
 }

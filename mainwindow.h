@@ -45,7 +45,7 @@ private:
     void setDiceImage(QLabel *, int);
     void set8DiceEnabled(bool flag);
     void set6DiceEnabled(bool flag);
-    void setHeader();
+    void updateHeader();
     void lockUnlockUI();
     void fillMoveLocations();
 
