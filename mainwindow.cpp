@@ -436,8 +436,10 @@ void MainWindow::on_resolveButton_clicked()
     log("-");
     log("Resolving " + to_string(numOfDice) + " " + diceToResolve);
 
-    // TODO:
-    // Resolve dice
+    // Resolve Dice
+    Game *game = Game::getInstance();
+    Player p = game->getPlayers()[game->getTurn()];
+    game->resolveDice(diceId, numOfDice, p);
 
 
     // Check if finished resolving
