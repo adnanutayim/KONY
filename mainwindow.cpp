@@ -60,14 +60,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setDiceImage(ui->diceLabel7, 1);
     setDiceImage(ui->diceLabel8, 2);
 
-
-
     // Prepare StartupPhase
     Game::getInstance()->Startup();
     set8DiceEnabled(false);
     updateHeader();
-
-
 
     deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
     deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
