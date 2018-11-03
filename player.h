@@ -51,6 +51,10 @@ public:
     int getZone();
     void setZone(int);
     string getName();
+    void addEnergy(int);
+    void addHealth(int);
+    void addVictory(int);
+    void hurt(int);
 };
 
 #endif // PLAYER_H

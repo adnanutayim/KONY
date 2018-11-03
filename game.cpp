@@ -165,6 +165,36 @@ void Game::increaseTurn() {
     }
 }
 
+//diceNum is the num rolled the player rolled, numOfDice is how many of that dice the player rolled, enemy is the player p is attacking
+void Game::resolveDice(int diceNum, int numOfDice, Player p){
+    switch (diceNum) {
+    case 1 : p.addEnergy(numOfDice); break;
+    case 2 : attack(numOfDice, p); break;
+    case 3 : break;//Destruction
+    case 4 : p.addHealth(numOfDice); break;
+    case 5 : p.addVictory(numOfDice); break; //not per the rules
+    case 6 : p.hurt(numOfDice); break; //not per the rules, it is the tiles that hurt the player not the amount of dice
+    }
+}
+
+void Game::attack(int numOfDice, Player p){
+    //you are in manhattan, so you hurt all the players
+    if(p.getZone() == 0){
+        for(int i = 0; i < numOfPlayers; i++){
+            if(players[i].getZone() != 0){
+                players[i].hurt(numOfDice);
+            }
+        }
+     }
+    //you hurt the person in manhattan
+    else{
+        for(int j = 0; j < numOfPlayers; j++){
+            if(players[j].getZone() == 0){
+                players[j].hurt(numOfDice);
+            }
+        }
+    }
+}
 
 
 

@@ -66,8 +66,6 @@ MainWindow::MainWindow(QWidget *parent) :
     set8DiceEnabled(false);
     updateHeader();
 
-
-
     deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
     deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
     deck[2] = Card(3, "Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts");

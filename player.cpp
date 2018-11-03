@@ -86,7 +86,23 @@ string Player::getName() {
     return playerName;
 }
 
-void Player::RollDice(){};
-void Player::ResolveDice(){};
-void Player::Move(){};
-void Player::BuyCards(){};
+void Player::addEnergy(int num){
+    energy += num;
+}
+
+void Player::addHealth(int num){
+    health += num;
+}
+
+void Player::addVictory(int num){
+    victoryPoints += num;
+}
+
+void Player::hurt(int num){
+    health -= num;
+}
+
+//void Player::RollDice(){};
+//void Player::ResolveDice(){};
+//void Player::Move(){};
+//void Player::BuyCards(){};
