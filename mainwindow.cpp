@@ -592,10 +592,8 @@ void MainWindow::on_resolveButton_clicked()
 
     // Resolve Dice
     Game *game = Game::getInstance();
-    Player p = game->getPlayers()[game->getTurn()];
-    string resolveMessage = game->resolveDice(diceId, numOfDice, p);
+    string resolveMessage = game->resolveDice(diceId, numOfDice);
     log(resolveMessage);
-    //log(resolveMessage);
 
     updatePlayerCard();
 

@@ -204,31 +204,34 @@ void Game::increaseTurn() {
 }
 
 //diceNum is the num rolled the player rolled, numOfDice is how many of that dice the player rolled, enemy is the player p is attacking
-string Game::resolveDice(int diceNum, int numOfDice, Player p){
+string Game::resolveDice(int diceNum, int numOfDice){
+
+    Player *p = &players[turn];
     switch (diceNum) {
-    case 1 : p.addEnergy(numOfDice);
-        return (p.getName() + " gained " + to_string(numOfDice) + " energy\nTotal energy: " + to_string(p.getEnergy()));
-    case 2 : return (attack(numOfDice, p));
+    case 1 : p->addEnergy(numOfDice);
+        return (p->getName() + " gained " + to_string(numOfDice) + " energy\nTotal energy: " + to_string(p->getEnergy()));
+    case 2 : return (attack(numOfDice));
     case 3 :return ("destruction");//Destruction
-    case 4 : p.addHealth(numOfDice);
-        return (p.getName() + " gained " + to_string(numOfDice) + " HP\nTotal health: " + to_string(p.getHealth()));
-    case 5 : p.addVictory(numOfDice); //not per the rules
-        return (p.getName() + " has " + to_string(p.getVictoryPoints()) + " VP");
-    case 6 : p.hurt(numOfDice); //not per the rules, it is the tiles that hurt the player not the amount of dice
-        return (p.getName() + " was inflicted " + to_string(numOfDice) + " dammage");
+    case 4 : p->addHealth(numOfDice);
+        return (p->getName() + " gained " + to_string(numOfDice) + " HP\nTotal health: " + to_string(p->getHealth()));
+    case 5 : p->addVictory(numOfDice); //not per the rules
+        return (p->getName() + " has " + to_string(p->getVictoryPoints()) + " VP");
+    case 6 : p->hurt(numOfDice); //not per the rules, it is the tiles that hurt the player not the amount of dice
+        return (p->getName() + " was inflicted " + to_string(numOfDice) + " dammage");
     default: return ("something went wrong");
     }
 }
 
-string Game::attack(int numOfDice, Player p){
+string Game::attack(int numOfDice){
+    Player *p = &players[turn];
     //you are in manhattan, so you hurt all the players
-    if(p.getZone() == 0){
+    if(p->getZone() == 0){
         for(int i = 0; i < numOfPlayers; i++){
             if(players[i].getZone() != 0){
                 players[i].hurt(numOfDice);
             }
         }
-        return (p.getName() + " attacked everyone!\nAll players loose " + to_string(numOfDice) + " HP");
+        return (p->getName() + " attacked everyone!\nAll players loose " + to_string(numOfDice) + " HP");
      }
     //you hurt the person in manhattan
     else{
@@ -237,7 +240,7 @@ string Game::attack(int numOfDice, Player p){
                 players[j].hurt(numOfDice);
             }
         }
-        return (p.getName() + " attacked the player in Manhattan");
+        return (p->getName() + " attacked the player in Manhattan");
     }
 }
 
