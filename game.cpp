@@ -141,6 +141,21 @@ void Game::advanceGame() {
         state = BUYING_CARDS;
         break;
 
+    case BUYING_CARDS:
+        state = FINISHING_TURN;
+        break;
+
+    case FINISHING_TURN:
+        state = ROLLING_DICE;
+        // Check if someone died - remove from board
+        for (int i = 0; i < numOfPlayers; i++) {
+            if (players[i].getHealth() <= 0) {
+                players[i].setZone(-1);
+            }
+        }
+        increaseTurn();
+        break;
+
     }
 }
 
@@ -163,9 +178,13 @@ void Game::movePlayer(int playerNumber, int regionNumber) {
 }
 
 void Game::increaseTurn() {
+
     turn++;
     if (turn == numOfPlayers) {
         turn = 0;
+    }
+    if (players[turn].getHealth() <= 0) {
+        increaseTurn();
     }
 }
 
@@ -207,6 +226,30 @@ bool Game::isEmptyMainRegion() {
         }
     }
     return true;
+
+}
+
+int Game::checkGameOver() {
+
+    // Check if player has 20 vp
+    for (int i = 0; i < numOfPlayers; i++) {
+        if (players[i].getVictoryPoints() >= 20) {
+            return i;
+        }
+    }
+
+    // check if all other players are dead
+    int alivePlayer = -1;
+    for (int i = 0; i < numOfPlayers; i++) {
+        if (players[i].getHealth() > 0) {
+            if (alivePlayer != -1) {
+                alivePlayer = i;
+            } else {
+                return -1;
+            }
+        }
+    }
+    return -1;
 
 }
 

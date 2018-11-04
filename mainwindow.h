@@ -37,6 +37,10 @@ private slots:
 
     void on_resolveButton_clicked();
 
+    void on_finishedCardsButton_clicked();
+
+    void on_finishTurnButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;

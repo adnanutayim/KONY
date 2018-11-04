@@ -29,6 +29,7 @@ public:
     void resolveDice(int,int, Player);
     void attack(int, Player);
     bool isEmptyMainRegion();
+    int checkGameOver();
 
 private:
     Game();

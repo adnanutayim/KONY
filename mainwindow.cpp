@@ -7,6 +7,7 @@
 #include "node.h"
 #include "qpainter.h"
 #include "monsters.h"
+#include "QMessageBox"
 
 
 
@@ -298,6 +299,7 @@ void MainWindow::updateHeader() {
 void MainWindow::lockUnlockUI() {
 
     State state = Game::getInstance()->getState();
+    int winner = -1;
     switch (state) {
 
     case STARTUP_LOCATION:
@@ -307,6 +309,18 @@ void MainWindow::lockUnlockUI() {
 
 
     case ROLLING_DICE:
+        ui->finishTurnButton->setEnabled(false);
+        // Check if there's a winner
+        winner = Game::getInstance()->checkGameOver();
+        if (winner != -1) {
+            // show message
+            QMessageBox Msgbox;
+            string msg = "Game won by Player " + to_string(winner);
+            Msgbox.setText(QString(msg.c_str()));
+            Msgbox.exec();
+            return;
+        }
+
         ui->moveGroup->setEnabled(false);
         ui->rollButton->setEnabled(true);
         set8DiceEnabled(false);
@@ -333,7 +347,13 @@ void MainWindow::lockUnlockUI() {
 
 
      case BUYING_CARDS:
+        ui->finishedCardsButton->setEnabled(true);
         ui->moveGroup->setEnabled(false);
+        break;
+
+     case FINISHING_TURN:
+        ui->finishedCardsButton->setEnabled(false);
+        ui->finishTurnButton->setEnabled(true);
         break;
 
     }
@@ -641,3 +661,17 @@ void MainWindow::updateMap() {
 
 
 
+
+void MainWindow::on_finishedCardsButton_clicked()
+{
+    Game::getInstance()->advanceGame();
+    updateHeader();
+    lockUnlockUI();
+}
+
+void MainWindow::on_finishTurnButton_clicked()
+{
+    Game::getInstance()->advanceGame();
+    updateHeader();
+    lockUnlockUI();
+}
