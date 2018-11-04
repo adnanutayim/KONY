@@ -104,6 +104,12 @@ string Game::getPlayerHealth(int p){
 string Game::getPlayerEnergy(int p){
     return to_string(players[p].getEnergy());
 }
+void Game::decreasePlayerEnergy(int p){
+    int currentEnergy = players[p].getEnergy();
+    cout << currentEnergy << endl;
+    int e = currentEnergy - 2;
+    players[p].setEnergy(e);
+}
 
 void Game::registerStartupRoll(int playerNum, int attacks) {
     startupRoll[playerNum] = attacks;

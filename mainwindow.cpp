@@ -222,14 +222,18 @@ void MainWindow::on_buyCards_clicked()
 
 void MainWindow::on_wipeBoard_clicked()
 {
-    for(int i = 0; i < SIZE_OF_BOARD; i++){
-        if(currentCard >= (SIZE_OF_DECK - SIZE_OF_BOARD)){
-            board[i].setId(0);
+    int playerNumber = Game::getInstance()->getTurn();
+    if(stoi(Game::getInstance()->getPlayerEnergy(playerNumber)) >= 2){
+        for(int i = 0; i < SIZE_OF_BOARD; i++){
+            if(currentCard >= (SIZE_OF_DECK - SIZE_OF_BOARD)){
+                board[i].setId(0);
+            }
+            else {
+                doc.fillCard(deck, board, i, nextCard);
+                currentCard++;
+            }
         }
-        else {
-            doc.fillCard(deck, board, i, nextCard);
-            currentCard++;
-        }
+        Game::getInstance()->decreasePlayerEnergy(playerNumber);
     }
 
     setCardImage(ui->cardLabel_1, board[0].displayId());
