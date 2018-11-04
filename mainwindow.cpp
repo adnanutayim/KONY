@@ -15,9 +15,6 @@ Card *nextCard = &deck[0];
 DeckOfCards doc;
 
 
-
-
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -75,8 +72,8 @@ MainWindow::MainWindow(QWidget *parent) :
     deck[6] = Card(7, "Next Stage", 4, "Discard", "Loose all your stars...");
     deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 star and +8 energies and take 3 dammage");
 
-//    doc.shuffleDeck(deck, SIZE_OF_DECK);
-    doc.initializeBoard(deck, board, nextCard);
+    doc.shuffleDeck(deck, SIZE_OF_DECK);
+    doc.initializeBoard(deck, board, nextCard, SIZE_OF_BOARD);
 
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());
@@ -202,7 +199,7 @@ void MainWindow::on_buyCards_clicked()
             }
             else{
                 if(Game::getInstance()->buyCard(playerNumber, board[i].getId(), board[i].getCost())){
-                    doc.fillCard(deck, board, i, nextCard);
+                    doc.fillCard(board, i, nextCard);
                     currentCard++;
                 }
                 else{
@@ -229,7 +226,7 @@ void MainWindow::on_wipeBoard_clicked()
                 board[i].setId(0);
             }
             else {
-                doc.fillCard(deck, board, i, nextCard);
+                doc.fillCard(board, i, nextCard);
                 currentCard++;
             }
         }
@@ -374,14 +371,9 @@ void MainWindow::on_showCards_clicked()
 {
     int playerNumber = Game::getInstance()->getTurn();
 
-    string message = "";
-
     for(int i = 1; i <= SIZE_OF_DECK; i++){
         if(Game::getInstance()->getCards(playerNumber, i)){
-            message += deck[i - 1].printCard();
+            log(doc.showCard(deck, i, SIZE_OF_DECK));
         }
     }
-
-    log(message);
-
 }

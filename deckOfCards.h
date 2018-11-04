@@ -9,10 +9,11 @@ class DeckOfCards
 public:
     DeckOfCards();
     void shuffleDeck(Card*, const int);
-    void initializeBoard(Card*, Card*, Card*&);
-    void fillCard(Card*, Card*, int, Card*&);
+    void initializeBoard(Card*, Card*, Card*&, const int);
+    void fillCard(Card*, int, Card*&);
     std::string printDeck(Card*, const int);
     std::string printBoard(Card*, const int);
+    std::string showCard(Card*, int, const int);
 private:
     Card *nextCard;
 

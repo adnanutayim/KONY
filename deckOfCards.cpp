@@ -18,14 +18,14 @@ void DeckOfCards::shuffleDeck(Card *deck, const int SIZE_OF_DECK) {
     }
 }
 
-void DeckOfCards::initializeBoard(Card *deck, Card *board, Card *&nextCard) {
-    for (int i = 0; i < 3; i++) {
+void DeckOfCards::initializeBoard(Card *deck, Card *board, Card *&nextCard, const int SIZE_OF_BOARD) {
+    for (int i = 0; i < SIZE_OF_BOARD; i++) {
         board[i] = deck[i];
         *nextCard++;
     }
 }
 
-void DeckOfCards::fillCard(Card *deck, Card *board, int userCard, Card *&nextCard) {
+void DeckOfCards::fillCard(Card *board, int userCard, Card *&nextCard) {
     board[userCard] = *nextCard;
     *nextCard++;
 }
@@ -43,6 +43,17 @@ std::string DeckOfCards::printBoard(Card *board, const int SIZE_OF_BOARD) {
     for (int i = 0; i < SIZE_OF_BOARD; i++) {
         output += board[i].printCard() + "\n--------------------\n";
     }
+    return output;
+}
+
+std::string DeckOfCards::showCard(Card *deck, int id, const int SIZE_OF_DECK){
+    std::string output = "";
+    for(int i = 0; i < SIZE_OF_DECK; i++){
+        if(deck[i].getId() == id){
+            output += deck[i].printCard();
+        }
+    }
+
     return output;
 }
 
