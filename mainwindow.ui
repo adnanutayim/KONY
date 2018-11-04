@@ -6,34 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1326</width>
-    <height>866</height>
+    <width>1293</width>
+    <height>798</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>600</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Log</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>120</y>
+      <y>350</y>
       <width>271</width>
-      <height>371</height>
+      <height>391</height>
      </rect>
     </property>
     <property name="title">
@@ -280,9 +267,9 @@
     <widget class="QPushButton" name="rollButton">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>310</y>
-       <width>191</width>
+       <x>10</x>
+       <y>330</y>
+       <width>251</width>
        <height>51</height>
       </rect>
      </property>
@@ -294,10 +281,10 @@
    <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>620</y>
-      <width>271</width>
-      <height>181</height>
+      <x>1020</x>
+      <y>430</y>
+      <width>251</width>
+      <height>301</height>
      </rect>
     </property>
    </widget>
@@ -307,8 +294,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>30</y>
+      <x>740</x>
+      <y>10</y>
       <width>531</width>
       <height>401</height>
      </rect>
@@ -423,9 +410,9 @@
     <widget class="QPushButton" name="finishedCardsButton">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>340</y>
-       <width>201</width>
+       <x>20</x>
+       <y>330</y>
+       <width>491</width>
        <height>41</height>
       </rect>
      </property>
@@ -434,25 +421,12 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="backgroundLabel">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>30</y>
-      <width>361</width>
-      <height>581</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Background Label</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>440</y>
-      <width>531</width>
+      <x>20</x>
+      <y>90</y>
+      <width>271</width>
       <height>241</height>
      </rect>
     </property>
@@ -462,7 +436,7 @@
     <widget class="QLabel" name="playerNameLabel">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>10</x>
        <y>20</y>
        <width>101</width>
        <height>31</height>
@@ -570,50 +544,32 @@
       <string>E</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="showCards">
+    <widget class="QLabel" name="playerCardLabel">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>190</y>
-       <width>201</width>
-       <height>41</height>
+       <x>100</x>
+       <y>70</y>
+       <width>151</width>
+       <height>141</height>
       </rect>
      </property>
      <property name="text">
-      <string>Show Cards</string>
+      <string>TextLabel</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>61</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>19</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Turn:</string>
-    </property>
    </widget>
    <widget class="QLabel" name="playerTurnLabel">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>20</y>
+      <x>30</x>
+      <y>0</y>
       <width>121</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="text">
@@ -623,8 +579,8 @@
    <widget class="QLabel" name="messageLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>70</y>
+      <x>30</x>
+      <y>40</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -644,10 +600,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>740</x>
       <y>510</y>
       <width>271</width>
-      <height>71</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -657,7 +613,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>20</y>
        <width>41</width>
        <height>16</height>
       </rect>
@@ -670,7 +626,7 @@
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>30</y>
+       <y>20</y>
        <width>111</width>
        <height>22</height>
       </rect>
@@ -680,7 +636,7 @@
      <property name="geometry">
       <rect>
        <x>180</x>
-       <y>30</y>
+       <y>20</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -696,10 +652,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>740</y>
-      <width>241</width>
-      <height>51</height>
+      <x>740</x>
+      <y>430</y>
+      <width>271</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -721,9 +677,9 @@
     <widget class="QComboBox" name="resolveCombo">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>60</x>
        <y>20</y>
-       <width>101</width>
+       <width>111</width>
        <height>22</height>
       </rect>
      </property>
@@ -731,9 +687,9 @@
     <widget class="QPushButton" name="resolveButton">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>180</x>
        <y>20</y>
-       <width>61</width>
+       <width>71</width>
        <height>23</height>
       </rect>
      </property>
@@ -748,14 +704,40 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>740</y>
-      <width>231</width>
+      <x>740</x>
+      <y>680</y>
+      <width>271</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Finish Your Turn</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="showCards">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>600</y>
+      <width>271</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Cards</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="backgroundLabel">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>10</y>
+      <width>411</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
@@ -764,7 +746,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1326</width>
+     <width>1293</width>
      <height>21</height>
     </rect>
    </property>

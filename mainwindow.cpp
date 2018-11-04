@@ -615,6 +615,7 @@ void MainWindow::updateMap() {
     QPainter *paint = new QPainter(&pixmap);
 
 
+
     Game *game = Game::getInstance();
     Player *players = game->getPlayers();
     int numberOfPlayers = game->getNumOfPlayers();
@@ -715,6 +716,17 @@ void MainWindow::updatePlayerCard(){
     ui->victoryPointsDisplay->setText(QString(vp.c_str()));
     ui->energyPointsDisplay->setText(QString(energy.c_str()));
     ui->healthPointsDisplay->setText(QString(health.c_str()));
+
+
+    // Add image
+    ui->playerCardLabel->setScaledContents(true);
+    Game *game = Game::getInstance();
+    int turn = game->getTurn();
+    Monsters monster = game->getPlayers()[turn].getMonster();
+    string monsterName = getNameFromMonster(monster);
+    string path = "../KONY/res/Images/Monster" + monsterName + ".jpg";
+    QPixmap pixmap = QPixmap(path.c_str());
+    ui->playerCardLabel->setPixmap(pixmap);
 
 }
 
