@@ -26,8 +26,8 @@ public:
     int playersInRegion(int regionNumber);
     int getRegionNumberFromStr(string s);
     void movePlayer(int playerNumber, int regionNumber);
-    void resolveDice(int,int, Player);
-    void attack(int, Player);
+    string resolveDice(int,int, Player);
+    string attack(int, Player);
 
 private:
     Game();

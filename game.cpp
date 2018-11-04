@@ -158,18 +158,24 @@ void Game::increaseTurn() {
 }
 
 //diceNum is the num rolled the player rolled, numOfDice is how many of that dice the player rolled, enemy is the player p is attacking
-void Game::resolveDice(int diceNum, int numOfDice, Player p){
+string Game::resolveDice(int diceNum, int numOfDice, Player p){
     switch (diceNum) {
-    case 1 : p.addEnergy(numOfDice); break;
-    case 2 : attack(numOfDice, p); break;
+    case 1 : p.addEnergy(numOfDice);
+        return (p.getName() + " gained " + to_string(numOfDice) + " energy\nTotal energy: " + to_string(p.getEnergy()));
+    case 2 : attack(numOfDice, p);
+        break;
     case 3 : break;//Destruction
-    case 4 : p.addHealth(numOfDice); break;
-    case 5 : p.addVictory(numOfDice); break; //not per the rules
-    case 6 : p.hurt(numOfDice); break; //not per the rules, it is the tiles that hurt the player not the amount of dice
+    case 4 : p.addHealth(numOfDice);
+        return (p.getName() + " gained " + to_string(numOfDice) + " HP\nTotal health: " + to_string(p.getHealth()));
+    case 5 : p.addVictory(numOfDice); //not per the rules
+        return (p.getName() + " has " + to_string(p.getVictoryPoints()) + " VP");
+    case 6 : p.hurt(numOfDice); //not per the rules, it is the tiles that hurt the player not the amount of dice
+        return (p.getName() + " was inflicted " + to_string(numOfDice) + " dammage");
+    default: return ("something went wrong");
     }
 }
 
-void Game::attack(int numOfDice, Player p){
+string Game::attack(int numOfDice, Player p){
     //you are in manhattan, so you hurt all the players
     if(p.getZone() == 0){
         for(int i = 0; i < numOfPlayers; i++){
@@ -177,6 +183,7 @@ void Game::attack(int numOfDice, Player p){
                 players[i].hurt(numOfDice);
             }
         }
+        return (p.getName() + " attacked everyone!\nAll players loose " + to_string(numOfDice) + " HP");
      }
     //you hurt the person in manhattan
     else{
@@ -185,6 +192,7 @@ void Game::attack(int numOfDice, Player p){
                 players[j].hurt(numOfDice);
             }
         }
+        return (p.getName() + " attacked the player in Manhattan");
     }
 }
 
