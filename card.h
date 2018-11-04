@@ -18,8 +18,14 @@ public:
     Card(int id, std::string, int, std::string, std::string);
     ~Card();
     void setId(int);
+    int getId();
+
+    void setCost(int);
+    int getCost();
+
     std::string printCard() const;
     int displayId();
+
 };
 
 #endif // CARD_H

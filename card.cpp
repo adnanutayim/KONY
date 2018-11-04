@@ -18,7 +18,15 @@ Card::~Card(){
 void Card::setId(int i){
     id = i;
 }
-//maybe use getters and setters??
+int Card::getId(){
+    return id;
+}
+void Card::setCost(int c){
+    cost = c;
+}
+int Card::getCost(){
+    return cost;
+}
 
 std::string Card::printCard() const {
     return (name + "; Cost:" + std::to_string(cost) + "\n" + howToPlay + "\n" + effect);

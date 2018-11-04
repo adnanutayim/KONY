@@ -201,6 +201,7 @@ void MainWindow::on_buyCards_clicked()
                 board[i].setId(0);
             }
             else{
+                
                 doc.fillCard(deck, board, i, nextCard);
                 currentCard++;
             }

@@ -2,7 +2,9 @@
 #define PLAYER_H
 
 #include <string>
+#include <vector>
 #include "monsters.h"
+#include "card.h"
 
 
 class Player
@@ -16,6 +18,7 @@ private:
     int health;
     int energy;
     int zone;
+    vector<int> playerCards;
     //Vector for buying and holding cards
 
 public:
@@ -47,7 +50,7 @@ public:
     void RollDice();
     void ResolveDice();
     void Move();
-    void BuyCards();
+    void BuyCards(Card*);
     int getZone();
     void setZone(int);
     string getName();

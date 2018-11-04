@@ -102,6 +102,13 @@ void Player::hurt(int num){
     health -= num;
 }
 
+void Player::BuyCards(Card *currentCard){
+
+    if(energy >= currentCard->getCost()){
+
+    }
+}
+
 //void Player::RollDice(){};
 //void Player::ResolveDice(){};
 //void Player::Move(){};

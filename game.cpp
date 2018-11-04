@@ -205,6 +205,10 @@ string Game::attack(int numOfDice, Player p){
     }
 }
 
+void Game::buyCard(int playerNumber, Card *&currentCard){
+    players[playerNumber].BuyCards(*&currentCard);
+}
+
 
 
 

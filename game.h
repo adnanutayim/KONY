@@ -31,6 +31,7 @@ public:
     void movePlayer(int playerNumber, int regionNumber);
     string resolveDice(int,int, Player);
     string attack(int, Player);
+    void buyCard(int, Card*&);
 
 private:
     Game();
