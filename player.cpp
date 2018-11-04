@@ -4,7 +4,7 @@ Player::Player(){
     playerName = "NoName";
     victoryPoints = 0;
     health = 10;
-    energy = 0;
+    energy = 10;
 
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
@@ -18,7 +18,7 @@ Player::Player(std::string name){
     playerName = name;
     victoryPoints = 0;
     health = 10;
-    energy = 0;
+    energy = 10;
 
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
@@ -102,13 +102,23 @@ void Player::hurt(int num){
     health -= num;
 }
 
-void Player::BuyCards(Card *currentCard){
-
-    if(energy >= currentCard->getCost()){
-
+bool Player::BuyCards(int cardID, int cost){
+    if(energy >= cost){
+        playerCards.push_back(cardID);
+        energy -= cost;
+        return true;
     }
+    return false;
 }
 
+bool Player::ownCard(int cardNum){
+    for(int i = 0; i < playerCards.size(); i++){
+        if(cardNum == playerCards[i]){
+            return true;
+        }
+    }
+    return false;
+}
 //void Player::RollDice(){};
 //void Player::ResolveDice(){};
 //void Player::Move(){};

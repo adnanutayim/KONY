@@ -29,7 +29,7 @@ int Card::getCost(){
 }
 
 std::string Card::printCard() const {
-    return (name + "; Cost:" + std::to_string(cost) + "\n" + howToPlay + "\n" + effect);
+    return (name + "; Cost:" + std::to_string(cost) + "\n" + howToPlay + "\n" + effect + "\n\n");
 }
 
 int Card::displayId(){

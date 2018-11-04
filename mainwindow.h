@@ -33,6 +33,8 @@ private slots:
 
     void on_moveButton_clicked();
 
+    void on_showCards_clicked();
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;

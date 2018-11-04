@@ -47,10 +47,12 @@ public:
     enum Monsters getMonster();
     void setMonster(enum Monsters);
 
+    bool ownCard(int);
+
     void RollDice();
     void ResolveDice();
     void Move();
-    void BuyCards(Card*);
+    bool BuyCards(int, int);
     int getZone();
     void setZone(int);
     string getName();

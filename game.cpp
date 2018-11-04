@@ -205,8 +205,18 @@ string Game::attack(int numOfDice, Player p){
     }
 }
 
-void Game::buyCard(int playerNumber, Card *&currentCard){
-    players[playerNumber].BuyCards(*&currentCard);
+bool Game::buyCard(int playerNumber, int cardID, int cost){
+    if(players[playerNumber].BuyCards(cardID, cost)){
+        return true;
+    }
+    return false;
+}
+
+bool Game::getCards(int p, int cardNum){
+    if(players[p].ownCard(cardNum)){
+        return true;
+    }
+    return false;
 }
 
 

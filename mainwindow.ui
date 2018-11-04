@@ -554,7 +554,7 @@
       <string>E</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="showCards">
      <property name="geometry">
       <rect>
        <x>320</x>
