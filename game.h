@@ -21,6 +21,9 @@ public:
     void Startup();
     int getTurn();
     string getPlayerName(int);
+    string getPlayerVP(int);
+    string getPlayerHealth(int);
+    string getPlayerEnergy(int);
     void registerStartupRoll(int playerNum, int attacks);
     void advanceGame();
     int playersInRegion(int regionNumber);

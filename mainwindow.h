@@ -47,6 +47,7 @@ private:
     void updateHeader();
     void lockUnlockUI();
     void fillMoveLocations();
+    void updatePlayerCard();
 
 
 };

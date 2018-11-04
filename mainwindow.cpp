@@ -64,6 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Game::getInstance()->Startup();
     set8DiceEnabled(false);
     updateHeader();
+    updatePlayerCard();
 
     deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
     deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
@@ -159,6 +160,7 @@ void MainWindow::on_rollButton_clicked()
         game->registerStartupRoll(game->getTurn(), attacks);
         game->advanceGame();
         updateHeader();
+        updatePlayerCard();
 
         // Check if finished startup roll
         if (game->getState()== STARTUP_LOCATION) {
@@ -330,6 +332,25 @@ void MainWindow::on_moveButton_clicked()
     log("Player " + to_string(turn+1) + " Has moved to " + regionString);
     game->advanceGame();
     updateHeader();
+    updatePlayerCard();
     fillMoveLocations();
     lockUnlockUI();
+
+}
+
+void MainWindow::updatePlayerCard(){
+    // Update Player Turn UI
+    int playerNumber = Game::getInstance()->getTurn();
+    string playerName = Game::getInstance()->getPlayerName(playerNumber);
+    string message = "Player " + to_string(playerNumber+1) + ": " + playerName;
+    ui->playerNameLabel->setText(QString(message.c_str()));
+
+    string vp = Game::getInstance()->getPlayerVP(playerNumber);
+    string health = Game::getInstance()->getPlayerHealth(playerNumber);
+    string energy = Game::getInstance()->getPlayerEnergy(playerNumber);
+
+    ui->victoryPointsDisplay->setText(QString(vp.c_str()));
+    ui->energyPointsDisplay->setText(QString(energy.c_str()));
+    ui->healthPointsDisplay->setText(QString(health.c_str()));
+
 }

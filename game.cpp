@@ -95,6 +95,15 @@ int Game::getTurn() {
 string Game::getPlayerName(int p) {
     return players[p].getName();
 }
+string Game::getPlayerVP(int p){
+    return to_string(players[p].getVictoryPoints());
+}
+string Game::getPlayerHealth(int p){
+    return to_string(players[p].getHealth());
+}
+string Game::getPlayerEnergy(int p){
+    return to_string(players[p].getEnergy());
+}
 
 void Game::registerStartupRoll(int playerNum, int attacks) {
     startupRoll[playerNum] = attacks;
