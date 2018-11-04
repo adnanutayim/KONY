@@ -9,6 +9,7 @@
 #include "deckOfTiles.h"
 #include "card.h"
 #include "clickablelabel.h"
+#include "qpainter.h"
 
 namespace Ui {
 class MainWindow;
@@ -53,6 +54,7 @@ private:
     void fillMoveLocations();
     void fillResolveDice();
     int numberOfRolls;
+    void updateMap();
 
 
 };

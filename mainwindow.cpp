@@ -5,6 +5,9 @@
 #include "game.h"
 #include "state.h"
 #include "node.h"
+#include "qpainter.h"
+#include "monsters.h"
+
 
 
 const int SIZE_OF_DECK = 8;
@@ -15,8 +18,8 @@ Card board[SIZE_OF_BOARD];
 Card *nextCard = &deck[0];
 DeckOfCards doc;
 
-
-
+const int SHIFT = 50;
+const int IMAGE_SIZE = 250;
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -29,10 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     // Background Board
-    ui->backgroundLabel->setScaledContents(true);
-    string path = "../KONY/res/Images/Board.png";
-    QPixmap pixmap = QPixmap (path.c_str());
-    ui->backgroundLabel->setPixmap(pixmap);
+    updateMap();
 
     // Player Card
     ui->victoryPointsLabel->setScaledContents(true);
@@ -440,6 +440,7 @@ void MainWindow::on_moveButton_clicked()
         updateHeader();
         fillMoveLocations();
         lockUnlockUI();
+        updateMap();
 
     } else if (state == MOVING) {                           // Main game moving
 
@@ -460,20 +461,20 @@ void MainWindow::on_moveButton_clicked()
 
         if (zone != 0 && game->isEmptyMainRegion()) {               // Case 1
 
-            player.setZone(0);
-            player.setRank(0);
+            game->getPlayers()[turn].setZone(0);
+            game->getPlayers()[turn].setRank(0);
 
         } else if (zone != 0 && !game->isEmptyMainRegion()) {       // Case 2
 
 
             Graph *graph = game->getMap()->getGraph();
             int zoneId = graph->getNodeNumberByName(input);
-            player.setZone(zoneId);
+            game->getPlayers()[turn].setZone(zoneId);
 
 
         } else if (zone == 0 && rank != numOfRanks - 1) {           // Case 3
 
-           player.setRank(rank+1);
+           game->getPlayers()[turn].setRank(rank+1);
 
         } else {                                                    // Case 4
 
@@ -484,6 +485,7 @@ void MainWindow::on_moveButton_clicked()
         game->advanceGame();
         updateHeader();
         lockUnlockUI();
+        updateMap();
 
     }
 
@@ -562,3 +564,80 @@ void MainWindow::on_resolveButton_clicked()
 
 
 }
+
+void MainWindow::updateMap() {
+
+    ui->backgroundLabel->setScaledContents(true);
+    string path = "../KONY/res/Images/Board.png";
+    QPixmap pixmap = QPixmap(path.c_str());
+    QPainter *paint = new QPainter(&pixmap);
+
+
+    Game *game = Game::getInstance();
+    Player *players = game->getPlayers();
+    int numberOfPlayers = game->getNumOfPlayers();
+    Node **graphNodes = game->getMap()->getGraph()->getNodes();
+    Node **subGraphNodes = game->getMap()->getSubgraph()->getNodes();
+
+    int graphSize = game->getMap()->getGraph()->getNumOfNodes();
+    int subGraphSize = game->getMap()->getSubgraph()->getNumOfNodes();
+
+    int *graphCounter = new int [graphSize];
+    int *subGraphCounter = new int [subGraphSize];
+    for (int i = 0; i < graphSize; i++) {
+        graphCounter[i] = 0;
+    }
+    for (int i = 0; i < subGraphSize; i++) {
+        subGraphCounter[i] = 0;
+    }
+
+    for (int i = 0; i < numberOfPlayers; i++) {
+        // getPhotoPath
+        // getCoordinates
+        Monsters monster = players[i].getMonster();
+        string monsterName = getNameFromMonster(monster);
+        string path = "../KONY/res/Images/Monster" + monsterName + ".jpg";
+
+        int zone = players[i].getZone();
+        if (zone == -1) continue;
+        int rank = players[i].getRank();
+        cout << "Player: " << i << " Zone: " << zone << " Rank: " << rank << endl;
+        int locX = graphNodes[zone]->loc_x;
+        int locY = graphNodes[zone]->loc_y;
+
+        if (zone == 0) {
+            locX = subGraphNodes[rank]->loc_x;
+            locY = subGraphNodes[rank]->loc_y;
+        }
+
+        if (locX == 0) continue;
+
+        // If there is another player: shift
+        if (zone != 0) {
+            if (graphCounter[zone] == 1) {
+                locX += 50;
+                locY += 50;
+            }
+        } else {
+            if (subGraphCounter[rank] == 1) {
+                locX += 50;
+                locY += 50;
+            }
+        }
+
+        paint->drawImage(QRect(locX, locY, IMAGE_SIZE, IMAGE_SIZE), QImage(path.c_str()));
+
+        // Update Counters
+        if (zone != 0) {
+            graphCounter[zone]++;
+        } else {
+            subGraphCounter[rank]++;
+        }
+
+    }
+
+    ui->backgroundLabel->setPixmap(pixmap);
+}
+
+
+
