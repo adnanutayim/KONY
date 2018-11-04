@@ -301,13 +301,16 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="cardsGroup">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>670</x>
       <y>30</y>
       <width>531</width>
-      <height>391</height>
+      <height>401</height>
      </rect>
     </property>
     <property name="title">
@@ -420,14 +423,14 @@
     <widget class="QPushButton" name="finishedCardsButton">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>350</y>
+       <x>160</x>
+       <y>340</y>
        <width>201</width>
-       <height>23</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>Finished Buying cards (temporary)</string>
+      <string>Finished Buying cards</string>
      </property>
     </widget>
    </widget>
@@ -513,19 +516,6 @@
       <string>TextLabel</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QLabel" name="backgroundLabel">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>120</y>
-      <width>361</width>
-      <height>581</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Background Label</string>
-    </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">

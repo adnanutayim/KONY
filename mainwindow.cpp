@@ -291,6 +291,10 @@ void MainWindow::updateHeader() {
         msg = "Buy Cards";
     break;
 
+    case FINISHING_TURN:
+        msg = "Finish Your Turn";
+    break;
+
     }
     ui->messageLabel->setText(QString(msg.c_str()));
 
@@ -347,12 +351,12 @@ void MainWindow::lockUnlockUI() {
 
 
      case BUYING_CARDS:
-        ui->finishedCardsButton->setEnabled(true);
+        ui->cardsGroup->setEnabled(true);
         ui->moveGroup->setEnabled(false);
         break;
 
      case FINISHING_TURN:
-        ui->finishedCardsButton->setEnabled(false);
+        ui->cardsGroup->setEnabled(false);
         ui->finishTurnButton->setEnabled(true);
         break;
 
