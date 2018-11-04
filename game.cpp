@@ -208,9 +208,8 @@ string Game::resolveDice(int diceNum, int numOfDice, Player p){
     switch (diceNum) {
     case 1 : p.addEnergy(numOfDice);
         return (p.getName() + " gained " + to_string(numOfDice) + " energy\nTotal energy: " + to_string(p.getEnergy()));
-    case 2 : attack(numOfDice, p);
-        break;
-    case 3 : break;//Destruction
+    case 2 : return (attack(numOfDice, p));
+    case 3 :return ("destruction");//Destruction
     case 4 : p.addHealth(numOfDice);
         return (p.getName() + " gained " + to_string(numOfDice) + " HP\nTotal health: " + to_string(p.getHealth()));
     case 5 : p.addVictory(numOfDice); //not per the rules
