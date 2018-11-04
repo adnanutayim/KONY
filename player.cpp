@@ -102,6 +102,13 @@ void Player::hurt(int num){
     health -= num;
 }
 
+void Player::setRank(int r) {
+    rank = r;
+}
+int Player::getRank() {
+    return rank;
+}
+
 //void Player::RollDice(){};
 //void Player::ResolveDice(){};
 //void Player::Move(){};

@@ -137,6 +137,10 @@ void Game::advanceGame() {
         state = MOVING;
         break;
 
+    case MOVING:
+        state = BUYING_CARDS;
+        break;
+
     }
 }
 
@@ -195,6 +199,17 @@ void Game::attack(int numOfDice, Player p){
         }
     }
 }
+
+bool Game::isEmptyMainRegion() {
+    for (int i = 0; i < numOfPlayers; i++) {
+        if (players[i].getZone() == 0) {
+            return false;
+        }
+    }
+    return true;
+
+}
+
 
 
 

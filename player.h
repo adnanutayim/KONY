@@ -16,6 +16,7 @@ private:
     int health;
     int energy;
     int zone;
+    int rank;   // rank inside manhattan
     //Vector for buying and holding cards
 
 public:
@@ -43,6 +44,9 @@ public:
 
     enum Monsters getMonster();
     void setMonster(enum Monsters);
+
+    void setRank(int);
+    int getRank();
 
     void RollDice();
     void ResolveDice();

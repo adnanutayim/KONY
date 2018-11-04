@@ -19,6 +19,9 @@ public:
     Node **nodes;
     int getNumOfNodes();
     int getNodeNumberByName(string s);
+    Node **getNodes() {
+        return nodes;
+    }
 
 private:
     int numOfNodes;

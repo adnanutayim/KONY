@@ -4,7 +4,7 @@
 #include <iostream>
 #include "game.h"
 #include "state.h"
-
+#include "node.h"
 
 
 const int SIZE_OF_DECK = 8;
@@ -286,6 +286,10 @@ void MainWindow::updateHeader() {
         msg = "Pick a moving location";
     break;
 
+    case BUYING_CARDS:
+        msg = "Buy Cards";
+    break;
+
     }
     ui->messageLabel->setText(QString(msg.c_str()));
 
@@ -323,7 +327,14 @@ void MainWindow::lockUnlockUI() {
 
      case MOVING:
         ui->resolveGroup->setEnabled(false);
-        //ui->moveGroup->setEnabled(true);
+        ui->moveGroup->setEnabled(true);
+        fillMoveLocations();
+        break;
+
+
+     case BUYING_CARDS:
+        ui->moveGroup->setEnabled(false);
+        break;
 
     }
 }
@@ -332,7 +343,7 @@ void MainWindow::fillMoveLocations() {
 
     State state = Game::getInstance()->getState();
     switch (state) {
-        case STARTUP_LOCATION:
+        case STARTUP_LOCATION: {
             // Fill locations with less that two players
             // Count players in each location
             ui->locationCombo->clear();
@@ -352,9 +363,59 @@ void MainWindow::fillMoveLocations() {
                 ui->locationCombo->addItem(regionName.c_str());
 
             }
+            break;
+    }
+
+    case MOVING: {
+
+        // Differentiate 4 cases
+        // 1. Must move to lower manhattan
+        // 2. Move anywhere (restrictions apply)
+        // 3. Advance in manhattan
+        // 4. No valid move(upper manhattan)
+
+        ui->locationCombo->clear();
+        Game *game = Game::getInstance();
+        int turn = game->getTurn();
+        int zone = game->getPlayers()[turn].getZone();
+        int rank = game->getPlayers()[turn].getRank();
+        int numOfRanks = game->getMap()->getSubgraph()->getNumOfNodes();
+
+        if (zone != 0 && game->isEmptyMainRegion()) {               // Case 1
+
+            string mainRegion = game->getMap()->getGraph()->getNodes()[0]->getName();
+            string firstSubRegion = game->getMap()->getSubgraph()->getNodes()[0]->getName();
+            string location = mainRegion + " - " + firstSubRegion;
+            ui->locationCombo->addItem(QString(location.c_str()));
+
+        } else if (zone != 0 && !game->isEmptyMainRegion()) {       // Case 2
+
+            Graph *graph = game->getMap()->getGraph();
+            Node **nodes = graph->getNodes();
+            for (int i = 1; i < graph->getNumOfNodes(); i++) {
+                string location = nodes[i]->getName();
+                ui->locationCombo->addItem(QString(location.c_str()));
+            }
+
+        } else if (zone == 0 && rank != numOfRanks - 1) {           // Case 3
+
+            string mainRegion = game->getMap()->getGraph()->getNodes()[0]->getName();
+            string nextSubRegion = game->getMap()->getSubgraph()->getNodes()[rank+1]->getName();
+            string location = mainRegion + " - " + nextSubRegion;
+            ui->locationCombo->addItem(QString(location.c_str()));
+
+        } else {                                                    // Case 4
+            string mainRegion = game->getMap()->getGraph()->getNodes()[0]->getName();
+            string lastSubRegion = game->getMap()->getSubgraph()->getNodes()[numOfRanks-1]->getName();
+            string location = mainRegion + " - " + lastSubRegion;
+            ui->locationCombo->addItem(QString(location.c_str()));
+        }
+
 
 
         break;
+    }
+
     }
 
 }
@@ -365,17 +426,67 @@ void MainWindow::fillMoveLocations() {
 
 void MainWindow::on_moveButton_clicked()
 {
-    Game* game = Game::getInstance();
-    int turn = game->getTurn();
-    string regionString = ui->locationCombo->currentText().toStdString();
-    int regionInt = game->getRegionNumberFromStr(regionString);
-    game->movePlayer(turn, regionInt);
-    log("-");
-    log("Player " + to_string(turn+1) + " Has moved to " + regionString);
-    game->advanceGame();
-    updateHeader();
-    fillMoveLocations();
-    lockUnlockUI();
+
+    State state = Game::getInstance()->getState();
+    if (state == STARTUP_LOCATION) {                        // Startup Location
+        Game* game = Game::getInstance();
+        int turn = game->getTurn();
+        string regionString = ui->locationCombo->currentText().toStdString();
+        int regionInt = game->getRegionNumberFromStr(regionString);
+        game->movePlayer(turn, regionInt);
+        log("-");
+        log("Player " + to_string(turn+1) + " Has moved to " + regionString);
+        game->advanceGame();
+        updateHeader();
+        fillMoveLocations();
+        lockUnlockUI();
+
+    } else if (state == MOVING) {                           // Main game moving
+
+        string input = ui->locationCombo->currentText().toStdString();
+        // Differentiate 4 cases
+        // 1. Must move to lower manhattan
+        // 2. Move anywhere (restrictions apply)
+        // 3. Advance in manhattan
+        // 4. No valid move(upper manhattan)
+
+        Game *game = Game::getInstance();
+        int turn = game->getTurn();
+        Player player = game->getPlayers()[turn];
+        string playerName = game->getPlayerName(turn);
+        int zone = player.getZone();
+        int rank = player.getRank();
+        int numOfRanks = game->getMap()->getSubgraph()->getNumOfNodes();
+
+        if (zone != 0 && game->isEmptyMainRegion()) {               // Case 1
+
+            player.setZone(0);
+            player.setRank(0);
+
+        } else if (zone != 0 && !game->isEmptyMainRegion()) {       // Case 2
+
+
+            Graph *graph = game->getMap()->getGraph();
+            int zoneId = graph->getNodeNumberByName(input);
+            player.setZone(zoneId);
+
+
+        } else if (zone == 0 && rank != numOfRanks - 1) {           // Case 3
+
+           player.setRank(rank+1);
+
+        } else {                                                    // Case 4
+
+            // Player stays in place
+        }
+
+        log ("Player " + playerName + " has moved to " + input + ".");
+        game->advanceGame();
+        updateHeader();
+        lockUnlockUI();
+
+    }
+
 }
 
 void MainWindow::check6Dice(bool flag) {

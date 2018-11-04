@@ -28,6 +28,7 @@ public:
     void movePlayer(int playerNumber, int regionNumber);
     void resolveDice(int,int, Player);
     void attack(int, Player);
+    bool isEmptyMainRegion();
 
 private:
     Game();
