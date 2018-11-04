@@ -16,3 +16,28 @@ Monsters getMonsterFromString(string monsterName) {
         return Sheriff;
     }
 }
+
+string getNameFromMonster(Monsters monster) {
+
+    switch (monster) {
+        case CaptainFish:
+            return "CaptainFish";
+
+        case Drakonis:
+            return "Drakonis";
+
+        case Kong:
+            return "Kong";
+
+        case Mantis:
+            return "Mantis";
+
+        case Rob:
+            return "Rob";
+
+        case Sheriff:
+            return "Sheriff";
+    }
+
+}
+

@@ -102,6 +102,7 @@ void Player::hurt(int num){
     health -= num;
 }
 
+
 bool Player::BuyCards(int cardID, int cost){
     if(energy >= cost){
         playerCards.push_back(cardID);
@@ -119,6 +120,14 @@ bool Player::ownCard(int cardNum){
     }
     return false;
 }
+
+void Player::setRank(int r) {
+    rank = r;
+}
+int Player::getRank() {
+    return rank;
+}
+
 //void Player::RollDice(){};
 //void Player::ResolveDice(){};
 //void Player::Move(){};

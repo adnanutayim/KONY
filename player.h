@@ -18,8 +18,9 @@ private:
     int health;
     int energy;
     int zone;
-    vector<int> playerCards;
-    //Vector for buying and holding cards
+    vector<int> playerCards; //Vector for buying and holding cards
+    int rank;   // rank inside manhattan
+
 
 public:
     Player();
@@ -47,8 +48,10 @@ public:
     enum Monsters getMonster();
     void setMonster(enum Monsters);
 
-    bool ownCard(int);
 
+    bool ownCard(int);
+    void setRank(int);
+    int getRank();
     void RollDice();
     void ResolveDice();
     void Move();

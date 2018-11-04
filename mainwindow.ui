@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1326</width>
-    <height>807</height>
+    <height>866</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -301,13 +301,16 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="cardsGroup">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>670</x>
       <y>30</y>
       <width>531</width>
-      <height>331</height>
+      <height>401</height>
      </rect>
     </property>
     <property name="title">
@@ -417,6 +420,19 @@
       <string>Wipe Board</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="finishedCardsButton">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>340</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Finished Buying cards</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="backgroundLabel">
     <property name="geometry">
@@ -435,7 +451,7 @@
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>370</y>
+      <y>440</y>
       <width>531</width>
       <height>241</height>
      </rect>
@@ -568,19 +584,6 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="backgroundLabel">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>120</y>
-      <width>361</width>
-      <height>581</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Background Label</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -686,6 +689,74 @@
       <string>OK</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QGroupBox" name="resolveGroup">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>740</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Resolve Dice</string>
+    </property>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dice</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="resolveCombo">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="resolveButton">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>20</y>
+       <width>61</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Resolve</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="finishTurnButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>740</y>
+      <width>231</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Finish Your Turn</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

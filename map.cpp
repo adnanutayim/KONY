@@ -135,3 +135,7 @@ Graph *Map::getGraph() {
     return graph;
 }
 
+Graph *Map::getSubgraph() {
+    return subGraph;
+}
+

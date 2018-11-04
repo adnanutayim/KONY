@@ -14,5 +14,6 @@ enum Monsters {
 };
 
 Monsters getMonsterFromString(string name);
+string getNameFromMonster(Monsters monster);
 
 #endif // MONSTERS_H

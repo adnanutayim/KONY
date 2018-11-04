@@ -34,6 +34,8 @@ public:
     string attack(int, Player);
     bool buyCard(int, int, int);
     bool getCards(int, int);
+    bool isEmptyMainRegion();
+    int checkGameOver();
 
 private:
     Game();
