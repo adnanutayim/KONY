@@ -7,7 +7,7 @@
 class DeckOfCards
 {
 public:
-    DeckOfCards();
+    DeckOfCards(Card*);
     void shuffleDeck(Card*, const int);
     void initializeBoard(Card*, Card*, Card*&, const int);
     void fillCard(Card*, int, Card*&);

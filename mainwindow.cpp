@@ -17,7 +17,13 @@ int currentCard = 0;
 Card deck[SIZE_OF_DECK];
 Card board[SIZE_OF_BOARD];
 Card *nextCard = &deck[0];
-DeckOfCards doc;
+DeckOfCards doc(deck);
+
+const int NUM_OF_TILES = 13;
+int currentTile = 0;
+Tile tileDeck[NUM_OF_TILES];
+Tile *nextTile = &tileDeck[0];
+DeckOfTiles dot(tileDeck);
 
 const int SHIFT = 50;
 const int IMAGE_SIZE = 250;
@@ -68,17 +74,9 @@ MainWindow::MainWindow(QWidget *parent) :
     updateHeader();
     updatePlayerCard();
 
-    deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 dammage to the monster...");
-    deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You destroy Jets that are not in...");
-    deck[2] = Card(3, "Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts");
-    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die");
-    deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
-    deck[5] = Card(6, "Hailing Cabs", 5, "Keep", "You may add 2 destructions to your result");
-    deck[6] = Card(7, "Next Stage", 4, "Discard", "Loose all your stars...");
-    deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 star and +8 energies and take 3 dammage");
-
     doc.shuffleDeck(deck, SIZE_OF_DECK);
     doc.initializeBoard(deck, board, nextCard, SIZE_OF_BOARD);
+    dot.shuffleTiles(tileDeck, NUM_OF_TILES);
 
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());
