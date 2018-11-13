@@ -1,5 +1,6 @@
 #include "game.h"
 #include <iostream>
+#include "deckOfTiles.h"
 
 
 // Static Initialization
@@ -10,6 +11,7 @@ Game::Game() {
     map = new Map();
     players = NULL;
     startupRoll = NULL;
+    deckOfTiles = NULL;
 }
 
 Game::~Game() {
@@ -26,6 +28,11 @@ Game::~Game() {
     if (startupRoll != NULL) {
         delete [] startupRoll;
         startupRoll = 0;
+    }
+
+    if (deckOfTiles != NULL) {
+        delete deckOfTiles;
+        deckOfTiles = NULL;
     }
 }
 
@@ -291,6 +298,11 @@ int Game::checkGameOver() {
     return -1;
 
 }
+
+void Game::createTiles() {
+    deckOfTiles = new DeckOfTiles();
+}
+
 
 
 

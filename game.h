@@ -4,6 +4,7 @@
 #include "map.h"
 #include "player.h"
 #include "state.h"
+#include "deckOfTiles.h"
 
 class Game
 {
@@ -36,14 +37,17 @@ public:
     bool getCards(int, int);
     bool isEmptyMainRegion();
     int checkGameOver();
+    void createTiles();
 
 private:
     Game();
     static Game *instance;
 
+
     void increaseTurn();
 
     Map *map;
+    DeckOfTiles *deckOfTiles;
     int numOfPlayers;
     Player *players;
     int *startupRoll;

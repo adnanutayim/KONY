@@ -19,12 +19,6 @@ Card board[SIZE_OF_BOARD];
 Card *nextCard = &deck[0];
 DeckOfCards doc(deck);
 
-const int NUM_OF_TILES = 13;
-int currentTile = 0;
-Tile tileDeck[NUM_OF_TILES];
-Tile *nextTile = &tileDeck[0];
-DeckOfTiles dot(tileDeck);
-
 const int SHIFT = 50;
 const int IMAGE_SIZE = 250;
 
@@ -57,6 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QPixmap eplPixmap = QPixmap (eplPath.c_str());
     ui->energyPointsLabel->setPixmap(eplPixmap);
 
+    // Create Tiles
+    Game::getInstance()->createTiles();
+
 
     // Dice Labels
     setDiceImage(ui->diceLabel1, 1);
@@ -76,7 +73,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     doc.shuffleDeck(deck, SIZE_OF_DECK);
     doc.initializeBoard(deck, board, nextCard, SIZE_OF_BOARD);
-    dot.shuffleTiles(tileDeck, NUM_OF_TILES);
+    //dot.shuffleTiles(tileDeck, NUM_OF_TILES);
 
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());

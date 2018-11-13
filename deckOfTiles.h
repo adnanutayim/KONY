@@ -5,16 +5,18 @@
 
 class DeckOfTiles{
 private:
-    Tile *nextTile;
+    Tile *tiles;
+    int numOfTiles;
+    Tile createTile(int type);
+    void shuffleTiles();
+    void dealTiles();
+    int numOfZones;
+    int stacksPerZone;
+
 public:
-    DeckOfTiles(Tile*);
+    DeckOfTiles();
     ~DeckOfTiles();
-    void shuffleTiles(Tile*, const int);
-    std::string printDeckTiles(Tile*, const int);
-    Tile dealTile();
-    void flipTile(int, Tile*);
-    void destroyTile(Tile*, int, Tile*&);
-    bool isOutOfTiles();
+
 };
 
 #endif // DECKOFTILES_H

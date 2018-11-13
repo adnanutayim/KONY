@@ -40,7 +40,8 @@ SOURCES += \
     welcomescreen.cpp \
     game.cpp \
     monsters.cpp \
-    clickablelabel.cpp
+    clickablelabel.cpp \
+    side.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -58,7 +59,8 @@ HEADERS += \
     welcomescreen.h \
     game.h \
     state.h \
-    clickablelabel.h
+    clickablelabel.h \
+    side.h
 
 FORMS += \
         mainwindow.ui \
