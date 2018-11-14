@@ -34,6 +34,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //Player data observer
+    Player *player = new Player;
+    PlayerCard *playerCard = new PlayerCard(player, ui);
+
     for (int i = 0; i < 8; i++) {
         rolls[i] = 0;
     }
@@ -82,9 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
 
-    //Player data observer
-    Player *player = new Player;
-    PlayerCard *playerCard = new PlayerCard(player, ui);
+
 }
 
 void MainWindow::setDiceImage(QLabel *label, int dice_roll) {

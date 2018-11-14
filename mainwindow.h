@@ -23,6 +23,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     void log(string s);
     ~MainWindow();
+    Ui::MainWindow *ui;
 
 private slots:
 
@@ -47,7 +48,7 @@ private slots:
 
 
 private:
-    Ui::MainWindow *ui;
+//    Ui::MainWindow *ui;
     DiceRoll dr;
     Map map;
     int rolls [8];

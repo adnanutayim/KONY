@@ -1,20 +1,24 @@
 #include "playercard.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 
 PlayerCard::PlayerCard(){
 
 }
 PlayerCard::PlayerCard(Player* p, Ui::MainWindow *&u){
     ui = u;
+    cout << "New Observer" << endl;
     _subject = p;
     _subject->Attach(this);
 }
 
 PlayerCard::~PlayerCard(){
+    cout << "Removed Observer" << endl;
     _subject->Detach(this);
 }
 
 void PlayerCard::Update(){
+    cout << "Update" << endl;
     display();
 }
 

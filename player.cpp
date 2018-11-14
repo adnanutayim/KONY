@@ -23,6 +23,7 @@ Player::Player(std::string name){
 
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
+    Notify();
 }
 
 int Player::getNumberOfPlayers(){

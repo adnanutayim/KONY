@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <game.h>
+#include "playercard.h"
+#include "player.h"
 
 using namespace std;
 
