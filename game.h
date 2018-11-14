@@ -31,13 +31,16 @@ public:
     int playersInRegion(int regionNumber);
     int getRegionNumberFromStr(string s);
     void movePlayer(int playerNumber, int regionNumber);
-    string resolveDice(int,int);
+    string resolveDice(int diceNum,int numOfDice, int tileNumber);
     string attack(int);
     bool buyCard(int, int, int);
     bool getCards(int, int);
     bool isEmptyMainRegion();
     int checkGameOver();
     void createTiles();
+    string resolveOuch(int num);
+    void ouchOnePlayer(int num);
+    DeckOfTiles *getDeckOfTiles();
 
 private:
     Game();

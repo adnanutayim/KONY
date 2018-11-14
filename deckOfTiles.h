@@ -16,6 +16,8 @@ private:
 public:
     DeckOfTiles();
     ~DeckOfTiles();
+    int getNumOfTiles();
+    Tile* getTiles();
 
 };
 

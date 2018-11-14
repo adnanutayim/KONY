@@ -211,7 +211,7 @@ void Game::increaseTurn() {
 }
 
 //diceNum is the num rolled the player rolled, numOfDice is how many of that dice the player rolled, enemy is the player p is attacking
-string Game::resolveDice(int diceNum, int numOfDice){
+string Game::resolveDice(int diceNum, int numOfDice, int tileNumber) {
 
     Player *p = &players[turn];
     switch (diceNum) {
@@ -223,8 +223,7 @@ string Game::resolveDice(int diceNum, int numOfDice){
         return (p->getName() + " gained " + to_string(numOfDice) + " HP\nTotal health: " + to_string(p->getHealth()));
     case 5 : p->addVictory(numOfDice); //not per the rules
         return (p->getName() + " has " + to_string(p->getVictoryPoints()) + " VP");
-    case 6 : p->hurt(numOfDice); //not per the rules, it is the tiles that hurt the player not the amount of dice
-        return (p->getName() + " was inflicted " + to_string(numOfDice) + " dammage");
+    case 6 : return resolveOuch(numOfDice); //now per the rules, it is the tiles that hurt the player not the amount of dice
     default: return ("something went wrong");
     }
 }
@@ -302,6 +301,55 @@ int Game::checkGameOver() {
 void Game::createTiles() {
     deckOfTiles = new DeckOfTiles();
 }
+
+DeckOfTiles *Game::getDeckOfTiles() {
+    return deckOfTiles;
+}
+
+string Game::resolveOuch(int num) {
+
+    // Distinguish 3 cases
+    if (num == 1) {
+        ouchOnePlayer(turn);
+        return "Player " + to_string(turn) + " Was Ouched!";
+
+    } else if (num == 2) {
+        // ouch every player in this zone
+        int zone = players[turn].getZone();
+        for (int i = 0; i < numOfPlayers; i++) {
+            if (players[i].getZone() == zone) {
+                ouchOnePlayer(i);
+            }
+        }
+        return "All players in Zone " + getMap()->getGraph()->getNodes()[zone]->getName() + " were ouched!";
+
+    } else if (num >= 3) {
+        // Ouch all players
+        for (int i = 0; i < numOfPlayers; i++) {
+            ouchOnePlayer(i);
+        }
+        return "All players in the map were ouched!";
+    }
+
+
+}
+
+void Game::ouchOnePlayer(int num) {
+    Player *p = &players[num];
+    int zone = p->getZone();
+
+    // count damage
+    int damage = 0;
+    for (int i = 0; i < deckOfTiles->getNumOfTiles(); i++) {
+        Tile t = deckOfTiles->getTiles()[i];
+        int activeSide = t.getActiveSide();
+        if (!t.isDestoryed() && activeSide == 1 && t.getZone() == zone) {
+            damage++;
+        }
+    }
+    p->hurt(damage);
+}
+
 
 
 

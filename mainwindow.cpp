@@ -566,6 +566,7 @@ void MainWindow::fillResolveDice() {
 
 void MainWindow::on_resolveButton_clicked()
 {
+    // Get diceNumber
     string diceToResolve = ui->resolveCombo->currentText().toStdString();
     int diceId = 0;
     for (int i = 1; i < 7; i++) {
@@ -574,6 +575,8 @@ void MainWindow::on_resolveButton_clicked()
             break;
         }
     }
+
+    // Get Number of Dice
     int numOfDice = 0;
     for (int i = 0; i < 6; i++) {
         if (rolls[i] == diceId) {
@@ -581,25 +584,93 @@ void MainWindow::on_resolveButton_clicked()
             rolls[i] = -1;
         }
     }
+
     fillResolveDice();
     log("-");
     log("Resolving " + to_string(numOfDice) + " " + diceToResolve);
 
+
+
     // Resolve Dice
     Game *game = Game::getInstance();
-    string resolveMessage = game->resolveDice(diceId, numOfDice);
-    log(resolveMessage);
 
-    updatePlayerCard();
+    // Special Case for tiles
+    if (dr.transform(diceId) == "Destruction") {
+        // Unlock Destruction
+        remainingDestruction = numOfDice;
+        fillTilesCombo();
 
-    // Check if finished resolving
-    if (ui->resolveCombo->count() == 0) {       // Finished resolving
-        Game::getInstance()->advanceGame();
-        updateHeader();
-        lockUnlockUI();
+        if (ui->tileCombo->count() > 0) {
+            ui->tilesGroup->setEnabled(true);
+            ui->resolveGroup->setEnabled(false);
+        }
+
+
+
+    } else {
+        string resolveMessage = game->resolveDice(diceId, numOfDice, 0);
+        log(resolveMessage);
+
+        updatePlayerCard();
+
+        // Check if finished resolving
+        if (ui->resolveCombo->count() == 0) {       // Finished resolving
+            Game::getInstance()->advanceGame();
+            updateHeader();
+            lockUnlockUI();
+        }
+
+
     }
 
 
+
+
+
+
+}
+
+void MainWindow::fillTilesCombo() {
+
+
+
+
+    // Fill only tiles in borough that player can afford
+    ui->tileCombo->clear();
+    Game *game = Game::getInstance();
+    int turn = game->getTurn();
+    int zone = game->getPlayers()[turn].getZone();
+    DeckOfTiles *deckOfTiles = game->getDeckOfTiles();
+    int numOfTiles = deckOfTiles->getNumOfTiles();
+    Tile *tiles = deckOfTiles->getTiles();
+
+    // Add buildings tiles
+    for (int stack = 0; stack < 3; stack++) {
+        for (int i = 0; i < numOfTiles; i++) {
+            if (tiles[i].isDestoryed()) continue;
+            int activeSide = tiles[i].getActiveSide();
+
+            if (activeSide == 0) {
+                if (tiles[i].getStackNumber() == stack) {
+                    if (remainingDestruction >= tiles[i].getSide(activeSide).getCost()) {
+                        ui->tileCombo->addItem(tiles[i].getSide(activeSide).getDescription().c_str(), QVariant(i));
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    // Add units tiles
+    for (int i = 0; i < numOfTiles; i++) {
+        if (tiles[i].isDestoryed()) continue;
+        int activeSide = tiles[i].getActiveSide();
+        if (activeSide == 1) {
+            if (remainingDestruction >= tiles[i].getSide(activeSide).getCost()) {
+                ui->tileCombo->addItem(tiles[i].getSide(activeSide).getDescription().c_str(), QVariant(i));
+            }
+        }
+    }
 }
 
 void MainWindow::updateMap() {
@@ -735,3 +806,87 @@ void MainWindow::on_showCards_clicked()
         }
     }
 }
+
+void MainWindow::on_showTilesButton_clicked()
+{
+    Game *game = Game::getInstance();
+    int numOfZones = game->getMap()->getGraph()->getNumOfNodes();
+    DeckOfTiles *deckOfTiles = game->getDeckOfTiles();
+    int numOfTiles = deckOfTiles->getNumOfTiles();
+    Tile *tiles = deckOfTiles->getTiles();
+
+    log("-");
+    log("Tiles");
+    for (int i = 0; i < numOfTiles; i++) {
+        int activeSide = tiles[i].getActiveSide();
+        string prefix = "";
+        if (activeSide == 1) {
+            prefix = "*";
+        }
+        if (tiles[activeSide].isDestoryed()) continue;
+        int zoneNumber = tiles[i].getZone();
+        string zoneName = game->getMap()->getGraph()->getNodes()[zoneNumber]->getName();
+        log(prefix + "Zone " + zoneName + " " + tiles[i].getSide(activeSide).getDescription());
+    }
+    log("-");
+}
+
+void MainWindow::on_destroyBuildingButton_clicked()
+{
+    // Get Tile
+    Game *game = Game::getInstance();
+    int tileNumber = ui->tileCombo->currentData().toInt();
+    Tile t = game->getDeckOfTiles()->getTiles()[tileNumber];
+    int activeSide = t.getActiveSide();
+    Side side = t.getSide(activeSide);
+
+    // Apply effect to player
+    remainingDestruction -= side.getCost();
+    int trun = game->getTurn();
+    Player *p = &game->getPlayers()[trun];
+    p->setEnergy(p->getEnergy() + side.getEnergy());
+    p->setHealth(p->getHealth() + side.getHealth());
+    p->setVictoryPoints(p->getVictoryPoints() + side.getVictory());
+
+
+    // Flip/Destory tile
+    game->getDeckOfTiles()->getTiles()[tileNumber].flip();
+    log ("Player " + to_string(trun+1) + " Destroyed " + side.getDescription());
+    updatePlayerCard();
+
+
+    // Advance Game
+    fillTilesCombo();
+    if (ui->tileCombo->count() == 0) {
+        ui->resolveGroup->setEnabled(true);
+        ui->tilesGroup->setEnabled(false);
+
+
+        // Check if finished resolving dice
+        if (ui->resolveCombo->count() == 0) {       // Finished resolving
+            Game::getInstance()->advanceGame();
+            updateHeader();
+            lockUnlockUI();
+        }
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

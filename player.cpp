@@ -99,6 +99,7 @@ void Player::addVictory(int num){
 }
 
 void Player::hurt(int num){
+
     health -= num;
 }
 

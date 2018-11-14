@@ -37,8 +37,8 @@ Tile DeckOfTiles::createTile(int type) {
     Tile t;
     if (type % 3 == 0) {
         // HighRise/Infantry
-        t.setSide(0, "High Rise", 2, 0, 0, 2);
-        t.setSide(1, "Infantry", 2, 0, 2, 0);
+        t.setSide(0, "High Rise", 1, 0, 0, 2);
+        t.setSide(1, "Infantry", 1, 0, 2, 0);
 
     } else if (type % 3 == 1) {
         // Hospital/Jet
@@ -73,4 +73,12 @@ void DeckOfTiles::dealTiles() {
         tiles[i].setZone((i % numOfZones) + 1);
         tiles[i].setStack(i % 3);
     }
+}
+
+int DeckOfTiles::getNumOfTiles() {
+    return numOfTiles;
+}
+
+Tile* DeckOfTiles::getTiles() {
+    return tiles;
 }

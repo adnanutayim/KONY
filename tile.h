@@ -25,6 +25,12 @@ public:
     void setlocation(int zoneNum, int stackNum);
     void flip();
     bool isDestoryed();
+
+    int getZone();
+    int getActiveSide();
+    int getStackNumber();
+    Side getSide(int num);
+
 };
 
 #endif // TILE_H

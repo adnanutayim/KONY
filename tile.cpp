@@ -36,3 +36,17 @@ void Tile::setlocation(int zoneNum, int stackNum) {
     zone = zoneNum;
     stack = stackNum;
 }
+
+int Tile::getZone() {
+    return zone;
+}
+int Tile::getActiveSide() {
+    return activeSide;
+}
+
+int Tile::getStackNumber() {
+    return stack;
+}
+Side Tile::getSide(int num) {
+    return side[num];
+}

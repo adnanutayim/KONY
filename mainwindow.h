@@ -44,6 +44,10 @@ private slots:
     void on_finishTurnButton_clicked();
 
 
+    void on_showTilesButton_clicked();
+
+    void on_destroyBuildingButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;
@@ -61,8 +65,10 @@ private:
     void fillMoveLocations();
     void updatePlayerCard();
     void fillResolveDice();
+    void fillTilesCombo();
     int numberOfRolls;
     void updateMap();
+    int remainingDestruction;
 
 
 

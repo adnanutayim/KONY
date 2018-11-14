@@ -1,6 +1,7 @@
 #ifndef SIDE_H
 #define SIDE_H
 #include <iostream>
+#include<string>
 using namespace std;
 
 
@@ -13,6 +14,13 @@ public:
     void setEnergy(int);
     void setHealth(int);
     void setVictory(int);
+    string getDescription();
+
+    string getName();
+    int getCost();
+    int getEnergy();
+    int getHealth();
+    int getVictory();
 
 private:
     string name;
@@ -20,6 +28,7 @@ private:
     int energy;
     int health;
     int victory;
+
 };
 
 #endif // SIDE_H
