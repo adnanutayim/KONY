@@ -1,6 +1,7 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
 #include <list>
+#include<vector>
 using namespace std;
 
 class Observer;
@@ -14,7 +15,8 @@ public:
     Subject();
     ~Subject();
 private:
-    list<Observer*> *_observers;
+    //list<Observer*> *_observers;
+    vector<Observer*> _observers;
 };
 
 #endif // SUBJECT_H

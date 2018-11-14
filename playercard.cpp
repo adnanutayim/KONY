@@ -8,6 +8,11 @@ PlayerCard::PlayerCard(){
 PlayerCard::PlayerCard(Player* p, Ui::MainWindow *&u){
     ui = u;
     cout << "New Observer" << endl;
+//    _subject = p;
+//    _subject->Attach(this);
+}
+
+void PlayerCard::observe(Player *p) {
     _subject = p;
     _subject->Attach(this);
 }
