@@ -8,7 +8,8 @@
 #include "qpainter.h"
 #include "monsters.h"
 #include "QMessageBox"
-
+#include "playercard.h"
+#include "player.h"
 
 
 const int SIZE_OF_DECK = 8;
@@ -27,7 +28,6 @@ DeckOfTiles dot(tileDeck);
 
 const int SHIFT = 50;
 const int IMAGE_SIZE = 250;
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -81,6 +81,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
+
+    //Player data observer
+    Player *player = new Player;
+    PlayerCard *playerCard = new PlayerCard(player, ui);
 }
 
 void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
@@ -701,30 +705,29 @@ void MainWindow::on_finishTurnButton_clicked()
 }
 
 void MainWindow::updatePlayerCard(){
-    // Update Player Turn UI
-    int playerNumber = Game::getInstance()->getTurn();
-    string playerName = Game::getInstance()->getPlayerName(playerNumber);
-    string message = "Player " + to_string(playerNumber+1) + ": " + playerName;
-    ui->playerNameLabel->setText(QString(message.c_str()));
+//    // Update Player Turn UI
+//    int playerNumber = Game::getInstance()->getTurn();
+//    string playerName = Game::getInstance()->getPlayerName(playerNumber);
+//    string message = "Player " + to_string(playerNumber+1) + ": " + playerName;
+//    ui->playerNameLabel->setText(QString(message.c_str()));
 
-    string vp = Game::getInstance()->getPlayerVP(playerNumber);
-    string health = Game::getInstance()->getPlayerHealth(playerNumber);
-    string energy = Game::getInstance()->getPlayerEnergy(playerNumber);
+//    string vp = Game::getInstance()->getPlayerVP(playerNumber);
+//    string health = Game::getInstance()->getPlayerHealth(playerNumber);
+//    string energy = Game::getInstance()->getPlayerEnergy(playerNumber);
 
-    ui->victoryPointsDisplay->setText(QString(vp.c_str()));
-    ui->energyPointsDisplay->setText(QString(energy.c_str()));
-    ui->healthPointsDisplay->setText(QString(health.c_str()));
+//    ui->victoryPointsDisplay->setText(QString(vp.c_str()));
+//    ui->energyPointsDisplay->setText(QString(energy.c_str()));
+//    ui->healthPointsDisplay->setText(QString(health.c_str()));
 
-
-    // Add image
-    ui->playerCardLabel->setScaledContents(true);
-    Game *game = Game::getInstance();
-    int turn = game->getTurn();
-    Monsters monster = game->getPlayers()[turn].getMonster();
-    string monsterName = getNameFromMonster(monster);
-    string path = "../KONY/res/Images/Monster" + monsterName + ".jpg";
-    QPixmap pixmap = QPixmap(path.c_str());
-    ui->playerCardLabel->setPixmap(pixmap);
+//    // Add image
+//    ui->playerCardLabel->setScaledContents(true);
+//    Game *game = Game::getInstance();
+//    int turn = game->getTurn();
+//    Monsters monster = game->getPlayers()[turn].getMonster();
+//    string monsterName = getNameFromMonster(monster);
+//    string path = "../KONY/res/Images/Monster" + monsterName + ".jpg";
+//    QPixmap pixmap = QPixmap(path.c_str());
+//    ui->playerCardLabel->setPixmap(pixmap);
 
 }
 

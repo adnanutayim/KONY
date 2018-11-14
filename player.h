@@ -5,9 +5,10 @@
 #include <vector>
 #include "monsters.h"
 #include "card.h"
+#include "subject.h"
 
 
-class Player
+class Player : public Subject
 {
 private:
     int numberOfPlayers;

@@ -42,7 +42,8 @@ SOURCES += \
     monsters.cpp \
     clickablelabel.cpp \
     observer.cpp \
-    subject.cpp
+    subject.cpp \
+    playercard.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -62,7 +63,8 @@ HEADERS += \
     state.h \
     clickablelabel.h \
     observer.h \
-    subject.h
+    subject.h \
+    playercard.h
 
 FORMS += \
         mainwindow.ui \

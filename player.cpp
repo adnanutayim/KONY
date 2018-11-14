@@ -1,4 +1,5 @@
 #include "player.h"
+#include "subject.h"
 
 Player::Player(){
     playerName = "NoName";
@@ -43,6 +44,7 @@ std::string Player::getPlayerName(){
 }
 void Player::setPlayerName(std::string pName){
     playerName = pName;
+    Notify();
 }
 
 int Player::getVictoryPoints(){
@@ -50,6 +52,7 @@ int Player::getVictoryPoints(){
 }
 void Player::setVictoryPoints(int vp){
     victoryPoints = vp;
+    Notify();
 }
 
 int Player::getHealth(){
@@ -57,6 +60,7 @@ int Player::getHealth(){
 }
 void Player::setHealth(int h){
     health = h;
+    Notify();
 }
 
 int Player::getEnergy(){
@@ -64,6 +68,7 @@ int Player::getEnergy(){
 }
 void Player::setEnergy(int e){
     energy = e;
+    Notify();
 }
 
 Monsters Player::getMonster() {
@@ -80,6 +85,7 @@ int Player::getZone() {
 
 void Player::setZone(int z) {
     zone = z;
+    Notify();
 }
 
 string Player::getName() {
@@ -87,19 +93,19 @@ string Player::getName() {
 }
 
 void Player::addEnergy(int num){
-    energy += num;
+    setEnergy(energy+num);
 }
 
 void Player::addHealth(int num){
-    health += num;
+    setHealth(health+num);
 }
 
 void Player::addVictory(int num){
-    victoryPoints += num;
+    setVictoryPoints(victoryPoints+num);
 }
 
 void Player::hurt(int num){
-    health -= num;
+    setHealth(health-num);
 }
 
 
@@ -127,8 +133,3 @@ void Player::setRank(int r) {
 int Player::getRank() {
     return rank;
 }
-
-//void Player::RollDice(){};
-//void Player::ResolveDice(){};
-//void Player::Move(){};
-//void Player::BuyCards(){};

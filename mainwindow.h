@@ -44,6 +44,8 @@ private slots:
     void on_finishTurnButton_clicked();
 
 
+
+
 private:
     Ui::MainWindow *ui;
     DiceRoll dr;
