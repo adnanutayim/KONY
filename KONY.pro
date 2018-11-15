@@ -44,7 +44,8 @@ SOURCES += \
     observer.cpp \
     subject.cpp \
     playercard.cpp \
-    phaseobserver.cpp
+    phaseobserver.cpp \
+    side.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -66,7 +67,8 @@ HEADERS += \
     observer.h \
     subject.h \
     playercard.h \
-    phaseobserver.h
+    phaseobserver.h \
+    side.h
 
 FORMS += \
         mainwindow.ui \

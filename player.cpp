@@ -106,6 +106,7 @@ void Player::addVictory(int num){
 }
 
 void Player::hurt(int num){
+
     setHealth(health-num);
 }
 
@@ -133,4 +134,9 @@ void Player::setRank(int r) {
 }
 int Player::getRank() {
     return rank;
+}
+
+void Player::setTurn(bool t){
+    turn = t;
+    Notify();
 }
