@@ -45,7 +45,8 @@ SOURCES += \
     subject.cpp \
     playercard.cpp \
     phaseobserver.cpp \
-    side.cpp
+    side.cpp \
+    aggressivestrategy.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -68,7 +69,10 @@ HEADERS += \
     subject.h \
     playercard.h \
     phaseobserver.h \
-    side.h
+    side.h \
+    strategy.h \
+    npc.h \
+    aggressivestrategy.h
 
 FORMS += \
         mainwindow.ui \
