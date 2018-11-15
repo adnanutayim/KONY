@@ -1,56 +1,36 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include <string>
-
-enum Buildings {Hospital, PowerPlant, HighRise};
-enum Units {Infantry, Jet, Tank};
-enum Neighborhood {}; //where the tiles are placed
-enum Rewards {Heart, Energy, Star};
+#include "side.h"
+#include <iostream>
+using namespace std;
 
 
 class Tile{
+
 private:
-    Buildings building;
-    Units unit;
     int zone;
-    Rewards rewardType;
-    int durability;
-    int numOfReward;
-    bool isUnit;
-    bool isDestroyed;
+    int stack;
+    int activeSide;
+    Side side [2];
+
+
 
 
 public:
     Tile();
-    Tile(Buildings, int, Rewards, int, int, bool);
-    ~Tile();
-
-    Buildings getBuilding();
-    void setBuilding(Buildings);
-
-    Units getUnit();
-    void setUnit(Units);
+    void setSide(int side, string name, int cost, int energy, int health, int victory);
+    void setZone(int num);
+    void setStack(int num);
+    void setlocation(int zoneNum, int stackNum);
+    void flip();
+    bool isDestoryed();
 
     int getZone();
-    void setZone(int);
+    int getActiveSide();
+    int getStackNumber();
+    Side getSide(int num);
 
-    Rewards getRewardType();
-    void setRewardType(Rewards);
-
-    int getDurability();
-    void setDurability(int);
-
-    int getNumOfReward();
-    void setNumOfReward(int);
-
-    bool getIsUnit();
-    void setIsUnit(bool);
-
-    bool getIsDestroyed();
-    void setIsDestroyed(bool);
-
-    std::string printTile();
 };
 
 #endif // TILE_H

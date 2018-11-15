@@ -756,7 +756,10 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="tilesGroup">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -768,27 +771,14 @@
     <property name="title">
      <string>Tiles</string>
     </property>
-    <widget class="QComboBox" name="buildingCombo">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>30</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QComboBox" name="tileCombo">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>41</width>
-       <height>20</height>
+       <width>161</width>
+       <height>21</height>
       </rect>
-     </property>
-     <property name="text">
-      <string>Tile</string>
      </property>
     </widget>
     <widget class="QPushButton" name="destroyBuildingButton">
@@ -802,6 +792,19 @@
      </property>
      <property name="text">
       <string>Destroy</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="showTilesButton">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show Tiles</string>
      </property>
     </widget>
    </widget>
