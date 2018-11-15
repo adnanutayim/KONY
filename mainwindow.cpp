@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Game::getInstance()->Startup();
     set8DiceEnabled(false);
     updateHeader();
-    updatePlayerCard();
+
 
     doc.shuffleDeck(deck, SIZE_OF_DECK);
     doc.initializeBoard(deck, board, nextCard, SIZE_OF_BOARD);
@@ -174,7 +174,7 @@ void MainWindow::on_rollButton_clicked()
         game->registerStartupRoll(game->getTurn(), attacks);
         game->advanceGame();
         updateHeader();
-        updatePlayerCard();
+
 
         // Check if finished startup roll
         if (game->getState()== STARTUP_LOCATION) {
@@ -240,7 +240,7 @@ void MainWindow::on_buyCards_clicked()
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
 
-    updatePlayerCard();
+
 }
 
 
@@ -264,7 +264,7 @@ void MainWindow::on_wipeBoard_clicked()
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
 
-    updatePlayerCard();
+
 }
 
 void MainWindow::set6DiceEnabled(bool flag) {
@@ -606,7 +606,7 @@ void MainWindow::on_resolveButton_clicked()
     string resolveMessage = game->resolveDice(diceId, numOfDice);
     log(resolveMessage);
 
-    updatePlayerCard();
+
 
     // Check if finished resolving
     if (ui->resolveCombo->count() == 0) {       // Finished resolving
@@ -707,13 +707,9 @@ void MainWindow::on_finishTurnButton_clicked()
 {
     Game::getInstance()->advanceGame();
     updateHeader();
-    updatePlayerCard();
+
     fillMoveLocations();
     lockUnlockUI();
-
-}
-
-void MainWindow::updatePlayerCard(){
 
 }
 
