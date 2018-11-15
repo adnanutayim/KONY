@@ -172,6 +172,7 @@ void Game::advanceGame() {
         break;
 
     }
+    Notify();
 }
 
 int Game::playersInRegion(int regionNumber) {

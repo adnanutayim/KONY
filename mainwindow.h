@@ -11,6 +11,7 @@
 #include "clickablelabel.h"
 #include "qpainter.h"
 
+
 namespace Ui {
 class MainWindow;
 }
@@ -59,13 +60,13 @@ private:
     void set8DiceEnabled(bool flag);
     void set6DiceEnabled(bool flag);
     void check6Dice(bool flag);
-    void updateHeader();
     void lockUnlockUI();
     void fillMoveLocations();
     void updatePlayerCard();
     void fillResolveDice();
     int numberOfRolls;
     void updateMap();
+
 
 
 

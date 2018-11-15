@@ -4,8 +4,9 @@
 #include "map.h"
 #include "player.h"
 #include "state.h"
+#include "subject.h"
 
-class Game
+class Game : public Subject
 {
 public:
     ~Game();

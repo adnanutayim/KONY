@@ -43,7 +43,8 @@ SOURCES += \
     clickablelabel.cpp \
     observer.cpp \
     subject.cpp \
-    playercard.cpp
+    playercard.cpp \
+    phaseobserver.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -64,7 +65,8 @@ HEADERS += \
     clickablelabel.h \
     observer.h \
     subject.h \
-    playercard.h
+    playercard.h \
+    phaseobserver.h
 
 FORMS += \
         mainwindow.ui \

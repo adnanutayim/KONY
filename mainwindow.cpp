@@ -10,6 +10,8 @@
 #include "QMessageBox"
 #include "playercard.h"
 #include "player.h"
+#include "phaseobserver.h"
+
 
 
 const int SIZE_OF_DECK = 8;
@@ -38,12 +40,17 @@ MainWindow::MainWindow(QWidget *parent) :
     Player *player = new Player;
     PlayerCard *playerCard = new PlayerCard(player, ui);
 
-
     Game *game = Game::getInstance();
     for (int i = 0; i < game->getNumOfPlayers(); i++) {
         Player *p = &game->getPlayers()[i];
         playerCard->observe(p);
     }
+
+    // Phase Observer
+    PhaseObserver *phaseObserver = new PhaseObserver(ui);
+    game->Attach(phaseObserver);
+
+
 
     for (int i = 0; i < 8; i++) {
         rolls[i] = 0;
@@ -82,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Prepare StartupPhase
     Game::getInstance()->Startup();
     set8DiceEnabled(false);
-    updateHeader();
+
     updatePlayerCard();
 
     doc.shuffleDeck(deck, SIZE_OF_DECK);
@@ -173,7 +180,7 @@ void MainWindow::on_rollButton_clicked()
         log("Player " + to_string(game->getTurn()+1) + " rolled " + to_string(attacks) + " Attacks.");
         game->registerStartupRoll(game->getTurn(), attacks);
         game->advanceGame();
-        updateHeader();
+
         updatePlayerCard();
 
         // Check if finished startup roll
@@ -190,7 +197,7 @@ void MainWindow::on_rollButton_clicked()
         if (numberOfRolls == 3) {
             // finish phase
             game->advanceGame();
-            updateHeader();
+
             lockUnlockUI();
             fillResolveDice();
         }
@@ -282,51 +289,6 @@ void MainWindow::set8DiceEnabled(bool flag) {
     ui->diceCheckBox_8->setEnabled(flag);
 }
 
-void MainWindow::updateHeader() {
-
-    // Update Player Turn UI
-    int playerNumber = Game::getInstance()->getTurn();
-    string playerName = Game::getInstance()->getPlayerName(playerNumber);
-    string message = "Player " + to_string(playerNumber+1) + ": " + playerName;
-    ui->playerTurnLabel->setText(QString(message.c_str()));
-
-    // Update Game Phase Message UI
-    State state = Game::getInstance()->getState();
-    string msg = "";
-    switch (state) {
-
-    case STARTUP_ROLL:
-        msg = "Startup Roll";
-    break;
-
-    case STARTUP_LOCATION:
-        msg = "Pick Startup Location";
-    break;
-
-    case ROLLING_DICE:
-        msg = "Roll Dice";
-    break;
-
-    case RESOLVING_DICE:
-        msg = "Resolving Dice";
-    break;
-
-    case MOVING:
-        msg = "Pick a moving location";
-    break;
-
-    case BUYING_CARDS:
-        msg = "Buy Cards";
-    break;
-
-    case FINISHING_TURN:
-        msg = "Finish Your Turn";
-    break;
-
-    }
-    ui->messageLabel->setText(QString(msg.c_str()));
-
-}
 
 void MainWindow::lockUnlockUI() {
 
@@ -489,7 +451,7 @@ void MainWindow::on_moveButton_clicked()
         log("-");
         log("Player " + to_string(turn+1) + " Has moved to " + regionString);
         game->advanceGame();
-        updateHeader();
+
         fillMoveLocations();
         lockUnlockUI();
         updateMap();
@@ -535,7 +497,7 @@ void MainWindow::on_moveButton_clicked()
 
         log ("Player " + playerName + " has moved to " + input + ".");
         game->advanceGame();
-        updateHeader();
+
         lockUnlockUI();
         updateMap();
 
@@ -611,7 +573,7 @@ void MainWindow::on_resolveButton_clicked()
     // Check if finished resolving
     if (ui->resolveCombo->count() == 0) {       // Finished resolving
         Game::getInstance()->advanceGame();
-        updateHeader();
+
         lockUnlockUI();
     }
 
@@ -699,14 +661,14 @@ void MainWindow::updateMap() {
 void MainWindow::on_finishedCardsButton_clicked()
 {
     Game::getInstance()->advanceGame();
-    updateHeader();
+
     lockUnlockUI();
 }
 
 void MainWindow::on_finishTurnButton_clicked()
 {
     Game::getInstance()->advanceGame();
-    updateHeader();
+
     updatePlayerCard();
     fillMoveLocations();
     lockUnlockUI();

@@ -13,7 +13,7 @@ public:
     virtual void Detach(Observer* o);
     virtual void Notify();
     Subject();
-    ~Subject();
+    virtual ~Subject();
 private:
     //list<Observer*> *_observers;
     vector<Observer*> _observers;

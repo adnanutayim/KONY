@@ -14,9 +14,10 @@ public:
     void Update();
     void display();
     void observe(Player *p);
+
 private:
     Player *_subject;
-    Ui::MainWindow *ui;
+        Ui::MainWindow *ui;
 
 };
 
