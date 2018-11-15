@@ -98,13 +98,6 @@ MainWindow::MainWindow(QWidget *parent) :
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
-
-    int playerNum = game->getTurn();
-
-    if(game->getPlayers()[playerNum].getPlayerType() == 2){
-        NPC aggNPC(new AggressiveStrategy());
-        aggNPC.execute(Game::getInstance()->getTurn(), game->getState());
-    }
 }
 
 void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
