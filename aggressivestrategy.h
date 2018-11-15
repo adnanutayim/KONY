@@ -5,7 +5,7 @@
 class AggressiveStrategy : public Strategy
 {
 public:
-    void execute(int);
+    void execute(int, State);
 };
 
 #endif // AGGRESSIVESTRATEGY_H

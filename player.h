@@ -22,11 +22,12 @@ private:
     vector<int> playerCards; //Vector for buying and holding cards
     int rank;   // rank inside manhattan
     bool turn;
+    int playerType; //0=human, 1=moderate, 2=aggresive
 
 
 public:
     Player();
-    Player(std::string);
+    Player(std::string, int);
     ~Player();
 
     int getNumberOfPlayers();
@@ -51,6 +52,9 @@ public:
     void setMonster(enum Monsters);
 
     void setTurn(bool);
+
+    int getPlayerType();
+    void setPlayerType(int);
 
 
     bool ownCard(int);

@@ -6,6 +6,7 @@ Player::Player(){
     victoryPoints = 0;
     health = 10;
     energy = 10;
+    playerType = 0;
 
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
@@ -15,11 +16,12 @@ Player::~Player() {
 
 }
 
-Player::Player(std::string name){
+Player::Player(std::string name, int type){
     playerName = name;
     victoryPoints = 0;
     health = 10;
     energy = 10;
+    playerType = type;
 
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
@@ -139,4 +141,11 @@ int Player::getRank() {
 void Player::setTurn(bool t){
     turn = t;
     Notify();
+}
+
+int Player::getPlayerType(){
+    return playerType;
+}
+void Player::setPlayerType(int pt) {
+    playerType = pt;
 }

@@ -30,6 +30,10 @@ private slots:
 
     void on_launchGame_clicked();
 
+//    void on_playerType_activated(const QString &arg1);
+
+//    void on_playerTypeEdit_currentTextChanged(const QString &arg1);
+
 private:
     MainWindow *mw;
     Ui::welcomeScreen *ui;

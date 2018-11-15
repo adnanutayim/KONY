@@ -113,10 +113,12 @@ void welcomeScreen::on_pushButton_clicked()
 
     string playerName = ui->playerNameEdit->text().toStdString();
     string playerCharacter = ui->playerCharacterEdit->currentText().toStdString();
+    int playerType = ui->playerTypeEdit->currentIndex();
     //string playerRegion = ui->playerRegionEdit->currentText().toStdString();
 
+    cout << "type: " << playerType << endl;
     // Set the player object
-    Game::getInstance()->setPlayer(playerCounter, playerName, playerCharacter, "");
+    Game::getInstance()->setPlayer(playerCounter, playerName, playerCharacter, "", playerType);
 
     // Log to screen
     log("-");

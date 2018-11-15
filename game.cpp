@@ -2,7 +2,6 @@
 #include <iostream>
 #include "deckOfTiles.h"
 
-
 // Static Initialization
 Game *Game::instance = NULL;
 
@@ -64,7 +63,7 @@ Player *Game::getPlayers() {
     return players;
 }
 
-void Game::setPlayer(int number, string name, string monster, string region) {
+void Game::setPlayer(int number, string name, string monster, string region, int type) {
 
     // Get Monster
     Monsters playerMonster = getMonsterFromString(monster);
@@ -73,13 +72,20 @@ void Game::setPlayer(int number, string name, string monster, string region) {
     if (region == "") {
         playerRegion = -1;
     }
+        players[number].setPlayerNumber(number + 1);
+        players[number].setPlayerName(name);
+        players[number].setMonster(playerMonster);
+        players[number].setZone(playerRegion);
+        players[number].setPlayerType(type);
 
+        //Moderate
+        if(type == 1){
 
-    players[number].setPlayerNumber(number + 1);
-    players[number].setPlayerName(name);
-    players[number].setMonster(playerMonster);
-    players[number].setZone(playerRegion);
-
+        }
+        //Aggressive
+        else if(type == 2){
+//            NPC aggNPC(new AggressiveStrategy());
+        }
 }
 
 State Game::getState() {

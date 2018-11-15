@@ -18,7 +18,7 @@ public:
     void setNumOfPlayers(int n);
     void createPlayers();
     Player *getPlayers();
-    void setPlayer(int number, string name, string monster, string region);
+    void setPlayer(int number, string name, string monster, string region, int type);
     State getState();
     void setState(State);
     void Startup();

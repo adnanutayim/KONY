@@ -1,6 +1,7 @@
 #ifndef NPC_H
 #define NPC_H
 #include "strategy.h"
+#include "state.h"
 
 class NPC {
 private:
@@ -14,8 +15,8 @@ public:
         this->strategy = newStrategy;
     }
 
-    void execute(){
-        return this->strategy->execute();
+    void execute(int p, State s){
+        return this->strategy->execute(p, s);
     }
 
 };
