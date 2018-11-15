@@ -78,14 +78,14 @@ void Game::setPlayer(int number, string name, string monster, string region, int
         players[number].setZone(playerRegion);
         players[number].setPlayerType(type);
 
-        //Moderate
-        if(type == 1){
+//        //Moderate
+//        if(type == 1){
 
-        }
-        //Aggressive
-        else if(type == 2){
-//            NPC aggNPC(new AggressiveStrategy());
-        }
+//        }
+//        //Aggressive
+//        else if(type == 2){
+////            NPC aggNPC(new AggressiveStrategy());
+//        }
 }
 
 State Game::getState() {
