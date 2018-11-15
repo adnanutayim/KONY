@@ -21,6 +21,7 @@ private:
     int zone;
     vector<int> playerCards; //Vector for buying and holding cards
     int rank;   // rank inside manhattan
+    bool turn;
 
 
 public:
@@ -48,6 +49,8 @@ public:
 
     enum Monsters getMonster();
     void setMonster(enum Monsters);
+
+    void setTurn(bool);
 
 
     bool ownCard(int);

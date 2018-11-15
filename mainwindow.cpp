@@ -39,7 +39,6 @@ MainWindow::MainWindow(QWidget *parent) :
     Player *player = new Player;
     PlayerCard *playerCard = new PlayerCard(player, ui);
 
-
     Game *game = Game::getInstance();
     for (int i = 0; i < game->getNumOfPlayers(); i++) {
         Player *p = &game->getPlayers()[i];

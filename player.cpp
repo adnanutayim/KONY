@@ -134,3 +134,8 @@ void Player::setRank(int r) {
 int Player::getRank() {
     return rank;
 }
+
+void Player::setTurn(bool t){
+    turn = t;
+    Notify();
+}

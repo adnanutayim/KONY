@@ -129,6 +129,7 @@ void Game::advanceGame() {
                 }
             }
             turn = maxArg;
+            players[turn].setTurn(true);
             firstTurn = maxArg;
             state = STARTUP_LOCATION;
         } else {
@@ -193,7 +194,6 @@ void Game::movePlayer(int playerNumber, int regionNumber) {
 }
 
 void Game::increaseTurn() {
-
     turn++;
     if (turn == numOfPlayers) {
         turn = 0;
@@ -201,6 +201,7 @@ void Game::increaseTurn() {
     if (players[turn].getHealth() <= 0) {
         increaseTurn();
     }
+    players[turn].setTurn(true);
 }
 
 //diceNum is the num rolled the player rolled, numOfDice is how many of that dice the player rolled, enemy is the player p is attacking
