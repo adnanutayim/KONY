@@ -10,6 +10,7 @@
 #include "card.h"
 #include "clickablelabel.h"
 #include "qpainter.h"
+#include "popup.h"
 
 
 namespace Ui {
@@ -52,6 +53,7 @@ private slots:
 
 private:
 //    Ui::MainWindow *ui;
+    Popup *pu;
     DiceRoll dr;
     Map map;
     int rolls [8];

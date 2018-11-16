@@ -46,7 +46,8 @@ SOURCES += \
     playercard.cpp \
     phaseobserver.cpp \
     side.cpp \
-    aggressivestrategy.cpp
+    aggressivestrategy.cpp \
+    popup.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -72,11 +73,13 @@ HEADERS += \
     side.h \
     strategy.h \
     npc.h \
-    aggressivestrategy.h
+    aggressivestrategy.h \
+    popup.h
 
 FORMS += \
         mainwindow.ui \
-    welcomescreen.ui
+    welcomescreen.ui \
+    popup.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

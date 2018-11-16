@@ -14,6 +14,7 @@
 #include "subject.h"
 #include "aggressivestrategy.h"
 #include "npc.h"
+#include "popup.h"
 
 
 
@@ -448,7 +449,8 @@ void MainWindow::on_moveButton_clicked()
         log("Player " + to_string(turn+1) + " Has moved to " + regionString);
         game->advanceGame();
 
-        fillMoveLocations();
+
+//        Locations();
         lockUnlockUI();
         updateMap();
 
@@ -585,6 +587,10 @@ void MainWindow::on_resolveButton_clicked()
         string resolveMessage = game->resolveDice(diceId, numOfDice, 0);
         log(resolveMessage);
 
+        if(dr.transform(diceId) == "Attack"){
+            pu = new Popup(this);
+            pu->show();
+        }
         //updatePlayerCard();
 
         // Check if finished resolving
