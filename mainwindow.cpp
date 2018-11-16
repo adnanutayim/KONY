@@ -449,7 +449,7 @@ void MainWindow::on_moveButton_clicked()
         log("Player " + to_string(turn+1) + " Has moved to " + regionString);
         game->advanceGame();
 
-
+        fillMoveLocations();
 //        Locations();
         lockUnlockUI();
         updateMap();
@@ -586,13 +586,12 @@ void MainWindow::on_resolveButton_clicked()
     } else {
         string resolveMessage = game->resolveDice(diceId, numOfDice, 0);
         log(resolveMessage);
-
-        if(dr.transform(diceId) == "Attack"){
-            pu = new Popup(this);
-            pu->show();
+        if(game->playersInRegion(0) == 1){
+            if(dr.transform(diceId) == "Attack"){
+                pu = new Popup(this);
+                pu->show();
+            }
         }
-        //updatePlayerCard();
-
         // Check if finished resolving
         if (ui->resolveCombo->count() == 0) {       // Finished resolving
             Game::getInstance()->advanceGame();

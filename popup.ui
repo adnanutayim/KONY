@@ -10,20 +10,30 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>14</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <widget class="QLabel" name="messageLabel">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>30</x>
      <y>70</y>
-     <width>241</width>
-     <height>31</height>
+     <width>331</width>
+     <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Player in Manhattan would you like to leave?</string>
    </property>
   </widget>
   <widget class="QPushButton" name="moveButton">
@@ -34,6 +44,11 @@
      <width>111</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Move</string>
@@ -48,6 +63,11 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Stay</string>
    </property>
@@ -60,6 +80,11 @@
      <width>121</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
    </property>
   </widget>
  </widget>

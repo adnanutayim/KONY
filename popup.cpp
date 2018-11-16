@@ -6,7 +6,7 @@ Popup::Popup(QWidget *parent) :
     ui(new Ui::Popup)
 {
     ui->setupUi(this);
-    fillMoveLocations();
+    popupFillMoveLocations();
 }
 
 Popup::~Popup()
@@ -14,23 +14,25 @@ Popup::~Popup()
     delete ui;
 }
 
-void Popup::fillMoveLocations() {
+void Popup::popupFillMoveLocations() {
     // Fill locations with less that two players
     // Count players in each location
+    Game *game = Game::getInstance();
+
     ui->locationCombo->clear();
-    int numOfRegions = Game::getInstance()->getMap()->getGraph()->getNumOfNodes();
+    int numOfRegions = game->getMap()->getGraph()->getNumOfNodes();
     for (int i = 0; i < numOfRegions; i++) {
 
-        if (Game::getInstance()->getMap()->getGraph()->nodes[i]->hasSubRegions()) {
+        if (game->getMap()->getGraph()->nodes[i]->hasSubRegions()) {
             continue;
         }
 
 
-        if (Game::getInstance()->playersInRegion(i) == 2) {
+        if (game->playersInRegion(i) == 2) {
             continue;
         }
 
-        string regionName = Game::getInstance()->getMap()->getGraph()->nodes[i]->getName();
+        string regionName = game->getMap()->getGraph()->nodes[i]->getName();
         ui->locationCombo->addItem(regionName.c_str());
 
     }

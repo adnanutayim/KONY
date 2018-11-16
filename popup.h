@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::Popup *ui;
-    void fillMoveLocations();
+    void popupFillMoveLocations();
 };
 
 #endif // POPUP_H
