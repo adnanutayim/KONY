@@ -1,21 +1,22 @@
-#include "aggressivestrategy.h"
-#include "game.h"
+#include "moderatestrategy.h"
 #include "diceroll.h"
+#include "game.h"
 
 // Default constructor
-AggressiveStrategy::AggressiveStrategy() {
+ModerateStrategy::ModerateStrategy()
+{
 
 }
 
 // Execute
-void AggressiveStrategy::execute(State currentState) {
+void ModerateStrategy::execute(State currentState) {
 
-    // Initialization
+    // Initializtion
     Game *game = Game::getInstance();
     int turn = game->getTurn();
     Player *p = &game->getPlayers()[turn];
 
-    // Switch statement
+    // No comment
     switch (currentState) {
     case STARTUP_ROLL: {
         // roll 8 dice
@@ -36,7 +37,7 @@ void AggressiveStrategy::execute(State currentState) {
         game->registerStartupRoll(turn, attacks);
 
         cout << "----------------------------------" << endl;
-        cout << "Computer Player: Aggresive " << p->getName() << endl;
+        cout << "Computer Player: Moderate " << p->getName() << endl;
         cout << "Rolls:\n";
         for (int i = 0; i < 8; i++) {
             cout << dr.transform(rolls[i]) + " ";
@@ -48,9 +49,9 @@ void AggressiveStrategy::execute(State currentState) {
 
     case STARTUP_LOCATION: {
 
-        // Pick last place with no more than 2 players
+        // Pick first place with no more than 2 players
         Graph *graph = game->getMap()->getGraph();
-        for (int i = graph->getNumOfNodes() - 1; i >= 0; i--) {
+        for (int i = 1; i < graph->getNumOfNodes(); i++) {
             if (game->playersInRegion(i) < 2) {
                 p->setZone(i);
                 cout << "Computer Player moved to " << graph->getNodes()[i]->getName() << "\n\n";
@@ -79,7 +80,7 @@ void AggressiveStrategy::execute(State currentState) {
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 6; j++) {
                 string dice = dr.transform(rolls[j]);
-                if (dice == "Destruction" || dice == "Attack" || dice == "Ouch!") {
+                if (dice == "Heal" || dice == "Energy" || dice == "Celebrity") {
                     diceToRoll[j] = false;
                 }
             }
@@ -127,11 +128,8 @@ void AggressiveStrategy::execute(State currentState) {
 
     case BUYING_CARDS: {
 
-        bool bought;
-        //bought = Game::getInstance()->buyCard(p->getPlayerNumber(), 1, 3);
-        if (bought) {
-            cout << "Computer Player bought cards number 1\n";
-        }
+        // Moderate players don't buy cards
+        cout << "Moderate Player didn't buy cards\n";
         break;
     }
 
@@ -145,4 +143,7 @@ void AggressiveStrategy::execute(State currentState) {
         break;
 
     }
+
 }
+
+

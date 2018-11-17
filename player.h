@@ -6,6 +6,9 @@
 #include "monsters.h"
 #include "card.h"
 #include "subject.h"
+#include "strategy.h"
+#include "moderatestrategy.h"
+#include "aggressivestrategy.h"
 
 
 class Player : public Subject
@@ -23,7 +26,7 @@ private:
     int rank;   // rank inside manhattan
     bool turn;
     int playerType; //0=human, 1=moderate, 2=aggresive
-
+    Strategy *strategy;
 
 public:
     Player();
@@ -71,6 +74,9 @@ public:
     void addHealth(int);
     void addVictory(int);
     void hurt(int);
+
+    void setStrategy(Strategy * s);
+    Strategy *getStrategy();
 };
 
 #endif // PLAYER_H

@@ -13,7 +13,6 @@
 #include "phaseobserver.h"
 #include "subject.h"
 #include "aggressivestrategy.h"
-#include "npc.h"
 #include "popup.h"
 
 
@@ -99,7 +98,18 @@ MainWindow::MainWindow(QWidget *parent) :
     setCardImage(ui->cardLabel_1, board[0].displayId());
     setCardImage(ui->cardLabel_2, board[1].displayId());
     setCardImage(ui->cardLabel_3, board[2].displayId());
+
+
+    // If computer player is playing first
+    // Computer Player
+    int turn = game->getTurn();
+    Player *p = &game->getPlayers()[turn];
+    if (p->getPlayerType() != 0) {
+        p->getStrategy()->execute(game->getState());
+        game->advanceGame();
+    }
 }
+
 
 void MainWindow::setDiceImage(QLabel *label, int dice_roll) {
 
@@ -586,11 +596,21 @@ void MainWindow::on_resolveButton_clicked()
     } else {
         string resolveMessage = game->resolveDice(diceId, numOfDice, 0);
         log(resolveMessage);
-        if(game->playersInRegion(0) == 1){
-            if(dr.transform(diceId) == "Attack"){
-                pu = new Popup(this);
-                pu->show();
+        int turn = game->getTurn();
+        if(game->playersInRegion(0) == 1 && game->getPlayers()[turn].getZone() != 0){
+            // Someone has to make a choice in Manhattan
+            // Make sure it's not a computer
+            for (int i = 0; i < game->getNumOfPlayers(); i++) {
+                if (game->getPlayers()[i].getZone() == 0 && game->getPlayers()[i].getPlayerType() == 0) {
+                    if(dr.transform(diceId) == "Attack"){
+                        pu = new Popup(this);
+                        pu->show();
+                    }
+                }
             }
+
+
+
         }
         // Check if finished resolving
         if (ui->resolveCombo->count() == 0) {       // Finished resolving
@@ -598,17 +618,6 @@ void MainWindow::on_resolveButton_clicked()
             lockUnlockUI();
         }
     }
-
-
-    // Check if finished resolving
-    if (ui->resolveCombo->count() == 0) {       // Finished resolving
-        Game::getInstance()->advanceGame();
-
-        lockUnlockUI();
-
-    }
-
-
 }
 
 void MainWindow::fillTilesCombo() {
@@ -742,6 +751,7 @@ void MainWindow::on_finishedCardsButton_clicked()
 void MainWindow::on_finishTurnButton_clicked()
 {
     Game::getInstance()->advanceGame();
+
 
     fillMoveLocations();
     lockUnlockUI();

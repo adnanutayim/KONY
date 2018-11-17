@@ -4,17 +4,20 @@
 #include "game.h"
 
 
+// Default Construtoor
 PhaseObserver::PhaseObserver()
 {
 
 }
 
+// Attach UI
 PhaseObserver::PhaseObserver(Ui::MainWindow *&_ui) {
     ui = _ui;
 
 }
 
 
+// Updates happen here
 void PhaseObserver::Update() {
     // Update Player Turn UI
     int playerNumber = Game::getInstance()->getTurn();

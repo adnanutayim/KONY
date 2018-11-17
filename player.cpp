@@ -10,10 +10,14 @@ Player::Player(){
 
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
+    strategy = NULL;
 }
 
 Player::~Player() {
-
+    if (strategy != NULL) {
+        delete strategy;
+        strategy = NULL;
+    }
 }
 
 Player::Player(std::string name, int type){
@@ -22,9 +26,10 @@ Player::Player(std::string name, int type){
     health = 10;
     energy = 10;
     playerType = type;
-
     numberOfPlayers++;
     playerNumber = numberOfPlayers;
+    strategy = NULL;
+
     Notify();
 }
 
@@ -148,4 +153,18 @@ int Player::getPlayerType(){
 }
 void Player::setPlayerType(int pt) {
     playerType = pt;
+    if (pt == 1) {
+        strategy = new ModerateStrategy();
+    } else if (pt == 2) {
+        strategy = new AggressiveStrategy();
+    }
+
+}
+
+void Player::setStrategy(Strategy * s) {
+    strategy = s;
+}
+
+Strategy *Player::getStrategy() {
+    return strategy;
 }

@@ -2,10 +2,11 @@
 #define AGGRESSIVESTRATEGY_H
 #include "strategy.h"
 
-class AggressiveStrategy : public Strategy
+class AggressiveStrategy : public Strategy          // Inherets strategy class
 {
 public:
-    void execute(int, State);
+    AggressiveStrategy();                           // Default consturctor
+    void execute(State currentState);               // Executes
 };
 
 #endif // AGGRESSIVESTRATEGY_H

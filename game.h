@@ -43,6 +43,7 @@ public:
     string resolveOuch(int num);
     void ouchOnePlayer(int num);
     DeckOfTiles *getDeckOfTiles();
+    //void setUI(Ui::MainWindow *ui);
 
 private:
     Game();
@@ -59,6 +60,7 @@ private:
     State state;
     int turn;
     int firstTurn;
+    //Ui::MainWindow *ui;
 
 
 };

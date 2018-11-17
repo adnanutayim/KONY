@@ -47,7 +47,8 @@ SOURCES += \
     phaseobserver.cpp \
     side.cpp \
     aggressivestrategy.cpp \
-    popup.cpp
+    popup.cpp \
+    moderatestrategy.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -72,9 +73,9 @@ HEADERS += \
     phaseobserver.h \
     side.h \
     strategy.h \
-    npc.h \
     aggressivestrategy.h \
-    popup.h
+    popup.h \
+    moderatestrategy.h
 
 FORMS += \
         mainwindow.ui \

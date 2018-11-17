@@ -102,6 +102,7 @@ void welcomeScreen::on_createButton_clicked()
     ui->playerCharacterEdit->setEnabled(true);
     //ui->playerRegionEdit->setEnabled(true);
     ui->gameSettings->setEnabled(false);
+    ui->playerTypeEdit->setEnabled(false);
 
 }
 
@@ -132,6 +133,8 @@ void welcomeScreen::on_pushButton_clicked()
     ui->playerNameEdit->clear();
     ui->playerCharacterEdit->removeItem(ui->playerCharacterEdit->currentIndex());
     playerCounter++;
+
+    ui->playerTypeEdit->setEnabled(true);
 
 
     // If last player, lock UI

@@ -4,16 +4,16 @@
 #include "observer.h"
 #include "mainwindow.h"
 
-
+// This class inherets Observer class
 class PhaseObserver : public Observer
 {
 public:
-    PhaseObserver();
-    PhaseObserver(Ui::MainWindow*&);
-    void Update();
+    PhaseObserver();                    // Default constructro
+    PhaseObserver(Ui::MainWindow*&);    // Also constructor - but not default
+    void Update();                      // This function updates
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui;                 // Reference to UI
 
 };
 

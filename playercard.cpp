@@ -2,28 +2,35 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 
+// Default Constructor
 PlayerCard::PlayerCard(){
 
 }
+
+// Attaches ui
 PlayerCard::PlayerCard(Player* p, Ui::MainWindow *&u){
     ui = u;
 //    _subject = p;
 //    _subject->Attach(this);
 }
 
+// To observe a subject
 void PlayerCard::observe(Player *p) {
     _subject = p;
     _subject->Attach(this);
 }
 
+// construcotr
 PlayerCard::~PlayerCard(){
     _subject->Detach(this);
 }
 
+// updates
 void PlayerCard::Update(){
     display();
 }
 
+// displays stuff
 void PlayerCard::display(){
     // Update Player Turn UI
     int playerNumber = Game::getInstance()->getTurn();
@@ -59,3 +66,4 @@ void PlayerCard::display(){
     ui->barGraphLabel->setText(QString(regionNames.c_str()));
 
 }
+

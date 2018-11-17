@@ -177,6 +177,14 @@ void Game::advanceGame() {
         break;
 
     }
+
+    // Computer Player
+    if (players[turn].getPlayerType() != 0) {
+        players[turn].getStrategy()->execute(state);
+        advanceGame();
+    }
+
+
     Notify();
 }
 
@@ -293,7 +301,7 @@ int Game::checkGameOver() {
             }
         }
     }
-    return -1;
+    return alivePlayer;
 
 }
 

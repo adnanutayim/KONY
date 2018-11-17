@@ -26,6 +26,8 @@ public:
     void log(string s);
     ~MainWindow();
     Ui::MainWindow *ui;
+    void updateMap();
+
 
 private slots:
 
@@ -70,7 +72,6 @@ private:
     void fillResolveDice();
     void fillTilesCombo();
     int numberOfRolls;
-    void updateMap();
     int remainingDestruction;
 
 
