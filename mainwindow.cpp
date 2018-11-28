@@ -14,6 +14,7 @@
 #include "subject.h"
 #include "aggressivestrategy.h"
 #include "popup.h"
+#include "diceeffectobserver.h"
 
 
 
@@ -46,6 +47,11 @@ MainWindow::MainWindow(QWidget *parent) :
     // Phase Observer
     PhaseObserver *phaseObserver = new PhaseObserver(ui);
     game->Attach(phaseObserver);
+
+
+    // Dice Effect Observer
+    DiceEffectObserver *diceEffectObserver = new DiceEffectObserver(this);
+    dr.Attach(diceEffectObserver);
 
 
 
@@ -151,7 +157,7 @@ void MainWindow::on_rollButton_clicked()
     diceToRoll[7] = ui->diceCheckBox_8->isChecked();
 
 
-    DiceRoll dr;
+    //DiceRoll dr;
     dr.rollDice(diceToRoll, rolls);
 
     log("-");
@@ -199,6 +205,14 @@ void MainWindow::on_rollButton_clicked()
         }
 
     } else if (game->getState() == ROLLING_DICE) {    // Roll Dice
+
+        // Disable last 2 dice
+        rolls[6] = -1;
+        rolls[7] = -1;
+        // Dice Labels
+        setDiceImage(ui->diceLabel7, rolls[6]);
+        setDiceImage(ui->diceLabel8, rolls[7]);
+
         set6DiceEnabled(true);
         numberOfRolls++;
         if (numberOfRolls == 3) {
@@ -751,6 +765,22 @@ void MainWindow::on_finishedCardsButton_clicked()
 void MainWindow::on_finishTurnButton_clicked()
 {
     Game::getInstance()->advanceGame();
+
+    // reset dice images
+    for (int i = 0; i < 8; i++) {
+        rolls[i] = -1;
+    }
+
+    // Dice Labels
+    setDiceImage(ui->diceLabel1, rolls[0]);
+    setDiceImage(ui->diceLabel2, rolls[1]);
+    setDiceImage(ui->diceLabel3, rolls[2]);
+    setDiceImage(ui->diceLabel4, rolls[3]);
+    setDiceImage(ui->diceLabel5, rolls[4]);
+    setDiceImage(ui->diceLabel6, rolls[5]);
+    setDiceImage(ui->diceLabel7, rolls[6]);
+    setDiceImage(ui->diceLabel8, rolls[7]);
+
 
 
     fillMoveLocations();

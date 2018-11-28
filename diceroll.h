@@ -2,9 +2,9 @@
 #define DICEROLL_H
 
 #include <string>
+#include "subject.h"
 
-
-class DiceRoll
+class DiceRoll : public Subject
 {
 public:
     void rollDice(bool [], int []);

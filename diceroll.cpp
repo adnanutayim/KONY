@@ -14,6 +14,7 @@ void DiceRoll::rollDice(bool states[], int values[]){
             values[i] = newVal;
         }
     }
+    Notify();
 }
 
 int DiceRoll::roll(){
@@ -24,6 +25,7 @@ int DiceRoll::roll(){
 
 std::string DiceRoll::transform(int r){
     switch (r) {
+        case -1 : return "Blank";
         case 1 : return "Energy";
         case 2 : return "Attack";
         case 3 : return "Destruction";
