@@ -864,3 +864,13 @@ void MainWindow::on_destroyBuildingButton_clicked()
 
 
 }
+
+void MainWindow::upate6DiceLabels() {
+    // Dice Labels
+    setDiceImage(ui->diceLabel1, rolls[0]);
+    setDiceImage(ui->diceLabel2, rolls[1]);
+    setDiceImage(ui->diceLabel3, rolls[2]);
+    setDiceImage(ui->diceLabel4, rolls[3]);
+    setDiceImage(ui->diceLabel5, rolls[4]);
+    setDiceImage(ui->diceLabel6, rolls[5]);
+}

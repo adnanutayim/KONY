@@ -24,6 +24,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void log(string s);
+    void upate6DiceLabels();
     ~MainWindow();
     Ui::MainWindow *ui;
     void updateMap();
