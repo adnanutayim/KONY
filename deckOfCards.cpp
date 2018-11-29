@@ -13,7 +13,7 @@ DeckOfCards::DeckOfCards(Card *deck) {
     deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar", 0, 0, 0);
     deck[5] = Card(6, "Hailing Cabs", 5, "Keep", "Take 2 dammage to your result", 0, 0, -2); //IMPLEMENT
     deck[6] = Card(7, "Next Stage", 4, "Discard", "Lose all your VICTORY_POINT.Gain 1 ENERGY_POINT VICTORY_POINT you lost this way.", -1, 0, 0); //IMPLEMENT
-    deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 victory point and +8 energies and take 3 dammage", 0, 0, 0); //IMPLEMENT
+    deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 victory point and +8 energies and take 3 dammage", 1, 8, 0); //IMPLEMENT
 }
 
 void DeckOfCards::shuffleDeck(Card *deck, const int SIZE_OF_DECK) {
