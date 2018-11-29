@@ -6,10 +6,10 @@ using std::endl;
 using std::cout;
 
 DeckOfCards::DeckOfCards(Card *deck) {
-    deck[0] = Card(1, "Violent Star", 3, "Keep", "Deal 2 damage to the Monster from whom you take Superstar.");
+    deck[0] = Card(1, "Subterranean Cable", 0, "Discard", "+4 ENERGY_POINT and take 4 damage"); //IMPLEMENT
     deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You can destroy Jets that are not in your borough");
-    deck[2] = Card(3, "Of Another World", 6, "Keep", "You can use hearts as energy and energy as hearts"); //IMPLEMENT
-    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die"); //IMPLEMENT
+    deck[2] = Card(3, "Tesla Cannon", 5, "Discard", "+2 VICTORY_POINT"); //IMPLEMENT
+    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die");
     deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
     deck[5] = Card(6, "Hailing Cabs", 5, "Keep", "You may add 2 DESTRUCTION to your result"); //IMPLEMENT
     deck[6] = Card(7, "Next Stage", 4, "Discard", "Lose all your VICTORY_POINT.Gain 1 ENERGY_POINT or heal 1 damage for each VICTORY_POINT you lost this way."); //IMPLEMENT
