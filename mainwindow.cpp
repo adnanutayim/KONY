@@ -55,11 +55,6 @@ MainWindow::MainWindow(QWidget *parent) :
     dr.Attach(diceEffectObserver);
 
 
-    // Card Effect Observer
-    CardEffectObserver *cardEffectObserver = new CardEffectObserver(this);
-
-
-
     for (int i = 0; i < 8; i++) {
         rolls[i] = 0;
     }
