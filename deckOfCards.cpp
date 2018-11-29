@@ -6,14 +6,14 @@ using std::endl;
 using std::cout;
 
 DeckOfCards::DeckOfCards(Card *deck) {
-    deck[0] = Card(1, "Subterranean Cable", 0, "Discard", "+4 ENERGY_POINT and take 4 damage"); //IMPLEMENT
-    deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You can destroy Jets that are not in your borough");
-    deck[2] = Card(3, "Tesla Cannon", 5, "Discard", "+2 VICTORY_POINT"); //IMPLEMENT
-    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die");
-    deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar");
-    deck[5] = Card(6, "Hailing Cabs", 5, "Keep", "You may add 2 DESTRUCTION to your result"); //IMPLEMENT
-    deck[6] = Card(7, "Next Stage", 4, "Discard", "Lose all your VICTORY_POINT.Gain 1 ENERGY_POINT or heal 1 damage for each VICTORY_POINT you lost this way."); //IMPLEMENT
-    deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 star and +8 energies and take 3 dammage"); //IMPLEMENT
+    deck[0] = Card(1, "Subterranean Cable", 0, "Discard", "+4 ENERGY_POINT and take 4 damage", 0, 4, -4); //IMPLEMENT
+    deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You can destroy Jets that are not in your borough", 0, 0, 0);
+    deck[2] = Card(3, "Tesla Cannon", 5, "Discard", "+2 VICTORY_POINT", 2, 0, 0); //IMPLEMENT
+    deck[3] = Card(4, "Extra Head", 7, "Keep", "You get 1 extra die", 0, 0, 0);
+    deck[4] = Card(5, "Ego Trip", 3, "Keep", "Gain 1 energy when you take superstar", 0, 0, 0);
+    deck[5] = Card(6, "Hailing Cabs", 5, "Keep", "Take 2 dammage to your result", 0, 0, -2); //IMPLEMENT
+    deck[6] = Card(7, "Next Stage", 4, "Discard", "Lose all your VICTORY_POINT.Gain 1 ENERGY_POINT VICTORY_POINT you lost this way.", -1, 0, 0); //IMPLEMENT
+    deck[7] = Card(8, "Power Substation", 5, "Discard", "+1 victory point and +8 energies and take 3 dammage", 0, 0, 0); //IMPLEMENT
 }
 
 void DeckOfCards::shuffleDeck(Card *deck, const int SIZE_OF_DECK) {

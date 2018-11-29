@@ -1,5 +1,6 @@
 #include "player.h"
 #include "subject.h"
+#include "card.h"
 
 Player::Player(){
     playerName = "NoName";
@@ -122,6 +123,15 @@ bool Player::BuyCards(int cardID, int cost){
     if(energy >= cost){
         playerCards.push_back(cardID);
         energy -= cost;
+        Card c;
+        if(c.getVp() == -1){
+
+        }
+        else{
+            victoryPoints += c.getVp();
+            energy += c.getEnergy();
+            health += c.getHealth();
+        }
         return true;
     }
     return false;

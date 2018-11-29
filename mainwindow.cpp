@@ -15,7 +15,6 @@
 #include "aggressivestrategy.h"
 #include "popup.h"
 #include "diceeffectobserver.h"
-#include "cardeffectobserver.h"
 
 
 
