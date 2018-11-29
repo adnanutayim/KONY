@@ -66,7 +66,7 @@ public:
     void RollDice();
     void ResolveDice();
     void Move();
-    bool BuyCards(int, int);
+    bool BuyCards(int, int, int, int, int);
     int getZone();
     void setZone(int);
     string getName();

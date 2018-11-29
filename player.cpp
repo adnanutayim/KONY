@@ -119,20 +119,20 @@ void Player::hurt(int num){
 }
 
 
-bool Player::BuyCards(int cardID, int cost){
+bool Player::BuyCards(int cardID, int cost, int v, int e, int h){
     if(energy >= cost){
         playerCards.push_back(cardID);
         energy -= cost;
         Card c;
-        if(c.getVp() == -1){
+        if(v == -1){
             int temp = victoryPoints;
             victoryPoints = 0;
             energy += temp;
         }
         else{
-            victoryPoints += c.getVp();
-            energy += c.getEnergy();
-            health += c.getHealth();
+            victoryPoints += v;
+            energy += e;
+            health += h;
         }
         Notify();
         return true;

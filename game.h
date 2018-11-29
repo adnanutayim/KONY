@@ -35,7 +35,7 @@ public:
     void movePlayer(int playerNumber, int regionNumber);
     string resolveDice(int diceNum,int numOfDice, int tileNumber);
     string attack(int);
-    bool buyCard(int, int, int);
+    bool buyCard(int, int, int, int, int, int);
     bool getCards(int, int);
     bool isEmptyMainRegion();
     int checkGameOver();

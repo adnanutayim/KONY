@@ -257,8 +257,8 @@ string Game::attack(int numOfDice){
     }
 }
 
-bool Game::buyCard(int playerNumber, int cardID, int cost){
-    if(players[playerNumber].BuyCards(cardID, cost)){
+bool Game::buyCard(int playerNumber, int cardID, int cost, int vp, int e, int h){
+    if(players[playerNumber].BuyCards(cardID, cost, vp, e, h)){
         return true;
     }
     return false;

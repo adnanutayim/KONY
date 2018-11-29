@@ -252,7 +252,7 @@ void MainWindow::on_buyCards_clicked()
                 board[i].setId(0);
             }
             else{
-                if(Game::getInstance()->buyCard(playerNumber, board[i].getId(), board[i].getCost())){
+                if(Game::getInstance()->buyCard(playerNumber, board[i].getId(), board[i].getCost(), board[i].getVp(), board[i].getEnergy(), board[i].getHealth())){
                     doc.fillCard(board, i, nextCard);
                     currentCard++;
                 }
