@@ -15,6 +15,7 @@
 #include "aggressivestrategy.h"
 #include "popup.h"
 #include "diceeffectobserver.h"
+#include "cardeffectobserver.h"
 
 
 
@@ -52,6 +53,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // Dice Effect Observer
     DiceEffectObserver *diceEffectObserver = new DiceEffectObserver(this);
     dr.Attach(diceEffectObserver);
+
+
+    // Card Effect Observer
+    CardEffectObserver *cardEffectObserver = new CardEffectObserver(this);
 
 
 

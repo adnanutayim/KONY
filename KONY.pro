@@ -49,7 +49,8 @@ SOURCES += \
     aggressivestrategy.cpp \
     popup.cpp \
     moderatestrategy.cpp \
-    diceeffectobserver.cpp
+    diceeffectobserver.cpp \
+    cardeffectobserver.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -77,7 +78,8 @@ HEADERS += \
     aggressivestrategy.h \
     popup.h \
     moderatestrategy.h \
-    diceeffectobserver.h
+    diceeffectobserver.h \
+    cardeffectobserver.h
 
 FORMS += \
         mainwindow.ui \
