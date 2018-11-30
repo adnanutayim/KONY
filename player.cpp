@@ -118,7 +118,7 @@ void Player::hurt(int num){
     setHealth(health-num);
 }
 
-
+//Cards are passed with the cost, vp, energy, heath, we then modify the players data
 bool Player::BuyCards(int cardID, int cost, int v, int e, int h){
     if(energy >= cost){
         playerCards.push_back(cardID);
@@ -140,6 +140,7 @@ bool Player::BuyCards(int cardID, int cost, int v, int e, int h){
     return false;
 }
 
+//Check if a player owns the card or not
 bool Player::ownCard(int cardNum){
     for(int i = 0; i < playerCards.size(); i++){
         if(cardNum == playerCards[i]){

@@ -6,6 +6,7 @@ using std::endl;
 using std::cout;
 
 DeckOfCards::DeckOfCards(Card *deck) {
+    //Cards that are used in the game, we pass the effects they have on the player
     deck[0] = Card(1, "Subterranean Cable", 0, "Discard", "+4 ENERGY_POINT and take 4 damage", 0, 4, -4); //IMPLEMENT
     deck[1] = Card(2, "Sharp Shooter", 4, "Keep", "You can destroy Jets that are not in your borough", 0, 0, 0);
     deck[2] = Card(3, "Tesla Cannon", 5, "Discard", "+2 VICTORY_POINT", 2, 0, 0); //IMPLEMENT
@@ -25,6 +26,7 @@ void DeckOfCards::shuffleDeck(Card *deck, const int SIZE_OF_DECK) {
     }
 }
 
+//Setup the board
 void DeckOfCards::initializeBoard(Card *deck, Card *board, Card *&nextCard, const int SIZE_OF_BOARD) {
     for (int i = 0; i < SIZE_OF_BOARD; i++) {
         board[i] = deck[i];
@@ -32,6 +34,7 @@ void DeckOfCards::initializeBoard(Card *deck, Card *board, Card *&nextCard, cons
     }
 }
 
+//When a card is bought replace it with the next card
 void DeckOfCards::fillCard(Card *board, int userCard, Card *&nextCard) {
     board[userCard] = *nextCard;
     *nextCard++;
