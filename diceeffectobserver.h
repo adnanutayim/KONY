@@ -7,8 +7,9 @@
 class DiceEffectObserver : public Observer
 {
 public:
-    DiceEffectObserver(MainWindow *mw);
-    void Update();
+    DiceEffectObserver(){}              // Default Constructor
+    DiceEffectObserver(MainWindow *mw); // Non-default Constructor
+    void Update();                      // Overriden Function
 
 private:
     MainWindow *mw;
