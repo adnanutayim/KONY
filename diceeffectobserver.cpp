@@ -46,4 +46,7 @@ void DiceEffectObserver::Update() {
             mw->log("");
         }
     }
+
+    // Dice Images
+    mw->upate6DiceLabels();
 }
